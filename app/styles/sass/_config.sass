@@ -1,0 +1,58 @@
+// USER VARIABLES SECTION
+
+$accent: #CE244B // Accent Color
+$secondary: #37474F // Text Color
+$fontsize: 13px // Body Font Size
+$userfont: 'Lato', sans-serif // User Font Family
+$systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
+
+$transition: all .3s
+
+// IMPORT SECTION
+
+@import 'blocks/mixins/_flex'
+@import 'blocks/mixins/_rem'
+@import 'blocks/mixins/_media'
+@import 'node_modules/normalize.css/normalize'
+@import 'node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar'
+@import 'node_modules/swiper/swiper-bundle.min'
+
+// FONTS LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furl)
+	@font-face
+		font-family: $fname
+		font-style: $fstyle
+		font-weight: $fweight
+		src: url($furl) format('woff2')
+
+@include font('Lato', normal, 400, '../fonts/lato-regular.ttf')
+@include font('Lato', normal, 500, '../fonts/lato-medium.ttf')
+@include font('Lato', normal, 600, '../fonts/lato-semibold.ttf')
+@include font('Lato', normal, 700, '../fonts/lato-bold.ttf')
+
+// GENERAL CSS SETTINGS
+
+::placeholder
+	color: #B0B0B0
+	font-size: rem(16)
+
+::selection
+	background-color: $accent
+	color: #fff
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+body
+	background: white
+	font-family: $userfont
+	font-size: $fontsize
+	color: $secondary
+	min-width: rem(320)
+	position: relative
+	overflow-x: hidden

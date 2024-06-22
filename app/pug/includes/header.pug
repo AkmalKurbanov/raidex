@@ -1,0 +1,56 @@
+header.header
+  .header__top 
+    .header__top-inner
+      .swiper.header-top-js
+        .swiper-wrapper
+          
+          each item in headerTop
+            .swiper-slide
+              .header__top-item 
+                p!=item.text
+        
+        .header__top-nav
+          .swiper-button-prev
+            .icon.icon_stroke
+              svg
+                use(xlink:href='sprite.svg#arrow-long-left')        
+          .swiper-button-next
+            .icon.icon_stroke
+              svg
+                use(xlink:href='sprite.svg#arrow-long-right')        
+  
+  .container
+    .header__inner 
+      .header__inner-item.logo 
+        a(href="index.html").logo__link
+          img(src="images/dist/logo.svg", width="180" height="32" alt="logo")
+
+      //- nav.header__nav.header__inner-item.nav
+        ul
+          each item in anchors
+            li
+              span(data-target='#'+item.id).scroll-button=item.label
+      
+      .header__control-btns.header__inner-item
+        //- .header__control-icon.header__control-icon_registration 
+        //-   a(href="https://alay.express/register" target="blank") Зарегистрироваться 
+        
+        a(href="calculator.html" target="blank").header__control-icon.header__control-icon_calc
+          
+            .icon.icon_fill
+              svg
+                use(xlink:href='sprite.svg#calc')
+            | Калькулятор 
+
+        .header__control-icon.header__control-icon_login
+          a(href="https://alay.express/login" target="_blank").btn.btn_accent Войти 
+        .header__control-icon.header__control-icon_hamburger
+          .hamburger.hamburger-js
+            span
+            span
+            span
+        
+            
+
+          
+

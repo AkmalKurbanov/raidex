@@ -1,0 +1,50 @@
+.popup.popup-js(data-name="agreement")
+  .popup__window
+    .popup__close 
+      .icon.icon_stroke
+        svg
+          use(xlink:href='sprite.svg#close')
+    
+    .popup__title Заключить договор
+
+    form(action="") 
+      .input.input_mb
+        label(for="name") ФИО 
+        input(type="text" placeholder="ФИО" id="name")
+
+      .phone-wrap
+        div
+          label(for='phone') Номер телефона 
+          .select.select_img.select_phone-cod
+            .select__selected.select-js
+              input.select-input(type='hidden')
+              .select__selected-label +996
+              .select__arrow
+                .icon.icon_stroke
+                  svg
+                    use(xlink:href='sprite.svg#angle-down')
+            .select__dropdown
+              .vertical-scroll
+                .select__option(data-text='+996' data-id='phone1')
+                  .select__option-item
+                    .select__option-img
+                      img(src='images/dist/kg.svg' alt='+996')
+                  .select__option-item
+                    .select__option-label +996
+                .select__option(data-text='+7' data-id='phone2')
+                  .select__option-item
+                    .select__option-img
+                      img(src='images/dist/kz.svg' alt='+7')
+                  .select__option-item
+                    .select__option-label +7
+                .select__option(data-text='+998' data-id='phone3')
+                      .select__option-item
+                        .select__option-img
+                          img(src='images/dist/uz.svg' alt='+998')
+                      .select__option-item
+                        .select__option-label +998
+                 
+        .input
+          input#phone(type='number' placeholder='Телефон')
+        
+      button.btn.btn_accent.btn_full-width.btn_mt Заключить договор

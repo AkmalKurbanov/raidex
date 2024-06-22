@@ -1,0 +1,202 @@
+.tracking-block
+  .container
+    .tracking-block__inner
+      .tracking-block__item.radial-block
+        .swiper.slider-js
+          .swiper-wrapper   
+
+            each item in slider
+              .swiper-slide.tracking-block__slider-item
+                a(href="#").tracking-block__slider-item-inner
+                  if item.modify == true    
+                    //- .tracking-block__slider-col.tracking-block__slider-col_modify
+                    .tracking-block__slider-col
+                      .tracking-block__item-title!=item.title
+
+                      p.tracking-block__item-desc!=item.desc
+
+                  else 
+                    .tracking-block__slider-col
+                      .tracking-block__item-title!=item.title
+
+                      p.tracking-block__item-desc!=item.desc
+
+                  
+                  .tracking-block__slider-col
+                    .tracking-block__slider-img
+                      img(src=`images/dist/${item.img}`, alt="")
+       
+          .swiper-pagination    
+
+          
+
+      .tracking-block__item.radial-block.radial-block_gradient
+        div
+          .tracking-block__item-title Отследить посылку
+          .tracking-block__item-desc 
+            p Введите трек-номер отправления для отслеживания
+    
+        form(action="#")
+          .tracking-block__input 
+            //- .input.input_error 
+            .input 
+              input(type="text" placeholder="Трек номер" value="")
+              span.input__message Lorem, ipsum dolor.
+              button(type="submit")
+                .icon.icon_stroke
+                  svg
+                    use(xlink:href='sprite.svg#arrow-right')
+          
+          a(href="#" data-name="track-number").tracking-block__sms-code.tooltip-hover   Где найти трек номер?          
+            .tooltip Трек номер можно найти в email или в личном кабинете
+
+
+    .tracking.open
+      
+      .tracking__top
+        .radial-block__title Отслеживание посылки 
+        
+        .tracking__window-control   
+          .tracking__control-btn.share-js
+            .icon.icon_stroke
+              svg
+                use(xlink:href='sprite.svg#share')
+            span Поделиться   
+
+          .tracking__control-btn.tracking-close-js
+            .icon.icon_stroke
+              svg
+                use(xlink:href='sprite.svg#close')
+            span  Закрыть  
+
+      .tracking__col-wrap 
+        .tracking__col
+          .tracking__product-info
+            .tracking__product-info-top 
+              .tracking__info-top 
+                .tracking__info-top-item №ALAY0000000252
+                .tracking__info-top-item Корнойбург - Бишкек
+
+              .tracking__info-bottom 
+                .tracking__product-destination
+                  .tracking__destination-item Корнойбург
+                  .tracking__destination-item Бишкек
+
+                .tracking__product-way 
+                  .tracking__way-line
+                    .tracking__way-passed(style="width: 60%")
+                      each item in trackingStatus
+                        .tracking__way-status(class=item.active)
+                          .icon(class="icon_"+item.iconKind)
+                            svg
+                              use(xlink:href='sprite.svg#'+item.icon)
+
+                .tracking__list-status
+                  each item in trackingStatusList
+                    .tracking__status-item(class=item.status) 
+                      .tracking__status
+                        span
+                          if item.iconKind == 'stroke'
+                            .icon.icon_stroke
+                              svg(stroke-width=item.strokeWidth)
+                                use(xlink:href='sprite.svg#'+item.statusIcon)
+                          if item.iconKind == 'fill'
+                            .icon.icon_fill
+                              svg(stroke-width=item.strokeWidth)
+                                use(xlink:href='sprite.svg#'+item.statusIcon)
+
+                      .tracking__status-desc
+                        .tracking__status-title=item.title
+                          if item.detailOnWay || item.detailReady
+                            .tracking__status-detail-trigger Подробнее
+                              .icon.icon_stroke
+                                svg
+                                  use(xlink:href='sprite.svg#angle-down') 
+
+                        if item.date
+                          .tracking__status-date=item.date
+                        else
+
+                        if item.detailOnWay 
+                          .tracking__status-detail
+                            .tracking__status-detail-item
+                              .tracking__status-title Вена
+
+                              ul 
+                                li Принят на доставку 
+                                  span 24.02.2024
+                                li Готов в отправке 
+                                  span 24.02.2024
+                                li Отправлен в г. Бишкек
+                                  span 24.02.2024
+
+                        if item.detailReady 
+                          .tracking__status-detail
+                            .tracking__status-detail-item
+                              .tracking__status-title Бишкек
+
+                              ul 
+                                li Поступил. Заберите заказ
+                                  span 28.02.2024
+          
+        .tracking__col
+                            
+          .tracking__info-recipient
+            div
+              .tracking__info-recipient-item
+                span Получатель
+                p Байдылдаев Адилет
+
+              .tracking__info-recipient-item
+                span Условия доставки
+                p Кыргызстан, г. Бишкек, ПВЗ №1, ул. Боконбаева 123
+
+
+            div
+              .radial-block.radial-block_accent.tracking__info-additional-info
+                .tracking__info-additional-item
+                  h2.radial-block__title Вручение по паспорту
+                  p При получении предъявите оригинал паспорта (для организаций дополнительно доверенность)
+
+                .tracking__info-additional-item
+                 h2.radial-block__title Как получать без паспорта?
+                 p Чтобы получать заказы быстро и просто по коду из уведомления необходимо заполнить заявление. Это займет пару минут.
+
+                 a(href="#") Заполнить
+
+        .share-block.share-block-js 
+          .share-block__top 
+            .share-block__title Поделиться
+            .share-block__close 
+              .icon.icon_stroke
+                svg(stroke="#009688" stroke-width="2")
+                  use(xlink:href='sprite.svg#close')
+          .share-block__list 
+            a(href="#").share-block__list-item
+              .share-block__list-item-icon
+                .icon 
+                  svg(width='45' height='44' viewBox='0 0 45 44' fill='none' xmlns='http://www.w3.org/2000/svg')
+                    rect(width='44' height='44' transform='translate(0.5)' fill='#979797')
+                    path(d='M28.3276 25.2375L27.0325 23.9425L28.3276 22.6475C30.1156 20.8595 30.1156 17.9605 28.3276 16.1724C26.5394 14.3844 23.6405 14.3844 21.8525 16.1724L20.5575 17.4675L19.2625 16.1724L20.5575 14.8774C23.0608 12.3742 27.1193 12.3742 29.6226 14.8774C32.1257 17.3807 32.1257 21.4393 29.6226 23.9425L28.3276 25.2375ZM25.7375 27.8275L24.4425 29.1225C21.9393 31.6258 17.8807 31.6258 15.3774 29.1225C12.8742 26.6193 12.8742 22.5608 15.3774 20.0575L16.6724 18.7625L17.9674 20.0575L16.6724 21.3525C14.8844 23.1405 14.8844 26.0395 16.6724 27.8275C18.4605 29.6156 21.3595 29.6156 23.1475 27.8275L24.4425 26.5326L25.7375 27.8275ZM25.09 18.115L26.385 19.41L19.91 25.8851L18.615 24.59L25.09 18.115Z' fill='white')
+
+
+              span Копировать ссылку       
+            a(href="#").share-block__list-item
+              .share-block__list-item-icon
+                .icon
+                  svg(xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none')
+                    path(d='M27 0H5C2.23858 0 0 2.23858 0 5V27C0 29.7614 2.23858 32 5 32H27C29.7614 32 32 29.7614 32 27V5C32 2.23858 29.7614 0 27 0Z' fill='#0088CC')
+                    path(d='M8.09992 15.7083C12.3949 13.837 15.2589 12.6034 16.6919 12.0074C20.7834 10.3056 21.6335 10.01 22.1877 10.0001C22.3095 9.99805 22.582 10.0283 22.7586 10.1715C22.9076 10.2924 22.9486 10.4558 22.9683 10.5705C22.9879 10.6851 23.0123 10.9464 22.9929 11.1505C22.7712 13.4801 21.8118 19.1335 21.3237 21.7427C21.1172 22.8468 20.7105 23.217 20.3168 23.2532C19.4613 23.3319 18.8116 22.6878 17.9829 22.1446C16.6862 21.2946 15.9537 20.7654 14.695 19.936C13.2404 18.9774 14.1834 18.4506 15.0124 17.5896C15.2293 17.3643 18.999 13.9355 19.0719 13.6244C19.0811 13.5855 19.0895 13.4405 19.0034 13.3639C18.9172 13.2874 18.7901 13.3136 18.6983 13.3344C18.5683 13.3639 16.4968 14.7331 12.4839 17.4419C11.8959 17.8457 11.3633 18.0424 10.8862 18.0321C10.3601 18.0207 9.34822 17.7346 8.59598 17.4901C7.67333 17.1902 6.94002 17.0316 7.00388 16.5223C7.03714 16.257 7.40248 15.9856 8.09992 15.7083Z' fill='white')
+
+
+              span Telegram  
+            a(href="#").share-block__list-item
+              .share-block__list-item-icon
+                .icon
+                  svg(xmlns='http://www.w3.org/2000/svg' width='33' height='32' viewBox='0 0 33 32' fill='none')
+                    path(d='M27.5 0H5.5C2.73858 0 0.5 2.23858 0.5 5V27C0.5 29.7614 2.73858 32 5.5 32H27.5C30.2614 32 32.5 29.7614 32.5 27V5C32.5 2.23858 30.2614 0 27.5 0Z' fill='#25D366')
+                    path(fill-rule='evenodd' clip-rule='evenodd' d='M22.1 10.3C20.6 8.8 18.6 8 16.5 8C12.1 8 8.5 11.6 8.5 16C8.5 17.4 8.90001 18.8 9.60001 20L8.5 24L12.7 22.9C13.9 23.5 15.2 23.9 16.5 23.9C20.9 23.9 24.5 20.3 24.5 15.9C24.5 13.8 23.6 11.8 22.1 10.3ZM16.5 22.6C15.3 22.6 14.1 22.3 13.1 21.7L12.9 21.6L10.4 22.3L11.1 19.9L10.9 19.6C10.2 18.5 9.89999 17.3 9.89999 16.1C9.89999 12.5 12.9 9.5 16.5 9.5C18.3 9.5 19.9 10.2 21.2 11.4C22.5 12.7 23.1 14.3 23.1 16.1C23.1 19.6 20.2 22.6 16.5 22.6ZM20.1 17.6C19.9 17.5 18.9 17 18.7 17C18.5 16.9 18.4 16.9 18.3 17.1C18.2 17.3 17.8 17.7 17.7 17.9C17.6 18 17.5 18 17.3 18C17.1 17.9 16.5 17.7 15.7 17C15.1 16.5 14.7 15.8 14.6 15.6C14.5 15.4 14.6 15.3 14.7 15.2C14.8 15.1 14.9 15 15 14.9C15.1 14.8 15.1 14.7 15.2 14.6C15.3 14.5 15.2 14.4 15.2 14.3C15.2 14.2 14.8 13.2 14.6 12.8C14.5 12.5 14.3 12.5 14.2 12.5C14.1 12.5 14 12.5 13.8 12.5C13.7 12.5 13.5 12.5 13.3 12.7C13.1 12.9 12.6 13.4 12.6 14.4C12.6 15.4 13.3 16.3 13.4 16.5C13.5 16.6 14.8 18.7 16.8 19.5C18.5 20.2 18.8 20 19.2 20C19.6 20 20.4 19.5 20.5 19.1C20.7 18.6 20.7 18.2 20.6 18.2C20.5 17.7 20.3 17.7 20.1 17.6Z' fill='white')
+
+
+              span WhatsApp      
+          

@@ -1,0 +1,105 @@
+// .calc-tab
+//   .mCustomScrollBox
+//     padding-bottom: 20px
+
+//   .mCSB_container
+//     width: 100%
+//     border-bottom: rem(1) solid #E1E1E1
+
+//   .calc-tabs
+//     padding-left: 0
+//     li
+//       display: inline-block
+//       position: relative
+//       margin-right: rem(15)
+
+//       &:last-child
+//         margin-right: 0
+
+//       a
+//         color: black
+//         padding-bottom: rem(15)
+//         display: inline-block
+
+//       &:before
+//         position: absolute
+//         content: ''
+//         left: 50%
+//         transform: translateX(-50%)
+//         bottom: 0
+//         height: rem(2)
+//         background: $accent
+//         transition: $transition
+//         opacity: 0
+//         width: 0
+//         z-index: 1
+
+//       &.current
+//         pointer-events: none
+
+//       &:hover
+//         &:before
+//           opacity: 1
+//           width: 100%
+
+//       &.current
+//         color: $accent
+
+//         &:before
+//           opacity: 1
+//           width: 100%
+
+//         a
+//           color: $accent
+
+//       &.disabled
+//         filter: grayscale(1)
+//         pointer-events: none
+//         opacity: 0.7
+
+//   .tab_content
+//     position: relative
+
+//   &.tab-js
+//     .tabs_item
+//       position: absolute
+//       width: 100%
+//       top: 0
+//       left: 0
+//       opacity: 0
+//       pointer-events: none
+
+//       &.active
+//         position: relative
+//         opacity: 1
+//         pointer-events: inherit
+
+//       // &:first-child
+//         // display: block
+
+// .tabs-country-scroll
+
+//   li
+//     &.current
+//       a
+//         color: black!important
+
+//   @include sm
+//     margin-top: rem(30)
+
+//   .mCSB_container
+//     @include jfcsb
+
+//   &__item
+//     position: relative
+//     cursor: pointer
+
+//   &__flag
+//     max-width: rem(32)
+//     min-width: rem(32)
+//     width: 100%
+//     height: rem(32)
+//     border-radius: 100%
+//     overflow: hidden
+//     @include aic-jcc
+//     margin-bottom: rem(10)

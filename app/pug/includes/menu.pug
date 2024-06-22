@@ -1,0 +1,23 @@
+.menu.menu-js 
+  .container
+    .menu__inner
+      .menu__inner-item.vertical-scroll
+        ul.menu__nav-list
+          each item in menu
+            .menu__nav-item 
+              a(href="#"+item.id).menu__nav-link=item.label
+              span(data-target='#'+item.id).menu__nav-link.scroll-button=item.label        
+          li
+            a(href="https://alay.express/login" target="_blank").menu__nav-link   
+              span Личный кабинет 
+      .menu__inner-item.menu__inner-item_bottom
+        ul.menu__list
+          each item in ['Запрещенные товары','Публичная оферта','Политика конфиденциальности'] 
+            li.menu__list-item 
+              a(href="#").menu__list-link=item
+
+        a(href="#").btn.btn_accent.btn_full-width Войти
+        
+        .form__sing-in-up
+          p Впервые у нас? 
+          a(href='#') Зарегистрироваться

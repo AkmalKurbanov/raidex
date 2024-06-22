@@ -1,0 +1,17 @@
+mixin rating(rating,kind)
+  if kind == true
+    .rating.rating_result
+      .rating__wrap(data-total-val=rating)
+        each item in [5,4,3,2,1]
+          .rating__item(data-val=item)
+            .icon.icon_stroke
+              svg
+                use(xlink:href='sprite.svg#star')
+  else 
+    .rating.rating-js
+      .rating__wrap(data-total-val=rating)
+        each item in [5,4,3,2,1]
+          .rating__item(data-val=item)
+            .icon.icon_stroke
+              svg
+                use(xlink:href='sprite.svg#star')

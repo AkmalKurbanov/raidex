@@ -1,0 +1,62 @@
+.reviews
+  &__slider
+    .container
+      padding: 0
+      
+      @include xs
+        padding: 0 rem(15)
+
+  .swiper-wrapper
+    align-items: stretch
+    .swiper-slide
+      @include aic
+      min-height: rem(360)
+
+      @include xs
+        min-height: rem(410)
+
+    .swiper-slide-active 
+      .reviews__item
+        background: #DEF1EF
+        padding: rem(40) rem(16)
+        min-height: rem(360)
+
+        @include xs
+          min-height: rem(410)
+
+
+  &__item
+    background: #F8F7FA
+    width: 100%
+    @include fdc-jfcsb
+    transition: $transition 
+    min-height: rem(315)
+    
+    @include xs
+      min-height: rem(360)
+      padding: rem(16)
+  
+  &__name
+    margin-bottom: rem(8)
+    font-size: rem(16)
+
+    @include xs
+      font-size: rem(18)
+
+  &__desc
+    @include xs
+      font-size: rem(15)
+      line-height: rem(18)
+
+  
+  .btn-wrap
+    margin-top: rem(32)
+    
+    @include xs
+      margin-top: rem(56)
+
+  .btn
+    width: calc( 100% - 30px )
+
+    @include xs
+      width: auto

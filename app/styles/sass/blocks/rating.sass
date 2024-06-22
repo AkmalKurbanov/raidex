@@ -1,0 +1,42 @@
+.rating
+  width: 100%
+  @include aic
+
+  &__wrap
+    @include aic-jcc
+    flex-direction: row-reverse
+
+  &__item
+    cursor: pointer
+    transition: $transition
+
+    .icon
+      svg
+        stroke-width: 1.5 
+        stroke: $accent
+        transition: $transition
+
+ 
+    &:hover
+      .icon
+        svg
+          fill: $accent
+
+        
+      ~ .rating__item
+        .icon
+          svg
+            fill: $accent
+
+        
+  &__wrap[data-total-val="1"] .rating__item:nth-child(n + 5),
+  &__wrap[data-total-val="2"] .rating__item:nth-child(n + 4),
+  &__wrap[data-total-val="3"] .rating__item:nth-child(n + 3),
+  &__wrap[data-total-val="4"] .rating__item:nth-child(n + 2),
+  &__wrap[data-total-val="5"] .rating__item:nth-child(n + 1)
+    .icon
+      svg
+        fill: $accent
+
+  &_result
+    pointer-events: none

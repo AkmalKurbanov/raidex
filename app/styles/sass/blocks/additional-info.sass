@@ -1,0 +1,96 @@
+.additional-info
+  background: white
+  box-shadow: 4px 0px 10px 0px rgba(0, 0, 0, 0.25)
+  position: relative
+  padding: rem(20) 0 rem(40)
+  border-radius: rem(16) rem(16) 0 0
+
+  @include sm
+    border-radius: rem(32) rem(32) 0 0
+    padding: rem(20) 0
+
+  &__trigger-show,  
+  &__trigger-hide
+    font-weight: 700  
+
+    @include xs
+      font-size: rem(15)
+    
+  
+  &__trigger-wrap
+    position: absolute
+    cursor: pointer
+    right: rem(15)
+    display: inline-flex
+    align-items: center
+    top: calc( 100% + 2px )
+
+    @include sm
+      top: 0
+      bottom: auto
+
+    .icon
+      margin-left: rem(8)
+      transition: $transition
+
+    &.open
+      .additional-info__trigger-show
+        display: none
+      
+      .additional-info__trigger-hide
+        display: block
+
+      .icon
+        transform: rotate(180deg)  
+
+
+  &__trigger-hide
+    display: none
+
+  &__hidden-part
+    margin-top: rem(15)
+    display: none
+
+  &__inner
+
+    @include sm
+      width: calc( 100% - 180px )
+
+    h3,
+    p
+      margin-bottom: rem(10)
+
+      @include xs
+        margin-bottom: rem(15)
+
+      &:last-child
+        margin-bottom: 0
+
+    h3
+      font-size: rem(16)
+
+      @include md
+        font-size: rem(20)
+
+    p
+      line-height: rem(18)
+      
+      @include md
+        font-size: rem(17)
+        line-height: rem(24)
+
+  ul
+    margin-bottom: rem(24)
+    padding-left: rem(20)
+
+    li
+      position: relative
+      
+      @include md
+        font-size: rem(17)
+        line-height: rem(24)
+      
+      &::before
+        position: absolute
+        content: ''
+        

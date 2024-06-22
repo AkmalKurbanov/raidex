@@ -1,0 +1,152 @@
+//- .shopping 
+//-   .container
+//-     .title-wrap 
+//-       h2.title.title_h2.title_centered Покупать в Европе выгодно
+//-       p.subtitle.subtitle_centered Покупайте в интернет-магазинах Европы со скидками от 20% до 90% и эконом на покупках
+    
+//-     .shopping__tab
+//-       .shopping__categories
+//-         .shopping__categories-list
+//-           .swiper.category-js
+//-             .swiper-wrapper
+//-               each item in categories
+//-                 .swiper-slide
+//-                   .shopping__categories-item.category-tab-trigger-js(data-tab-id=item.dataTabId)=item.label
+//-           .swiper-button-next.slider-nav
+//-           .swiper-button-prev.slider-nav
+
+//-       .shopping__tab-list
+//-         each tablist in category
+//-           each parentTab in category.tabParent
+//-             .shopping__tab-parent-item(data-tab-id=parentTab.dataTabId)
+//-               .shopping__tab-child-list
+//-                 each childTab in parentTab.tabChild
+//-                   .shopping__tab-child-item(data-tab-id=childTab.dataTabId)
+//-                     .grid-parent 
+//-                       .shopping__tab-item-img-wrap.grid-child1 
+//-                         .shopping__tab-item-img
+//-                           img(src="images/dist/"+childTab.img, alt=childTab.img)
+//-                       .grid-child2
+//-                         h2.shopping__tab-title=childTab.label
+//-                         p Доставка до 
+//-                           span=childTab.day
+//-                       .grid-child3
+//-                         .shopping__tabs-country
+                          
+
+//-                           .shopping__tabs-country-item
+//-                             .shopping__tabs-country-flag
+//-                               img(src="images/dist/"+childTab.countryFlag1, alt=childTab.countryName1)
+//-                             div
+//-                               .shopping__tabs-country-labe=childTab.countryName1
+//-                               .shopping__tabs-country-price=childTab.countryPrice1
+
+//-                             if childTab.countryDiscount1
+//-                               .shopping__tabs-discount=childTab.countryDiscount1
+//-                             else  
+                          
+//-                           .shopping__tabs-country-slider.swiper.shopping-js
+//-                             .swiper-wrapper 
+//-                               .swiper-slide
+//-                                 .shopping__tabs-country-item
+//-                                   .shopping__tabs-country-flag
+//-                                     img(src="images/dist/"+childTab.countryFlag2, alt=childTab.countryName2)
+//-                                   div
+//-                                     .shopping__tabs-country-labe=childTab.countryName2
+//-                                     .shopping__tabs-country-price=childTab.countryPrice2
+
+//-                                   if childTab.countryDiscount2
+//-                                     .shopping__tabs-discount=childTab.countryDiscount2
+//-                                   else  
+                            
+
+//-                         p Стоимость доставки от 
+//-                           span=childTab.price
+                  
+//-               .horizontal-scroll
+//-                 .shopping__tabs-inside-wrap
+//-                   each childTabTrigger in parentTab.tabsList
+//-                     .shopping__tabs-inside-item.inside-tab-trigger-js(data-tab-id=childTabTrigger.dataTabId)
+//-                       .shopping__tabs-inside-img
+//-                         img(src="images/dist/"+childTabTrigger.img, alt="")
+
+//-     .btn-wrap.btn-wrap_centered 
+//-       a(href="#").btn.btn_accent Зарегистрироваться
+
+    
+.shopping 
+  .container
+    .title-wrap 
+      h2.title.title_h2.title_centered Покупать в Европе выгодно
+      p.subtitle.subtitle_centered Покупайте в интернет-магазинах Европы со скидками от 20% до 90% и эконом на покупках
+    
+    .shopping__tab
+      .shopping__categories
+        .shopping__categories-list
+          .swiper.category-js
+            .swiper-wrapper
+              .swiper-slide
+                .shopping__categories-item.category-tab-trigger-js(data-tab-id="electronika") Электроника
+          .swiper-button-next.slider-nav
+          .swiper-button-prev.slider-nav
+
+      .shopping__tab-list
+        .shopping__tab-parent-item(data-tab-id="electronika") 
+          .shopping__tab-child-list
+            
+            .shopping__tab-child-item(data-tab-id="electronika-child1")
+              .grid-parent 
+                .shopping__tab-item-img-wrap.grid-child1 
+                  .shopping__tab-item-img
+                    img(src="images/dist/electronics-airpods.webp")
+                .grid-child2
+                  h2.shopping__tab-title Электроника
+                  p Доставка до 
+                    span 10
+                .grid-child3
+                  .shopping__tabs-country
+                    
+
+                    .shopping__tabs-country-item
+                      .shopping__tabs-country-flag
+                        img(src="images/dist/kg.svg")
+                      div
+                        .shopping__tabs-country-labe Кыргызстан
+                        .shopping__tabs-country-price 50
+
+                        .shopping__tabs-discount 38%
+                    
+                    .shopping__tabs-country-slider.shopping-js
+                      .shopping__tabs-country-item.active
+                        .shopping__tabs-country-flag
+                          img(src="images/dist/au.svg")
+                        div
+                          .shopping__tabs-country-labe Австрия
+                          .shopping__tabs-country-price 100
+
+                          .shopping__tabs-discount 38%
+                      .shopping__tabs-country-item
+                        .shopping__tabs-country-flag
+                          img(src="images/dist/au.svg")
+                        div
+                          .shopping__tabs-country-labe Германия
+                          .shopping__tabs-country-price 200
+
+                          .shopping__tabs-discount 28%
+                              
+                          
+                        
+
+                  p Стоимость доставки от 
+                    span 10
+            
+          .horizontal-scroll
+            .shopping__tabs-inside-wrap
+              .shopping__tabs-inside-item.inside-tab-trigger-js(data-tab-id="electronika-child1")
+                .shopping__tabs-inside-img
+                  img(src="images/dist/electronics-huawei.webp", alt="")
+
+    .btn-wrap.btn-wrap_centered 
+      a(href="#").btn.btn_accent Зарегистрироваться
+
+    

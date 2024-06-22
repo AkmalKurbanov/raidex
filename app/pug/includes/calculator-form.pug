@@ -1,0 +1,134 @@
+.calculator 
+  .container
+    .calculator__form
+      .calculator__form-tab
+        .tab-js
+          ul.tabs.tabs-js
+            li(data-tab-id="tab1").tabs__top-level
+              a(href='#')
+                .icon.icon_fill
+                  svg
+                    use(xlink:href='sprite.svg#calc') 
+                span Калькулятор    
+            li(data-tab-id="tab2").tabs__top-level
+              a(href='#') 
+                .icon.icon_stroke
+                  svg
+                    use(xlink:href='sprite.svg#document-contract')
+                span Заключить договор  
+          .tab_content-js.radial-block.radial-block_shadow
+            .tabs_item-js(data-tab-id="tab1")
+              form(action="") 
+                .place.place_on-front
+                  .place__inner
+                    .place__fields
+                      .place__input-wrap.place-input-wrap-js
+                        .input
+                          label(for="place1") Откуда 
+                          input(type="text" placeholder="Город отправки").place-val-js
+                          input(type="hidden").place-hidden-val-js
+
+                        ul.place__city-list
+                          each item in ['Бишкек','Ош','Ташкент','Алматы'] 
+                            li
+                              a(href="#" data-id=item data-value=item).place-js=item  
+                              
+                      .place__switcher
+                        .icon
+                          svg(stroke='white' stroke-width='1.5')
+                            use(xlink:href='sprite.svg#arrow-double')
+                            
+                      .place__input-wrap.place-input-wrap-js
+                        .input
+                          label(for="place2") Куда 
+                          input(type="text" placeholder="Город получателя" id="place1").place-val-js
+                          input(type="hidden").place-hidden-val-js
+
+                        ul.place__city-list
+                          each item in ['Алматы','Астана','Ташкент','Москва'] 
+                            li
+                              a(href="#" data-id=item data-value=item).place-js=item 
+
+                    .place__select 
+                    
+                      .select.select_img
+                        .select__selected.select-js
+                          input(type="hidden").select-input
+                          .select__selected-label Размер посылки
+                          
+                          .select__arrow
+                            .icon.icon_stroke 
+                              svg
+                                use(xlink:href='sprite.svg#angle-down')
+
+                        .select__dropdown
+                          .select__tab.tab-js
+                            ul.tabs-js
+                              li(data-tab-id="tab-size1")
+                                span Примерно    
+                              li(data-tab-id="tab-size2")
+                                span Точные размеры
+
+                            .tab_content-js
+                              .tabs_item-js(data-tab-id="tab-size1")
+                                .vertical-scroll        
+                                  each item in selecSize      
+                                    .select__option(data-text=item.label data-id=item.id)
+                                      .select__option-item
+                                        .select__option-img
+                                          img(src=`images/dist/${item.img}`, alt=item.label)
+                                      
+                                      .select__option-item
+                                        
+                                        .select__option-label=item.label
+                                        
+                                        i.select__option-size=item.size
+
+                                        p.select__option-desc=item.desc
+                              .tabs_item-js(data-tab-id="tab-size2")
+                                form(action="#")
+                                  .select__fieldset
+                                    each item in ['Длина, см','Ширина, см','Высота, см','Вес, кг']
+                                      .input 
+                                        input(type="text" placeholder=item)
+                                    button.btn.btn_accent.btn_full-width Рассчитать         
+                    
+                    button.btn.btn_accent Рассчитать
+            
+            .tabs_item-js(data-tab-id="tab2")
+              form(action="#")
+                .agreement
+                  .input
+                    label(for="name") ФИО 
+                    input(type="text" placeholder="ФИО" id="name")
+
+                  .phone-wrap
+                    div
+                      label(for="phone") Номер телефона 
+                      .select.select_img.select_phone-cod
+                        .select__selected.select-js
+                          input(type="hidden").select-input
+                          .select__selected-label +996
+                          .select__arrow
+                            .icon.icon_stroke 
+                              svg
+                                use(xlink:href='sprite.svg#angle-down')
+
+                        .select__dropdown
+                          .vertical-scroll   
+                            each item in countryCode      
+                              .select__option(data-text=item.label data-id=item.id)
+                                .select__option-item
+                                  .select__option-img
+                                    img(src=`images/dist/${item.img}`, alt=item.label)
+                                
+                                .select__option-item
+                                  
+                                  .select__option-label=item.label
+
+                    .input
+                      input(type="number" placeholder="Телефон" id="phone")
+
+                  button.btn.btn_accent Заключить договор    
+
+include ../includes/popup-agreement

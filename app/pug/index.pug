@@ -1,0 +1,154 @@
+extends layouts/jq-ui
+
+block vars
+  - var description = '';
+  - var keywords= '';
+  - var ogtitle = '';
+  - var ogtype = '';
+  - var ogurl = '';
+  - var ogimg = '';
+  - var slider = sliderMain;
+  - var logBtns = true
+  - var page = 'index'
+
+block title
+  | Alay.kg
+block main
+  include includes/title
+
+  section
+    include includes/tracking-block
+
+  section
+    .advantages 
+      .container  
+        +title('Преимущества международного шопинга','title_h2 title_centered')
+        
+        .advantages__inner    
+          each item in advantages
+            .advantages__col    
+              .advantages__item
+                .advantages__img-wrap
+                  img.advantages__img(src="images/dist/"+item.img, alt="")
+                .advantages__title
+                  h2=item.title
+                .advantages__desc
+                  p=item.desc
+
+  section.section.section_calculator#calculator
+    include includes/calc-delivery
+
+  section.section
+    include includes/calculator-form
+
+  section#warehouses
+    .warehouses
+      .container 
+        .warehouses__inner 
+          .warehouses__col 
+            .warehouses__desc 
+              +title('Наши склады для шопинга','title_h2')
+              .warehouses__desc-item 
+                .warehouses__legend.warehouses__legend_in-stock
+                  span 
+                  | Склады
+              
+                .warehouses__country-flag-wrap
+                  
+                  each item in countryFlagInStok
+                    .warehouses__country-flag(data-country=item.label)
+                      .warehouses__country-img 
+                        img(src="images/dist/"+item.img, alt="")
+                      .warehouses__country-name=item.label
+
+              .warehouses__desc-item 
+                .warehouses__legend.warehouses__legend_in-soon
+                  span 
+                  | Скоро
+              
+                .warehouses__country-flag-wrap
+                  
+                  each item in countryFlagSoon
+                    .warehouses__country-flag(data-country=item.label) 
+                      .warehouses__country-img 
+                        img(src="images/dist/"+item.img, alt="")
+                      .warehouses__country-name=item.label
+
+
+          .warehouses__col 
+            include includes/map
+
+  section#redemption
+    .redemption-goods
+      .container
+        +title('Выкуп товара', 'title_h2') 
+        .redemption-goods__inner
+          .simple-tabs.line-js
+            ul 
+              li.active.trigger-js(data-name="individuals") Физические лица
+
+              li.trigger-js(data-name="legal-entities")  Юридические лица
+            .line-runner
+          .redemption-goods__item.called-js.show(data-name="individuals")
+            .redemption-goods__item-col
+              div
+                p 
+                  | Магазин не принимает к оплате вашу банковскую карту? <br>
+                  | Мы приобретём товар для вас. Мы осуществляем доставку <br>
+                  | с eBay, Amazon и др. и оказываем услуги персонального <br> байера.
+                
+                p 
+                  span Самая маленькая комиссия 
+                  | на рынке
+                
+                p  
+                  span Мы официальная компания 
+                  | и даем гарантии на услуги
+
+              a(href="https://alay.express/register" target="_blank").btn.btn_accent.btn_small Зарегистрироваться 
+
+            .redemption-goods__item-col
+              .redemption-goods__img-wrap 
+                img(src="images/dist/individuals.webp", alt="").redemption-goods__img
+
+              a(href="https://alay.express/register" target="_blank").btn.btn_accent.btn_small Зарегистрироваться 
+          
+          .redemption-goods__item.called-js(data-name="legal-entities")
+            .redemption-goods__item-col
+              div
+                ul 
+                  li Выкуп любых товаров в Европе, оборудования, запасных частей и комплектующих с доставкой в Кыргызстан
+                  li Поиск техники и оборудования в Европе
+                  li Товары без НДС
+                  li Оказываем полный комплекс услуг по доставке груза из Европы с таможенной очисткой
+                  li Все операции проводятся прозрачно и по договору
+                  li Конфиденциальность гарантируем!
+
+              a(href="https://alay.express/register").btn.btn_accent.btn_small Зарегистрироваться 
+
+            .redemption-goods__item-col
+              .redemption-goods__img-wrap 
+                img(src="images/dist/legal-entities.webp", alt="").redemption-goods__img
+  
+  section 
+    include includes/shopping
+  
+  section#stores 
+    .popular 
+      .container
+        .title-wrap
+          .title.title_h2.title_centered Популярные магазины
+          p.subtitle.subtitle_centered Покупай в любимых интернет-магазинах на скидках, а Alay Express доставит в Кыргызстан
+
+        .popular__grid
+          each item,index in stores
+            div(class="popular__grid-item grid-elem"+(index + 1))
+              picture 
+                source(media="(max-width: 767px)", srcset=`images/dist/${item.img}-mini.svg`)
+                img(src=`images/dist/${item.img}.svg`, alt="")
+
+        .btn-wrap.btn-wrap_centered
+          a.btn.btn_accent(href="https://alay.express/register" target="_blank") Все магазины     
+
+  section#reviews
+    include includes/reviews

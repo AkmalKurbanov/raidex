@@ -1,0 +1,133 @@
+.popular
+  &__grid
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr
+    gap: rem(14)
+    height: 100%
+
+    @include xs
+      gap: rem(10)
+
+    @include sm
+      grid-template-rows: 1fr 1fr 1fr
+      grid-template-columns: 1fr 1fr 1fr 1fr
+      gap: rem(16)
+
+  &__grid-item
+    @include aic-jcc
+    border-radius: rem(12)
+    background: #F8F7FA
+    padding: rem(16)
+    position: relative
+
+    &.grid-elem1
+      min-height: rem(200)
+      max-height: rem(200)
+      grid-row-start: 1
+      grid-row-end: 3
+      grid-column-start: 1
+      grid-column-end: 2
+
+      @include xs
+        max-height: rem(250)
+        min-height: rem(250)
+
+      @include sm
+        max-height: rem(335)
+        min-height: rem(335)
+
+    &.grid-elem2
+      grid-row-start: 3
+      grid-row-end: 4
+      grid-column-start: 1
+      grid-column-end: 2
+
+    &.grid-elem3
+      grid-row-start: 1
+      grid-row-end: 2
+      grid-column-start: 2
+      grid-column-end: 3
+
+    &.grid-elem4
+      grid-row-start: 2
+      grid-row-end: 3
+      grid-column-start: 2
+      grid-column-end: 3
+
+    &.grid-elem5
+      grid-row-start: 3
+      grid-row-end: 4
+      grid-column-start: 2
+      grid-column-end: 3
+
+    &.grid-elem6
+      grid-row-start: 4
+      grid-row-end: 5
+      grid-column-start: 1
+      grid-column-end: 2
+
+      @include sm
+        grid-row-start: 1
+        grid-row-end: 2
+        grid-column-start: 3
+        grid-column-end: 4
+
+    &.grid-elem7
+      grid-row-start: 5
+      grid-row-end: 6
+      grid-column-start: 1
+      grid-column-end: 2
+
+      @include sm
+        grid-row-start: 1
+        grid-row-end: 2
+        grid-column-start: 4
+        grid-column-end: 5
+
+    &.grid-elem8
+      grid-row-start: 4
+      grid-row-end: 5
+      grid-column-start: 2
+      grid-column-end: 3
+
+      @include sm
+        grid-row-start: 2
+        grid-row-end: 3
+        grid-column-start: 3
+        grid-column-end: 4
+
+    &.grid-elem9
+      grid-row-start: 6
+      grid-row-end: 7
+      grid-column-start: 1
+      grid-column-end: 2
+
+      @include sm
+        grid-row-start: 3
+        grid-row-end: 4
+        grid-column-start: 3
+        grid-column-end: 4
+
+    &.grid-elem10
+      min-height: rem(200)
+      max-height: rem(200)
+      grid-row-start: 5
+      grid-row-end: 7
+      grid-column-start: 2
+      grid-column-end: 3
+      
+      @include xs
+        max-height: rem(250)
+        min-height: rem(250)
+
+      @include sm
+        max-height: rem(335)
+        min-height: rem(335)
+        grid-row-start: 2
+        grid-row-end: 4
+        grid-column-start: 4
+        grid-column-end: 5
+
+  .btn-wrap
+    margin-top: rem(30)

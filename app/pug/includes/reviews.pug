@@ -1,0 +1,21 @@
+.reviews
+  .container
+    .title-wrap 
+      h2.title.title_h2.title_centered Отзывы
+      p.subtitle.subtitle_centered Ознакомьтесь с отзывами тех, кто уже воспользовался нашим сервисом, и поделитесь своим собственным опытом
+
+  .reviews__slider
+    .container
+      .swiper.reviews-js
+        .swiper-wrapper
+          each item in reviews
+            .swiper-slide
+              .reviews__item.radial-block 
+                div
+                  h2.reviews__name!=item.name
+                  include ../includes/rating
+                  +rating(item.rating, true)
+                p.reviews__desc!=item.review
+
+    .btn-wrap.btn-wrap_centered
+      a(href="#").btn.btn_accent Все отзывы           

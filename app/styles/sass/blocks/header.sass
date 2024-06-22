@@ -1,0 +1,322 @@
+.header
+  background: white
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.10)
+  position: fixed
+  left: 0
+  right: 0
+  top: 0
+  width: 100%
+  z-index: 20
+  max-height: rem(56)
+  min-height: rem(56)
+  transition: $transition
+
+  @include xs
+    max-height: rem(94)
+    min-height: rem(94)
+
+  &.hidden
+    top: -100%
+
+  @include md
+    max-height: rem(104)
+    min-height: rem(104)
+
+  &__top
+    background: $secondary
+    min-height: rem(40)
+    text-align: center
+    @include aic-jcc
+    display: none
+
+    @include xs
+      display: flex
+
+    p
+      text-align: center
+      color: white
+
+      @include md
+        font-size: rem(16)
+        span,
+        a
+          font-weight: 700
+          color: white
+          text-decoration: none
+          
+          &:hover
+            color: $accent
+
+  &__top-inner
+    max-width: rem(760)
+    width: 100%
+    padding-right: rem(65)
+
+  &__top-nav
+    position: absolute
+    max-width: rem(60)
+    width: 100%
+    right: 0
+    top: 50%
+    transform: translateY(-50%)
+    @include aic-jfcsb
+    z-index: 1
+
+    .swiper-button-prev,
+    .swiper-button-next
+      max-width: rem(24)
+      min-width: rem(24)
+      height: rem(24)
+      position: relative
+      opacity: 1
+      transition: $transition
+      left: auto
+      right: auto
+      top: auto
+      bottom: auto
+      transform: none
+      margin: 0
+
+      .icon
+        &_stroke
+          stroke: #fff
+
+        &_fill
+          fill: #fff
+
+      &:hover
+        color: $accent
+
+        .icon
+          &_stroke
+            stroke: $accent
+
+          &_fill
+            fill: $accent
+
+      &:after
+        display: none
+
+  &__inner
+    padding: rem(8) 0
+    padding: rem(16) 0
+    max-height: rem(54)
+    min-height: rem(54)
+    @include aic-jcc
+
+    @include md
+      max-height: rem(65)
+      min-height: rem(65)
+
+  .logo
+    width: rem(160)
+    height: rem(32)
+
+
+  &__nav
+    display: none
+
+    @include md
+      display: block
+
+    ul
+      padding: 0
+
+      li
+        display: inline-flex
+        align-items: center
+        list-style: none
+        position: relative
+        margin-right: rem(5)
+
+        &:last-child
+          margin-right: 0
+
+        span,
+        a
+          cursor: pointer
+          text-decoration: none
+          font-weight: 500
+          color: black
+          transition: $transition
+          @include aic-jcc
+          text-align: center
+          padding: rem(4) rem(16)
+          border-radius: rem(6)
+          min-height: rem(32)
+
+          @include md
+            font-size: rem(13)
+
+          @include lg
+            font-size: rem(16)
+
+          &:hover
+            background: $accent
+            color: white
+
+        &.active
+          a
+            color: $accent
+
+          .icon
+            &_stroke
+              stroke: $accent
+
+        &:hover
+          a
+            color: white
+            background: $accent
+
+          ul
+            opacity: 1
+            pointer-events: inherit
+            top: 100%
+
+            li
+              a
+                color: inherit
+                background: none
+
+                &:hover
+                  color: $accent
+
+          .icon
+            &_stroke
+              stroke: $accent
+
+      .icon
+        margin-left: rem(4)
+        max-width: rem(19)
+        min-width: rem(19)
+        height: rem(19)
+        position: relative
+
+        svg
+          transition: $transition
+          position: absolute
+
+        &_stroke
+          stroke: $secondary
+          stroke-width: 1.5
+
+      ul
+        position: absolute
+        box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15)
+        background: white
+        border-radius: rem(8)
+        padding: 0
+        min-width: rem(200)
+        overflow: hidden
+        transition: $transition
+        top: calc( 100% - 10px )
+        opacity: 0
+        pointer-events: none
+
+        li
+          display: block
+          margin-right: 0
+
+          a
+            display: block
+            padding: rem(5) rem(10)
+            text-align: left
+
+            &:hover
+              background-color: #DEF1EF
+
+        &.active
+          a
+            color: $accent
+            .icon
+              &_stroke
+                stroke: $accent
+          ul
+            li
+              a
+                color: $secondary
+                &:hover
+                  color: $accent
+
+  &__control-btns
+    @include aic-jcc
+
+    .btn
+      padding: 0 rem(16)
+      max-height: rem(32)
+      min-height: rem(32)
+      font-size: rem(13)
+
+      @include xs
+        padding: 0 rem(24)
+        max-height: rem(40)
+        min-height: rem(40)
+        font-size: rem(16)
+
+  &__control-icon
+    margin-left: rem(16)
+    color: black
+
+    &:first-child
+      margin-left: 0
+
+    &_calc,
+    &_registration
+      
+      color: black
+      text-decoration: none
+
+      @include xs
+        font-size: rem(16)
+
+      &:hover
+        color: $accent
+
+    &_calc
+      @include aic
+
+      .icon
+        margin-right: rem(8)
+        fill: $accent
+
+    &_registration
+      display: none
+
+      @include md
+        display: block
+
+    &_hamburger
+      padding-left: rem(13)
+      position: relative
+
+      @include md
+        display: none
+
+      &:before
+        position: absolute
+        content: ''
+        width: rem(1)
+        height: calc( 100% + 4px )
+        background: #D9D9D9
+        top: 50%
+        transform: translateY(-50%)
+        left: 0
+        transition: $transition
+
+      &:first-child
+        padding: 0
+        margin: 0
+
+        &:before
+          display: none
+
+      &.open
+        &:before
+          opacity: 0
+
+    &.hide
+      display: none
+
+  .btn
+    &_accent
+      font-weight: 400

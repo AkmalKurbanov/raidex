@@ -1,0 +1,1655 @@
+block vars
+  - var description;
+  - var keywords;
+  - var ogtitle;
+  - var ogtype;
+  - var ogurl;
+  - var ogimg;
+  - var backgroundColor;
+  - var slider = sliderShopping;
+  
+
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
+    title
+      block title
+
+    meta(name='description' content=description)
+    meta(name='keywords' content=keywords)
+
+    meta(property='og:title' content=ogtitle)
+    meta(property='og:type' content=ogtype)
+    meta(property='og:url' content=ogurl)
+    meta(property='og:image' content=ogimg)
+
+    meta(name='theme-color' content='#009688')
+    meta(name='msapplication-navbutton-color' content='#009688')
+    meta(name='apple-mobile-web-app-status-bar-style' content='#009688')
+    
+    <style>.preloader{-webkit-box-align:center;-ms-flex-align:center;-webkit-box-pack:center;-ms-flex-pack:center;align-items:center;background:#fff;bottom:0;display:-webkit-box;display:-ms-flexbox;display:flex;height:100%;justify-content:center;left:0;position:fixed;right:0;top:0;width:100%;z-index:21}.preloader__logo{-webkit-animation:1.5s infinite both blink;animation:1.5s infinite both blink;max-width:9.375rem;opacity:0;-webkit-transform:scale(.6);-ms-transform:scale(.6);transform:scale(.6);-webkit-transition:.3s;transition:.3s;width:100%}@-webkit-keyframes blink{0%,to{opacity:0}50%{opacity:1}}@keyframes blink{0%,to{opacity:0}50%{opacity:1}}</style>
+    link(rel="stylesheet" href="css/app.min.css")
+    link(rel='shortcut icon' href='images/favicon.png' type='image/png')
+    link(rel='apple-touch-icon' href='images/apple-touch-icon.png')
+    link(rel='apple-touch-icon' sizes='72x72' href='images/apple-touch-icon-72x72.png')
+    link(rel='apple-touch-icon' sizes='114x114' href='images/apple-touch-icon-114x114.png')
+    link(rel='stylesheet' href='https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css')
+
+body
+  include ../includes/preloader
+  if backgroundColor == 'gray'
+    .wrapper.wrapper_bg-gray#top
+      .content
+        include ../includes/menu
+        include ../includes/header
+
+        .content__inner
+          block main
+        
+
+      section
+        include ../includes/faq
+
+      include ../includes/additional-info
+      include ../includes/footer
+
+  else
+    .wrapper#top
+      .content
+        include ../includes/menu
+        include ../includes/header
+
+        .content__inner
+          block main
+        
+
+      section#faq
+        include ../includes/faq
+
+      include ../includes/additional-info
+      include ../includes/footer    
+  
+  <script src="https://cdn.amcharts.com/lib/editor/map/5/viewer.js"></script>
+  include ../includes/scripts
+  script(src='https://code.jquery.com/jquery-3.6.0.js')
+  script(src='https://code.jquery.com/ui/1.13.2/jquery-ui.js')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js')
+  script(src='https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js')
+  
+  script.
+      
+    $(".calculate-delivery__item").each(function () {
+    
+
+
+          var $this = $(this);
+          let lbs = 0.0022046
+          let kg = 1000
+          let inputWeight = $('.calculate-delivery__weight-kg input', $this);
+          let totalPrice = $('.calculate-delivery__price', $this);
+          let calculator = $('.calculate-delivery__calc', $this);
+          let totalLbs = $('.calculate-delivery__weight-lbs span', $this);
+          let priceKilo = $(this).find('.calculate-delivery__price-per-kilo').attr('data-price');
+          let iconItem = $('.calculate-delivery__icon-item',$this);
+          
+          
+
+          $(".calculate-delivery__calc", $this).slider({
+            range: "min",
+            value: 1,
+            min: 0.7,
+            max: 5.5,
+            step: 0.01,
+            slide: function (event, ui) {
+              let weightKg = ui.value
+              let kgToLbs = (weightKg * lbs * kg)
+              let calculatedPrice = weightKg * priceKilo;
+              inputWeight.val(weightKg)
+              totalLbs.text(`(${kgToLbs.toFixed(2)} lbs)`);                  
+
+              
+              
+              iconItem.each(function (index) {
+                let one = $(this).children('.weight').attr('data-weight');
+                let two = inputWeight.val();
+                
+                if (one <= two) {
+                totalPrice.text(calculatedPrice.toFixed(2));  
+                $(this).addClass('active').find('.icon svg path, .icon svg rect, .icon svg circle').each(function () {
+                    if ($(this).attr('stroke')) {
+                      $(this).attr('stroke', '#009688')
+                    } else {
+                      $(this).attr('fill', '#009688')
+                    }
+                  })
+                $(this).parent().find('.calculate-delivery__icon-item.active').not($(this)).removeClass('active');
+                $this.find('.calculate-delivery__icon-item').not($(this)).find('.icon svg path, .icon svg rect, .icon svg circle').each(function () {
+                    if ($(this).attr('stroke')) {
+                      $(this).attr('stroke', '#A3B1BB')
+                    } else {
+                      $(this).attr('fill', '#A3B1BB')
+                    }
+                  })
+              }else if(one <= 1){ 
+                totalPrice.text(priceKilo + '.00');  
+              }
+              else {
+                $(this).removeClass('active')
+              }
+            
+              
+              });
+              
+
+              $(".tabs_item-js.active .calculator-js").each(function (index, value) {
+                  var calculatorSlider = new Swiper(value, {
+                    loop: false,
+                    speed: 1000,
+                    spaceBetween: 20,
+                    
+                    breakpoints: {
+                      0: {
+                        slidesPerView: 7,
+                        centeredSlides: true, 
+                        spaceBetween: 24
+                        },
+                      400: {
+                        slidesPerView: 7,
+                        centeredSlides: true, 
+                        spaceBetween: 43
+                        },
+                      576: {
+                        slidesPerView: 8,
+                        centeredSlides: true,
+                        spaceBetween: 45
+                      },
+                      768: {
+                        slidesPerView: 10,
+                        centeredSlides: true,
+                        spaceBetween: 43
+                      },
+                      992: {
+                        slidesPerView: 16,
+                        centeredSlides: false,
+                        spaceBetween: 16,
+                      },
+                      1200: {
+                        slidesPerView: 16,
+                        centeredSlides: false
+                      },
+                    }
+                  });
+                  let calculatorActiveSlide = $(this).find(".calculate-delivery__icon-item.active").attr("aria-label");
+                  $(this).find(".calculate-delivery__icon-item.active").addClass('swiper-slide-active');               
+                  
+
+                  
+                  if(calculatorActiveSlide == 1) {
+                    calculatorSlider.slideTo(1, 500);
+                    var conditionElement = true
+                    $(this).find('.swiper-wrapper').css('transform', 'translate3d(0, 0px, 0px)!important');
+                  }
+                  else{
+                    calculatorSlider.slideTo(calculatorActiveSlide, 500);
+                  }
+
+                  
+                });
+
+                $('.swiper-notification').remove();
+              
+
+
+            }
+
+          });
+
+          $('.calculate-delivery__icon-item.active').find('.icon svg path, .icon svg rect, .icon svg circle').each(function () {
+            if ($(this).attr('stroke')) {
+              $(this).attr('stroke', '#009688')
+            } else {
+              $(this).attr('fill', '#009688')
+            }
+          })
+                  
+          let minWeightKg = calculator.slider("value")
+          let minWeightlbs = calculator.slider("value") * lbs
+          let kgToLbs = (minWeightKg * lbs * kg)        
+          let calculatedPrice = minWeightKg * priceKilo;
+
+
+          inputWeight.val($(".calculate-delivery__calc", $this).slider("value"));
+          totalLbs.text(`(${kgToLbs.toFixed(2)} lbs)`);
+          totalPrice.text(calculatedPrice.toFixed(2));
+
+          iconItem.on('click', function () {
+            let iconWeight = $(this).find('.weight').attr('data-weight');
+            let iconPrice = iconWeight * priceKilo
+            let iconKgToLbs = (iconWeight * lbs * kg)
+
+            
+            
+            calculator.slider("value", iconWeight);
+            inputWeight.val(iconWeight)
+            
+            totalLbs.text(`(${iconKgToLbs.toFixed(2)} lbs)`);
+            
+
+
+            if (iconWeight <= 1){
+                totalPrice.text(priceKilo + ".00");
+              }else{
+                totalPrice.text(iconPrice.toFixed(2));
+              }
+
+
+
+          });
+
+          iconItem.each(function (index) {
+
+            let one = $(this).children('.weight').attr('data-weight');
+            let two = inputWeight.val();
+            let three = $(this).next().find('.weight').attr('data-weight');
+            
+            if (one == two) {$(this).addClass('active')} else {$(this).removeClass('active')}
+          });
+
+          inputWeight.on('focus', function (){
+            $(this).val('');
+            iconItem.each(function (index) {
+              
+              $(this).removeClass('active').find('.icon svg path, .icon svg rect, .icon svg circle').each(function () {
+                if ($(this).attr('stroke')) {
+                  $(this).attr('stroke', '#A3B1BB')
+                } else {
+                  $(this).attr('fill', '#A3B1BB')
+                }
+                totalPrice.text("0.00");
+              })
+          
+            });
+          })
+          inputWeight.on('keyup', function () {
+            calculator.slider("value", $(this).val());
+            let lastItem = +$this.find('.calculate-delivery__icon-item:last .weight').attr('data-weight');
+            totalLbs.text(`(${($(this).val() * lbs * kg).toFixed(2)} lbs)`);
+
+
+            iconItem.each(function (index) {
+              
+              let one = $(this).children('.weight').attr('data-weight');
+              let two = inputWeight.val();
+              
+              if (one <= two) {
+                $(this).addClass('active').find('.icon svg path, .icon svg rect, .icon svg circle').each(function () {
+                    if ($(this).attr('stroke')) {
+                      $(this).attr('stroke', '#009688')
+                    } else {
+                      $(this).attr('fill', '#009688')
+                    }
+                  })
+                $(this).parent().find('.calculate-delivery__icon-item.active').not($(this)).removeClass('active');
+                $this.find('.calculate-delivery__icon-item').not($(this)).find('.icon svg path, .icon svg rect, .icon svg circle').each(function () {
+                    if ($(this).attr('stroke')) {
+                      $(this).attr('stroke', '#A3B1BB')
+                    } else {
+                      $(this).attr('fill', '#A3B1BB')
+                    }
+                  })
+              } 
+              else {
+                $(this).removeClass('active')
+              }
+
+
+            });
+
+              if ($(this).val() == '') {
+                  
+                  iconItem.removeClass('active').find('.icon svg path, .icon svg rect, .icon svg circle').each(function () {
+                if ($(this).attr('stroke')) {
+                  $(this).attr('stroke', '#A3B1BB')
+                } else {
+                  $(this).attr('fill', '#A3B1BB')
+                }
+                totalPrice.text("0.00");
+              })
+              } else if ($(this).val() <= 1){
+                totalPrice.text(priceKilo + ".00");
+              }
+              else if($(this).val() > Number($('.last-item-weight.active .weight').attr('data-weight'))) {
+                totalPrice.text(`${($(this).val() * priceKilo).toFixed(2)}`);
+                
+                $('.last-item-weight.active').removeClass('active');
+                $('.calculate-delivery__icon-item').not($(this)).find('.icon svg path, .icon svg rect, .icon svg circle').each(function () {
+                    if ($(this).attr('stroke')) {
+                      $(this).attr('stroke', '#A3B1BB')
+                    } else {
+                      $(this).attr('fill', '#A3B1BB')
+                    }
+                  })
+              }
+              else{
+                totalPrice.text(`${($(this).val() * priceKilo).toFixed(2)}`);
+              }
+
+
+            
+
+            
+
+      });
+    
+    });
+
+    //- am5viewer.create("chartdiv", {
+    //-   settings: {
+    //-     editor: {
+    //-       theme: "light",
+    //-       userData: {
+    //-         projection: "geoMercator",
+    //-         geodata: "worldLow",
+    //-       },
+    //-       themeTags: ["light"],
+    //-       linePointScale: 0.5,
+    //-       pointTypeKey: "Plane",
+    //-       __parse: true,
+    //-     },
+    //-     "editor.map": {
+    //-       minZoomLevel: 2.2,
+    //-       maxZoomLevel: 2.2,
+    //-       projection: "geoMercator",
+    //-       zoomControl: {
+    //-         type: "ZoomControl",
+    //-         settings: {},
+    //-       },
+    //-       background: {
+    //-         type: "Rectangle",
+    //-         settings: {
+    //-           fill: {
+    //-             type: "Color",
+    //-             value: "#f1f1f1",
+    //-           },
+    //-           fillOpacity: 1,
+    //-           width: 1920,
+    //-           height: 711,
+    //-           x: 0,
+    //-           y: 0,
+    //-           fillPattern: {
+    //-             type: "GrainPattern",
+    //-             settings: {
+    //-               maxOpacity: 0.08,
+    //-               density: 0.2,
+    //-               colors: [
+    //-                 {
+    //-                   type: "Color",
+    //-                   value: "#000000",
+    //-                 },
+    //-               ],
+    //-             },
+    //-           },
+    //-           isMeasured: false,
+    //-         },
+    //-       },
+    //-       themeTags: ["map"],
+    //-       wheelY: "none",
+    //-       homeZoomLevel: 2.2,
+    //-       panX: "translateX",
+    //-       panY: "translateY",
+    //-       homeGeoPoint: {
+    //-         longitude: -10,
+    //-         latitude: 55,
+    //-       },
+    //-     },
+
+    //-     "editor.backgroundSeries.mapPolygons.template": {
+    //-       forceInactive: true,
+    //-       fill: {
+    //-         type: "Color",
+    //-         value: "#e6e6e6",
+    //-       },
+    //-       stroke: {
+    //-         type: "Color",
+    //-         value: "#e6e6e6",
+    //-       },
+    //-     },
+    //-     "editor.gridSeries.mapLines.template": {
+    //-       forceInactive: true,
+    //-       stroke: {
+    //-         type: "Color",
+    //-         value: "#000000",
+    //-       },
+    //-       strokeOpacity: 0.04,
+    //-     },
+    //-   },
+    //-   data: {
+    //-     "editor.polygonSeries": [
+    //-       {
+    //-         id: "NL",
+    //-         name: "Нидерланды",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Нидерланды",
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#26a69a",
+    //-             },
+    //-             strokeWidth: 2,
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "PT",
+    //-         name: "Португалия. Склады будут доступны в ближайшее время",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             strokeWidth: 2,
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#f1bf00",
+    //-             },
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-             name: "Португалия",
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "FR",
+    //-         name: "Франция. Склады будут доступны в ближайшее время",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Франция",
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#f1bf00",
+    //-             },
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-             strokeWidth: 2,
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "ES",
+    //-         name: "Испания. Склады будут доступны в ближайшее время",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#f1bf00",
+    //-             },
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-             strokeWidth: 2,
+    //-             name: "Испания",
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "GB",
+    //-         name: "Великобритания. Склады будут доступны в ближайшее время",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Великобритания",
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#f1bf00",
+    //-             },
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "DK",
+    //-         name: "Дания",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Дания",
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#26a69a",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "DE",
+    //-         name: "Германия",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Германия",
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#26a69a",
+    //-             },
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "PL",
+    //-         name: "Польша",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Польша",
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#26a69a",
+    //-             },
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "AT",
+    //-         name: "Австрия",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Австрия",
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#26a69a",
+    //-             },
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "CH",
+    //-         name: "Швейцария",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Швейцария",
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#0080C0",
+    //-             },
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "CZ",
+    //-         name: "Чехия",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Чехия",
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#26a69a",
+    //-             },
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "CZ",
+    //-         name: "Чехия",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Чехия",
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#26a69a",
+    //-             },
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "IT",
+    //-         name: "Италия",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Италия",
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#26a69a",
+    //-             },
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "BE",
+    //-         name: "Бельгия",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Бельгия",
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#26a69a",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "HU",
+    //-         name: "Венгрия",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Венгрия",
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#26a69a",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "SK",
+    //-         name: "Словакия",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Словакия",
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#26a69a",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "SI",
+    //-         name: "Словения",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Словения",
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#26a69a",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "LT",
+    //-         name: "Литва. Склады будут доступны в ближайшее время",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Литва",
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#f1bf00",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "EE",
+    //-         name: "Эстония. Склады будут доступны в ближайшее время",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Эстония",
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#f1bf00",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "LV",
+    //-         name: "Латвия. Склады будут доступны в ближайшее время",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Латвия",
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#f1bf00",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "IE",
+    //-         name: "Ирландия",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Ирландия",
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#0080C0",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "NO",
+    //-         name: "Норвегия",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Норвегия",
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#0080C0",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "FI",
+    //-         name: "Финляндия",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Финляндия",
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#0080C0",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "HR",
+    //-         name: "Хорватия",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Хорватия",
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#0080C0",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "RO",
+    //-         name: "Румыния",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Румыния",
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#0080C0",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "SE",
+    //-         name: "Швеция",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Швеция",
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#0080C0",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "MD",
+    //-         name: "Молдова",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Молдова",
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#0080C0",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "BG",
+    //-         name: "Болгария",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Болгария",
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#0080C0",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "TR",
+    //-         name: "Турция",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Турция",
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#0080C0",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "GR",
+    //-         name: "Греция",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Греция",
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#0080C0",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "CA",
+    //-         name: "Канада",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Канада",
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#0080C0",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "KG",
+    //-         name: "Кыргызстан",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Кыргызстан",
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#009688",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "UZ",
+    //-         name: "Узбекистан",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Узбекистан",
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#F1C10C",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "KZ",
+    //-         name: "Казахстан",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Казахстан",
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#F1C10C",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "US",
+    //-         name: "США",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "США",
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#26a69a",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "KR",
+    //-         name: "Южная Корея",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Южная Корея",
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#0C86C2",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "CN",
+    //-         name: "Китай",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Китай",
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#0C86C2",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "VN",
+    //-         name: "Вьетнам",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Вьетнам",
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#0C86C2",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         id: "MY",
+    //-         name: "Малайзия",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             name: "Малайзия",
+    //-             strokeWidth: 2,
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#ffffff",
+    //-             },
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#0C86C2",
+    //-             },
+    //-           },
+    //-         },
+    //-         __parse: true,
+    //-       },
+    //-     ],
+    //-     "editor.lineSeries": [
+    //-       {
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#000",
+    //-             },
+    //-             strokeOpacity: 0.5,
+    //-             strokeWidth: 1,
+    //-           },
+    //-         },
+    //-         linePointSeries: {
+    //-           type: "MapPointSeries",
+    //-           settings: {
+    //-             geometryField: "geometry",
+    //-             geometryTypeField: "geometryType",
+    //-             idField: "id",
+    //-             id: "linepointseries_0",
+    //-           },
+    //-           properties: {
+    //-             data: [
+    //-               {
+    //-                 geometry: {
+    //-                   type: "Point",
+    //-                   coordinates: [-121.81988, 46.25357],
+    //-                   __parse: false,
+    //-                 },
+    //-                 id: "linepoint_1",
+    //-                 name: "США (Орегон)",
+    //-                 settings: {
+    //-                   type: "Template",
+    //-                   settings: {
+    //-                     fillOpacity: 1,
+    //-                     fill: {
+    //-                       type: "Color",
+    //-                       value: "#fb2626",
+    //-                     },
+    //-                     stroke: {
+    //-                       type: "Color",
+    //-                       value: "#000000",
+    //-                     },
+    //-                     strokeOpacity: 0.5,
+    //-                     scale: 0.7,
+    //-                     strokeWidth: 0.5,
+    //-                     name: "США (Орегон)",
+    //-                   },
+    //-                 },
+    //-                 pointType: "Place",
+    //-                 __parse: true,
+    //-               },
+    //-               {
+    //-                 geometry: {
+    //-                   type: "Point",
+    //-                   coordinates: [16.27495, 48.09354],
+    //-                   __parse: false,
+    //-                 },
+    //-                 id: "linepoint_2",
+    //-                 name: "Склад. Автрия (Корнойбург)",
+    //-                 settings: {
+    //-                   type: "Template",
+    //-                   settings: {
+    //-                     fillOpacity: 1,
+    //-                     fill: {
+    //-                       type: "Color",
+    //-                       value: "#fb2626",
+    //-                     },
+    //-                     stroke: {
+    //-                       type: "Color",
+    //-                       value: "#000000",
+    //-                     },
+    //-                     strokeOpacity: 0.5,
+    //-                     scale: 0.7,
+    //-                     strokeWidth: 0.5,
+    //-                     name: "Склад. Автрия (Корнойбург)",
+    //-                   },
+    //-                 },
+    //-                 pointType: "Place",
+    //-                 __parse: true,
+    //-               },
+    //-               {
+    //-                 geometry: {
+    //-                   type: "Point",
+    //-                   coordinates: [74.80438, 42.88156],
+    //-                   __parse: false,
+    //-                 },
+    //-                 id: "linepoint_3",
+    //-                 name: "Кыргызстан (Бишкек)",
+    //-                 settings: {
+    //-                   type: "Template",
+    //-                   settings: {
+    //-                     fillOpacity: 1,
+    //-                     fill: {
+    //-                       type: "Color",
+    //-                       value: "#fb2626",
+    //-                     },
+    //-                     stroke: {
+    //-                       type: "Color",
+    //-                       value: "#000000",
+    //-                     },
+    //-                     strokeOpacity: 0.5,
+    //-                     scale: 0.7,
+    //-                     strokeWidth: 0.5,
+    //-                     name: "Кыргызстан (Бишкек)",
+    //-                   },
+    //-                 },
+    //-                 pointType: "Place",
+    //-                 __parse: true,
+    //-               },
+    //-             ],
+    //-           },
+    //-         },
+    //-         geometry: {
+    //-           type: "Line",
+    //-           __parse: false,
+    //-         },
+    //-         id: "line_1",
+    //-         name: "Line 1",
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#000",
+    //-             },
+    //-             strokeOpacity: 0.5,
+    //-             strokeWidth: 1,
+    //-           },
+    //-         },
+    //-         linePointSeries: {
+    //-           type: "MapPointSeries",
+    //-           settings: {
+    //-             geometryField: "geometry",
+    //-             geometryTypeField: "geometryType",
+    //-             idField: "id",
+    //-             id: "linepointseries_1",
+    //-           },
+    //-           properties: {
+    //-             data: [
+    //-               {
+    //-                 geometry: {
+    //-                   type: "Point",
+    //-                   coordinates: [13.26155, 45.79647],
+    //-                   __parse: false,
+    //-                 },
+    //-                 id: "linepoint_1",
+    //-                 name: "Италия (Муджа)",
+    //-                 settings: {
+    //-                   type: "Template",
+    //-                   settings: {
+    //-                     fillOpacity: 1,
+    //-                     fill: {
+    //-                       type: "Color",
+    //-                       value: "#fb2626",
+    //-                     },
+    //-                     stroke: {
+    //-                       type: "Color",
+    //-                       value: "#000000",
+    //-                     },
+    //-                     strokeOpacity: 0.5,
+    //-                     scale: 0.7,
+    //-                     strokeWidth: 0.5,
+    //-                     name: "Италия (Муджа)",
+    //-                   },
+    //-                 },
+    //-                 pointType: "Place",
+    //-                 __parse: true,
+    //-               },
+    //-               {
+    //-                 geometry: {
+    //-                   type: "Point",
+    //-                   coordinates: [16.35316, 48.09532],
+    //-                   __parse: false,
+    //-                 },
+    //-                 id: "linepoint_2",
+    //-                 name: "",
+    //-                 settings: {
+    //-                   type: "Template",
+    //-                   settings: {
+    //-                     fillOpacity: 1,
+    //-                     fill: {
+    //-                       type: "Color",
+    //-                       value: "#fb2626",
+    //-                     },
+    //-                     stroke: {
+    //-                       type: "Color",
+    //-                       value: "#000000",
+    //-                     },
+    //-                     strokeOpacity: 0.5,
+    //-                     scale: 0,
+    //-                     strokeWidth: 0.5,
+    //-                     name: "",
+    //-                   },
+    //-                 },
+    //-                 pointType: "Place",
+    //-                 __parse: true,
+    //-               },
+    //-             ],
+    //-           },
+    //-         },
+    //-         geometry: {
+    //-           type: "Line",
+    //-           __parse: false,
+    //-         },
+    //-         id: "line_2",
+    //-         name: "Line 2",
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#000",
+    //-             },
+    //-             strokeOpacity: 0.5,
+    //-             strokeWidth: 1,
+    //-           },
+    //-         },
+    //-         linePointSeries: {
+    //-           type: "MapPointSeries",
+    //-           settings: {
+    //-             geometryField: "geometry",
+    //-             geometryTypeField: "geometryType",
+    //-             idField: "id",
+    //-             id: "linepointseries_4",
+    //-           },
+    //-           properties: {
+    //-             data: [
+    //-               {
+    //-                 geometry: {
+    //-                   type: "Point",
+    //-                   coordinates: [8.99867, 53.34541],
+    //-                   __parse: false,
+    //-                 },
+    //-                 id: "linepoint_1",
+    //-                 name: "Германия (Бремен)",
+    //-                 settings: {
+    //-                   type: "Template",
+    //-                   settings: {
+    //-                     fillOpacity: 1,
+    //-                     fill: {
+    //-                       type: "Color",
+    //-                       value: "#fb2626",
+    //-                     },
+    //-                     stroke: {
+    //-                       type: "Color",
+    //-                       value: "#000000",
+    //-                     },
+    //-                     strokeOpacity: 0.5,
+    //-                     scale: 0.7,
+    //-                     strokeWidth: 0.5,
+    //-                     name: "Германия (Бремен)",
+    //-                   },
+    //-                 },
+    //-                 pointType: "Place",
+    //-                 __parse: true,
+    //-               },
+    //-               {
+    //-                 geometry: {
+    //-                   type: "Point",
+    //-                   coordinates: [16.27455, 48.08687],
+    //-                   __parse: false,
+    //-                 },
+    //-                 id: "linepoint_2",
+    //-                 name: "0",
+    //-                 settings: {
+    //-                   type: "Template",
+    //-                   settings: {
+    //-                     fillOpacity: 1,
+    //-                     fill: {
+    //-                       type: "Color",
+    //-                       value: "#fb2626",
+    //-                     },
+    //-                     stroke: {
+    //-                       type: "Color",
+    //-                       value: "#000000",
+    //-                     },
+    //-                     strokeOpacity: 0.5,
+    //-                     scale: 0,
+    //-                     strokeWidth: 0.5,
+    //-                     name: "0",
+    //-                   },
+    //-                 },
+    //-                 pointType: "Place",
+    //-                 __parse: true,
+    //-               },
+    //-             ],
+    //-           },
+    //-         },
+    //-         geometry: {
+    //-           type: "Line",
+    //-           __parse: false,
+    //-         },
+    //-         id: "line_3",
+    //-         name: "Line 3",
+    //-         __parse: true,
+    //-       },
+    //-       {
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#000",
+    //-             },
+    //-             strokeOpacity: 0.5,
+    //-             strokeWidth: 1,
+    //-           },
+    //-         },
+    //-         linePointSeries: {
+    //-           type: "MapPointSeries",
+    //-           settings: {
+    //-             geometryField: "geometry",
+    //-             geometryTypeField: "geometryType",
+    //-             idField: "id",
+    //-             id: "linepointseries_3",
+    //-           },
+    //-           properties: {
+    //-             data: [
+    //-               {
+    //-                 geometry: {
+    //-                   type: "Point",
+    //-                   coordinates: [21.66487, 52.34117],
+    //-                   __parse: false,
+    //-                 },
+    //-                 id: "linepoint_1",
+    //-                 name: "Польша (Варшава)",
+    //-                 settings: {
+    //-                   type: "Template",
+    //-                   settings: {
+    //-                     fillOpacity: 1,
+    //-                     fill: {
+    //-                       type: "Color",
+    //-                       value: "#fb2626",
+    //-                     },
+    //-                     stroke: {
+    //-                       type: "Color",
+    //-                       value: "#000000",
+    //-                     },
+    //-                     strokeOpacity: 0.5,
+    //-                     scale: 0.7,
+    //-                     strokeWidth: 0.5,
+    //-                     name: "Польша (Варшава)",
+    //-                   },
+    //-                 },
+    //-                 pointType: "Place",
+    //-                 __parse: true,
+    //-               },
+    //-               {
+    //-                 geometry: {
+    //-                   type: "Point",
+    //-                   coordinates: [16.29014, 48.10463],
+    //-                   __parse: false,
+    //-                 },
+    //-                 id: "linepoint_2",
+    //-                 name: "",
+    //-                 settings: {
+    //-                   type: "Template",
+    //-                   settings: {
+    //-                     fillOpacity: 1,
+    //-                     fill: {
+    //-                       type: "Color",
+    //-                       value: "#fb2626",
+    //-                     },
+    //-                     stroke: {
+    //-                       type: "Color",
+    //-                       value: "#000000",
+    //-                     },
+    //-                     strokeOpacity: 0.5,
+    //-                     scale: 0,
+    //-                     strokeWidth: 0.5,
+    //-                     name: "",
+    //-                   },
+    //-                 },
+    //-                 pointType: "Place",
+    //-                 __parse: true,
+    //-               },
+    //-             ],
+    //-           },
+    //-         },
+    //-         geometry: {
+    //-           type: "Line",
+    //-           __parse: false,
+    //-         },
+    //-         id: "line_4",
+    //-         name: "Line 4",
+    //-         __parse: true,
+    //-       },
+    //-     ],
+    //-     "editor.pointSeries": [
+    //-       {
+    //-         fixed: false,
+    //-         geometry: {
+    //-           type: "Point",
+    //-           coordinates: [8.63388, 48.46849],
+    //-           __parse: false,
+    //-         },
+    //-         id: "point_1",
+    //-         name: "Point 1",
+    //-         settings: {
+    //-           type: "Template",
+    //-           settings: {
+    //-             fillOpacity: 1,
+    //-             fill: {
+    //-               type: "Color",
+    //-               value: "#e03f35",
+    //-             },
+    //-             stroke: {
+    //-               type: "Color",
+    //-               value: "#000000",
+    //-             },
+    //-             strokeOpacity: 0.5,
+    //-             scale: 0.7,
+    //-             strokeWidth: 0.5,
+    //-             x: {
+    //-               type: "Percent",
+    //-               value: 13.177083333333334,
+    //-             },
+    //-             y: {
+    //-               type: "Percent",
+    //-               value: 38.00322061191627,
+    //-             },
+    //-           },
+    //-         },
+    //-         pointType: "Plane",
+    //-         lineId: "line_1",
+    //-         positionOnLine: 0.5,
+    //-         autoRotate: true,
+    //-         animationDuration: 30000,
+    //-         animationFlip: true,
+    //-         prevPosition: 0.020006666666668994,
+    //-         __parse: true,
+    //-       },
+    //-     ],
+    //-   },
+    //- });
+    
+    

@@ -1,0 +1,101 @@
+.warehouses
+  .title
+    letter-spacing: rem(1)
+  .container
+    padding: 0
+
+    @include xs
+      padding: 0 rem(15)
+      
+  &__inner
+    background: #F8F7FA
+    border-radius: rem(16)
+    overflow: hidden
+
+  &__desc
+    padding: rem(40) rem(17) rem(17) rem(17) 
+    // padding: rem(45) 0 rem(45) rem(48)
+
+  &__desc-item
+    margin-bottom: rem(40)
+
+    &:last-child
+      margin-bottom: 0
+
+
+  &__legend
+    @include aic
+    
+    @include md
+      margin-bottom: rem(12)
+
+    span
+      max-width: rem(16)
+      width: 100%
+      min-width: rem(16)
+      height: rem(16 )
+      border-radius: 100%
+      overflow: hidden
+      margin-right: rem(8)
+      color: black
+
+      @include md
+        font-size: rem(16)
+
+    &_in-stock
+      span
+        background: linear-gradient(129deg, #26A69A 38.74%, #81C784 100%)
+    
+    &_in-soon
+      span
+        background: #F1BF00
+
+
+  &__country-flag-wrap
+    @include fww
+    margin-left: rem(-6)
+    margin-right: rem(-6)
+
+  &__country-flag
+    @include aic-jcc
+    padding: rem(12) rem(16)
+    border-radius: rem(16)
+    background: white
+    margin: rem(6)
+    transition: $transition
+    border: rem(1) solid transparent
+    cursor: pointer
+    
+    &:hover
+      border-color: $accent 
+    
+  &__country-img
+    max-width: rem(42)
+    min-width: rem(42)
+    height: rem(32)
+    position: relative
+    margin-right: rem(12)
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25))
+    border-radius: rem(8)
+    overflow: hidden
+
+    img
+      width: 100%
+      height: 100%
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      position: absolute
+      object-fit: contain
+      object-position: center
+
+  &__country-name
+    font-weight: 500
+    color: black
+
+    @include md
+      font-size: rem(16)
+  
+  &__col
+    width: 100%

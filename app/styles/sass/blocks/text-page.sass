@@ -1,0 +1,54 @@
+.text
+  padding: rem(30) 0 rem(60)
+
+  .scroll-button
+    cursor: pointer
+    color: $accent
+    margin-bottom: rem(8)
+    &:last-child
+      margin-bottom: 0
+  @include md
+    padding: rem(40) 0 rem(180)
+
+  .title_h2
+    margin-bottom: rem(28)
+    
+    @include md
+      margin-bottom: rem(48)
+
+  .title_h4
+    margin-bottom: rem(8)
+
+    @include md
+      margin-bottom: rem(16)
+
+  p
+    color: black
+
+    @include md
+      line-height: rem(24)
+      font-size: rem(16)
+
+  ul
+    padding-left: rem(20) 
+
+    li
+      @include md
+        line-height: rem(24)
+        font-size: rem(16)
+
+
+  a
+    text-decoration: underline  
+ 
+
+  .chapter-item
+    @include aifs
+    margin-bottom: rem(30)
+
+    p
+      &:first-child
+        margin-right: rem(5)
+
+    &:last-child
+      margin-bottom: 0

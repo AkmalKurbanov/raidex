@@ -1,0 +1,167 @@
+.fieldset
+  margin-left: rem(-4)
+  margin-right: rem(-4)
+  border: none
+  padding: 0
+  @include fww
+
+  .input
+    padding: rem(4)
+
+    @include xs
+      padding: rem(6) rem(4)
+
+    .input__message
+      bottom: rem(-5)
+
+    &_success,
+    &_error
+      .input__message
+        bottom: 0
+
+
+.input
+  position: relative
+  width: 100%
+
+  input
+    padding: rem(12) rem(16)
+    height: rem(48)
+    width: 100%
+    border-radius: rem(8)
+    background: white
+    border: rem(1) solid #DBDADE
+    transition: $transition
+    font-size: rem(16)
+
+  &__message
+    font-size: rem(10)
+    padding: rem(2) rem(5)
+    background: white
+    transition: $transition
+    position: absolute
+    bottom: rem(-10)
+    left: rem(10)
+    border-radius: rem(3)
+    opacity: 0
+
+  &_success
+    input
+      border-color: green
+
+    .input__message
+      color: green
+      border: rem(1) solid green
+      bottom: rem(-5)
+      opacity: 1
+
+  &_error
+    input
+      border-color: red
+
+    .input__message
+      color: red
+      border: rem(1) solid red
+      bottom: rem(-5)
+      opacity: 1
+
+  &_pass
+    input
+      padding-right: rem(58)
+
+    .icon
+      cursor: pointer
+      position: absolute
+      right: rem(16)
+      top: 50%
+      transform: translateY(-50%)
+
+      &_stroke
+        stroke-width: 1.5
+        stroke: #B0B0B0
+
+      &.show
+        display: none
+
+  &_half-width
+    
+    @include xs
+      width: 50%
+  
+  &_mb
+    margin-bottom: rem(15)
+    
+    &:last-child
+      margin-bottom: 0
+
+label
+  color: $accent 
+  margin-bottom: rem(4)
+  display: inline-block
+
+.check-wrap
+  @include aic-jfcsb
+  margin-top: rem(12)
+  margin-bottom: rem(24)
+  font-size: rem(15)
+
+.check
+  @include aic
+
+  &__box
+    width: rem(20)
+    height: rem(20)
+    border-radius: rem(6)
+    border: rem(1) solid $accent
+    margin-right: rem(8)
+    overflow: hidden
+    position: relative
+    cursor: pointer
+
+    input
+      position: absolute
+      width: 100%
+      height: 100%
+      opacity: 0
+
+      &:checked ~
+        .icon
+          opacity: 1
+
+    .icon
+      width: 100%
+      height: 100%
+      opacity: 0
+      transition: $transition
+      pointer-events: none
+
+  label
+    font-weight: 700
+    cursor: pointer
+    margin-bottom: 0
+    color: $secondary
+
+.phone-wrap
+  width: 100%
+  @include aife
+  .select 
+    margin-right: rem(16)
+
+.agreement
+  @include md
+    @include aife 
+  
+  .phone-wrap
+    width: 100%
+    @include aife
+    margin: rem(20) 0
+    
+    @include md
+      margin: rem(20) rem(16) 0 rem(16)
+  
+  .btn
+    white-space: nowrap  
+    width: 100%
+
+    @include md
+      width: auto

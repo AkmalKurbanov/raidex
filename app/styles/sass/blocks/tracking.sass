@@ -1,0 +1,468 @@
+.tracking
+  margin-top: rem(12)
+  border-radius: rem(12)
+  padding: rem(16)
+  background: #F8F7FA
+  display: none
+
+  @include xs
+    border-radius: rem(16)
+    margin-top: rem(30)
+
+  &__col-wrap
+    position: relative
+
+    @include sm
+      @include aistr-jfcsb
+    
+    .share-block
+      position: absolute
+      top: 0
+      z-index: 2    
+      width: 100%
+
+      @include sm
+        width: 57.763%
+
+      @include lg
+        right: 0
+        width: calc( 42.237% - 20px )
+
+  &__col
+    background: white
+    border-radius: rem(8)
+    position: relative
+
+    @include xs
+      border-radius: rem(12)
+
+    @include sm
+      border-radius: rem(16)
+
+    &:first-child
+      margin-bottom: rem(12)
+
+      @include xs
+        margin-bottom: rem(24)
+
+      @include sm
+        width: 57.763%
+        margin-bottom: 0
+
+    &:nth-child(2)
+      padding: rem(16)
+
+      @include sm
+        width: calc( 42.237% - 20px )
+
+    
+
+  &__top,
+  &__window-control
+    @include aic-jfcsb
+
+  .radial-block__title
+    margin-right: rem(15)
+    font-size: rem(16)
+
+    @include md
+      font-size: rem(28)
+
+  &__top
+    margin-bottom: rem(24)
+
+  &__control-btn
+    @include aic
+    cursor: pointer
+    margin-right: rem(15)
+    transition: $transition
+
+    @include xs
+      margin-right: rem(32)
+
+    &:hover
+      color: $accent
+
+    &:last-child
+      margin-right: 0
+
+    @include xs
+      font-size: rem(16)
+
+    .icon
+      margin-right: rem(6)
+
+      &_stroke
+        stroke: $accent
+        stroke-width: 1.5
+
+      &_fill
+        fill: $accent
+
+    span
+      display: none
+
+      @include xs
+        display: block
+
+  &__info-top
+    padding: rem(16)
+    border-bottom: rem(1) solid rgba(98, 119, 145, 0.20)
+    @include jfcsb
+
+    @include xs
+      @include aifs
+
+  &__info-bottom
+    padding: rem(16)
+
+  &__info-top-item
+    margin-bottom: rem(4)
+
+    @include xs
+      margin-bottom: 0
+      font-size: rem(16)
+
+  &__product-destination
+    @include aic-jfcsb
+    margin-bottom: rem(25)
+
+    @include xs
+      margin-bottom: rem(30)
+
+  &__destination-item
+    font-size: rem(16)
+    color: black
+
+    @include xs
+      font-size: rem(18)
+      font-weight: 700
+
+  &__way-line
+    position: relative
+    height: rem(2)
+    background: rgba(98, 119, 145, 0.20)
+    margin-bottom: rem(48)
+
+    &::before,
+    &::after
+      position: absolute
+      content: ''
+      width: rem(6)
+      height: rem(6)
+      border-radius: 100%
+      background: white
+      border: rem(3) solid $accent
+      top: 50%
+      transform: translateY(-50%)
+      z-index: 1
+
+    &::before
+      left: 0
+
+    &::after
+      right: 0
+
+  &__way-passed
+    position: relative
+    height: rem(2)
+    background: $accent
+
+  &__way-status
+    max-width: rem(32)
+    min-width: rem(32)
+    height: rem(32)
+    width: 100%
+    @include aic-jcc
+    background: white
+    border-radius: 100%
+    position: absolute
+    right: rem(-12)
+    top: 50%
+    transform: translateY(-50%)
+    z-index: 2
+    filter: drop-shadow(0px 8px 12px rgba(0, 54, 159, 0.07))
+
+    .icon
+      &_stroke
+        stroke: $accent
+        stroke-width: 1.5
+
+      &_fill
+        fill: $accent
+
+  &__status
+    position: relative
+    max-width: rem(50)
+    min-width: rem(50)
+    width: 100%
+    margin-right: rem(16)
+    padding-bottom: rem(38)
+
+    @include md
+      margin-right: rem(28)
+
+    &:before
+      position: absolute
+      content: ''
+      left: 50%
+      transform: translateX(-50%)
+      height: 100%
+      width: rem(1)
+
+    span
+      max-width: rem(50)
+      min-width: rem(50)
+      height: rem(50)
+      width: 100%
+      @include aic-jcc
+      border-radius: 100%
+      overflow: hidden
+      border: rem(2) solid white
+      position: relative
+      z-index: 1
+
+      .icon
+        max-width: rem(30)
+        min-width: rem(30)
+        height: rem(30)
+
+        &_stroke
+          stroke: white
+
+        &_fill
+          fill: white
+
+  &__status-desc
+    padding-top: rem(10)
+    padding-bottom: rem(20)
+    width: 100%
+
+  &__status-title
+    color: black
+    font-weight: 700
+    margin-bottom: rem(4)
+    position: relative
+    font-size: rem(16)
+
+
+  &__status-detail-trigger
+    @include aic
+    color: $accent
+    font-size: rem(13)
+    position: absolute
+    left: 0
+    top: calc( 100% + 5px )
+    z-index: 2
+    cursor: pointer
+
+    .icon
+      transition: $transition     
+      margin-left: rem(4)
+      max-width: rem(15)
+      min-width: rem(15)
+      height: rem(15)
+
+      &_stroke
+        stroke: $accent
+
+      &_fill
+        fill: $accent  
+
+    &.open
+      .icon
+        transform: rotate(180deg)
+        
+
+  &__status-date
+    color: #3D3D39
+    text-align: right
+    font-size: rem(12)
+    padding-left: rem(100)
+
+  &__status-detail
+    margin-top: rem(38)
+    display: none
+
+    .tracking__status-title
+      padding-bottom: rem(12)
+      margin-bottom: 0
+
+    ul
+      padding-left: 0
+
+      li
+        list-style: none
+        padding-bottom: rem(16)
+        
+        &:last-child
+          padding-bottom: 0
+
+          &::after
+            display: none
+
+        span
+          display: block
+
+    .tracking__status-title, li
+      position: relative
+
+      &:before
+        position: absolute
+        content: ''
+        top: 0
+        width: rem(6)
+        height: rem(6)
+        left: rem(-47)
+        border-radius: 100%
+        border: rem(3) solid white
+        z-index: 1
+
+        @include lg
+          left: rem(-59)
+
+      &::after
+        position: absolute
+        content: ''
+        top: 0
+        width: rem(1)
+        height: 100%
+        left: rem(-43)
+        background: white
+        border-right: rem(2) dashed
+        
+        @include lg
+          left: rem(-55)
+
+  &__status-item
+    @include aistr
+    opacity: 0.3
+    pointer-events: none
+    filter: grayscale(1)
+
+    &.created
+      .tracking__status
+
+        &::before
+          background: #7367F0
+
+        span
+          background: #7367F0
+
+      .tracking__status-desc
+        .tracking__status-detail
+          .tracking__status-title,li
+            &::before
+              background: #7367F0
+            
+            &::after
+              border-color: #7367F0
+
+    &.on-way
+      .tracking__status
+        &::before
+          background: #A8AAAE
+
+        span
+          background: #A8AAAE
+
+      .tracking__status-desc
+        .tracking__status-detail
+          .tracking__status-title,li
+            &::before
+              background: #A8AAAE
+
+            &::after
+              border-color: #A8AAAE       
+
+    &.ready
+      .tracking__status
+        &::before
+          background: #FF9F43
+
+        span
+          background: #FF9F43
+
+      .tracking__status-desc
+        .tracking__status-detail
+          .tracking__status-title,li
+            &::before
+              background: #FF9F43
+            
+            &::after
+              border-color: #FF9F43    
+
+    &.handed
+      .tracking__status
+        &::before
+          background: #28C76F
+
+        span
+          background: #28C76F
+
+      .tracking__status-desc
+        .tracking__status-detail
+          .tracking__status-title,li
+            &::before
+              background: #28C76F
+            
+            &::after
+              border-color: #28C76F        
+    
+    &.disabled
+      pointer-events: none
+      opacity: 0.3
+
+    &.completed
+      pointer-events: inherit
+      opacity: 1
+      filter: none
+        
+    &:last-child
+      .tracking__status
+        &::before
+          display: none
+      
+      .tracking__status,
+      .tracking__status-desc
+        padding-bottom: 0    
+
+  &__info-recipient
+    height: 100%
+    @include fdc-jfcsb
+
+  &__info-recipient-item
+    margin-bottom: rem(24)
+
+    span
+      font-weight: 600
+      font-size: rem(16)
+      margin-bottom: rem(6)
+      display: block
+      color: $accent
+
+    p
+      font-size: rem(15)
+      color: black
+
+  &__info-additional-info
+    .radial-block__title
+      margin-right: 0
+      margin-bottom: rem(8)
+      font-size: rem(16)
+
+  &__info-additional-item
+    margin-bottom: rem(16)
+    p
+      line-height: rem(16)
+
+    a
+      font-size: rem(16)
+      margin-top: rem(10)
+      display: inline-block
+
+    &:last-child
+      margin-bottom: 0
+
+  &.open
+    display: block

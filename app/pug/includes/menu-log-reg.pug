@@ -1,0 +1,26 @@
+.menu.menu_log-reg.menu-js 
+  .container
+    .menu__inner
+      .menu__inner-item.vertical-scroll
+        ul.menu__nav-list
+          each item in menu
+            .menu__nav-item 
+              a(href="#").menu__nav-link  
+
+                if item.iconKind == 'stroke'
+                  span.icon.icon_stroke
+                    svg
+                      use(xlink:href='sprite.svg#'+item.icon)
+
+                if item.iconKind == 'fill'
+                  span.icon.icon_fill
+                    svg
+                      use(xlink:href='sprite.svg#'+item.icon)
+
+                span=item.label        
+     
+      .menu__inner-item.menu__inner-item_bottom
+        ul.menu__list
+          each item in ['Запрещенные товары','Публичная оферта','Политика конфиденциальности'] 
+            li.menu__list-item 
+              a(href="#").menu__list-link=item

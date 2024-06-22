@@ -1,0 +1,76 @@
+.footer
+  flex: 0 0 auto
+  background: #141414
+  padding-top: rem(45)
+  border-radius: rem(16) rem(16) 0 0
+
+  @include xs
+    border-radius: rem(32) rem(32) 0 0
+
+  .logo
+    margin-bottom: rem(50)
+    width: 100%
+    max-width: rem(140)
+    
+    @include xs
+      max-width: rem(190)
+    
+  &__inner
+    flex-direction: column
+
+    @include xs
+      flex-direction: row
+      @include fww-jfcsb
+
+  &__col
+    margin-bottom: rem(30)
+
+    @include xs
+      width: 50%
+      padding-right: rem(15)
+
+    @include md
+      width: 25%
+
+    @include lg
+      width: auto
+
+    &:last-child
+      margin-right: 0
+
+  &__nav
+    ul
+      padding: 0
+      margin: 0
+
+      li
+        list-style: none
+        margin-bottom: rem(12)
+
+        &:last-child
+          margin-bottom: 0
+
+        a,
+        span
+          cursor: pointer
+          color: white
+          font-size: rem(15)
+          font-weight: 600
+          text-decoration: none
+
+          @include lg
+            font-size: rem(16)
+
+          &:hover
+            color: $accent
+
+  &__copyright
+    text-align: center
+    padding: rem(16) 0
+    border-top: rem(1) solid rgba(255, 255, 255, 0.10)
+
+    p
+      color: white
+
+      @include xs
+        font-size: rem(16)

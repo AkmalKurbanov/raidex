@@ -1,0 +1,178 @@
+extends layouts/main
+
+block vars
+  - var description = '';
+  - var keywords= '';
+  - var ogtitle = '';
+  - var ogtype = '';
+  - var ogurl = '';
+  - var ogimg = '';
+  - var backgroundColor = '';
+
+block title
+  | Калькулятор
+block main
+
+  section
+    .calculator-form
+      .container
+        .calculator-form__inner
+          .calculator-form__grid-wrap
+            .calculator-form__grid1
+              .title.title_h3 Параметры доставки
+
+              form(action="") 
+                .place
+                  .place__inner
+
+                    .place__fields
+                      .place__input-wrap.place-input-wrap-js
+                        .input
+                          label(for="place1") Откуда 
+                          input(type="text" placeholder="Город отправки").place-val-js
+                          input(type="hidden").place-hidden-val-js
+
+                        ul.place__city-list
+                          each item in ['Бишкек','Ош','Ташкент','Алматы'] 
+                            li
+                              a(href="#" data-id=item data-value=item).place-js=item  
+                              
+                      .place__switcher
+                        .icon
+                          svg(stroke='white' stroke-width='1.5')
+                            use(xlink:href='sprite.svg#arrow-double')
+                            
+                      .place__input-wrap.place-input-wrap-js
+                        .input
+                          label(for="place2") Куда 
+                          input(type="text" placeholder="Город получателя" id="place1").place-val-js
+                          input(type="hidden").place-hidden-val-js
+
+                        ul.place__city-list
+                          each item in ['Алматы','Астана','Ташкент','Москва'] 
+                            li
+                              a(href="#" data-id=item data-value=item).place-js=item 
+                br
+                br
+                .title.title_h3 Информация о посылке
+
+                .place
+                  .place__inner
+
+                    .place__fields.place__fields_align-start
+                      .place__input-wrap
+                        .input
+                          label(for="place1") Объявленная ценность 
+                          input(type="text" placeholder="Город отправки" id="place1")
+                        
+                        .input-text
+                          p От 0 до 200 000 сом, влияет на стоимость доставки и размер компенсации за утерю или повреждение посылки. Указывайте только реальную стоимость.
+                              
+                         
+                      .place__input-wrap
+                        label(for="place1") Габариты
+                        .place__select 
+                    
+                          .select.select_img
+                            .select__selected.select-js
+                              input(type="hidden").select-input
+                              .select__selected-label Размер посылки
+                              
+                              .select__arrow
+                                .icon.icon_stroke 
+                                  svg
+                                    use(xlink:href='sprite.svg#angle-down')
+
+                            .select__dropdown
+                              .select__tab.tab-js
+                                ul.tabs-js
+                                  li(data-tab-id="tab-size1")
+                                    span Примерно    
+                                  li(data-tab-id="tab-size2")
+                                    span Точные размеры
+
+                                .tab_content-js
+                                  .tabs_item-js(data-tab-id="tab-size1")
+                                    .vertical-scroll        
+                                      each item in selecSize      
+                                        .select__option(data-text=item.label data-id=item.id)
+                                          .select__option-item
+                                            .select__option-img
+                                              img(src=`images/dist/${item.img}`, alt=item.label)
+                                          
+                                          .select__option-item
+                                            
+                                            .select__option-label=item.label
+                                            
+                                            i.select__option-size=item.size
+
+                                            p.select__option-desc=item.desc
+                                  .tabs_item-js(data-tab-id="tab-size2")
+                                    form(action="#")
+                                      .select__fieldset
+                                        each item in ['Длина, см','Ширина, см','Высота, см','Вес, кг']
+                                          .input 
+                                            input(type="text" placeholder=item) 
+                                        button.btn.btn_accent.btn_full-width Рассчитать         
+
+            .calculator-form__grid2 
+              .title.title_h3 Стоимость доставки
+
+              .calculator-form__rates
+                .calculator-form__rate-item.active 
+                  .calculator-form__rate-top 
+                    .calculator-form__rate-title До пункта выдачи
+                    .calculator-form__rate-price 276 сом
+                  .calculator-form__rate-desc
+                    p Доставка от пункта приема до пункта выдачи, 3 - 4 рабочих дня 
+
+                  .calculator-form__rate-mark
+                    p *Без учета дня приема
+                
+                .calculator-form__rate-item
+                  .calculator-form__rate-top 
+                    .calculator-form__rate-title До двери
+                    .calculator-form__rate-price 676.80 сом
+                  .calculator-form__rate-desc
+                    p Доставка от пункта приема до пункта выдачи, 3 - 4 рабочих дня 
+
+                  .calculator-form__rate-mark
+                    p *Без учета дня приема
+              
+              button.btn.btn_accent.btn_full-width Оформить посылку    
+            
+            //- .calculator-form__grid3
+              .title.title_h3 Упаковка в отделениях Alay Express 
+              .calculator-form__additional-info
+                .radial-block.radial-block_gray
+                  h2.calculator-form__additional-title
+                    span Фирменная коробка: 
+                    | Оплачивается в пункте приема
+
+                  .calculator-form__additional-cols-wrap
+                    .calculator-form__additional-col
+                      .calculator-form__additional-table-size 
+                        .calculator-form__additional-table-row 
+                          .calculator-form__additional-table-th Размер:
+                          .calculator-form__additional-table-td 26 × 18 × 9 
+                            span (S)
+                          .calculator-form__additional-table-td 30 × 23 × 16 
+                            span (М)
+                          .calculator-form__additional-table-td 42 × 36 × 27 
+                            span (XL)
+                        .calculator-form__additional-table-row 
+                          .calculator-form__additional-table-th Цена:
+                          .calculator-form__additional-table-td 120 сом
+                          .calculator-form__additional-table-td 140 сом
+                          .calculator-form__additional-table-td 255 сом
+
+                    .calculator-form__additional-col
+                      .calculator-form__additional-img
+                        picture 
+                          source(media="(max-width: 767px)", srcset="images/dist/calculator-mobile.webp")
+                          img(src="images/dist/calculator.webp", alt="")
+
+
+                  h2.calculator-form__additional-title
+                    span Бесплатная упаковка: 
+                    | Курьерский пакет, картонный конверт, собственная упаковка

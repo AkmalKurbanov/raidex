@@ -1,0 +1,37 @@
+.social
+  ul
+    @include aic
+    padding: 0
+    margin: 0
+
+    li
+      margin-right: rem(16)
+      margin-bottom: 0
+      list-style: none
+
+      a
+        max-width: rem(32)
+        min-width: rem(32)
+        height: rem(32)
+        width: 100%
+        @include aic-jcc
+        border-radius: 100%
+
+        .icon
+          &_stroke
+            stroke: white
+            stroke-width: 1.5
+
+          &_fill
+            fill: white
+
+      &:last-child
+        margin-right: 0
+
+  &_accent
+    a
+      background: $accent
+
+  &_dark
+    a
+      background: $secondary

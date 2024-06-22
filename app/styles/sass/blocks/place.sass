@@ -1,0 +1,124 @@
+.place
+
+  &_on-front
+    .place__inner
+
+      @include md
+        display: flex
+        justify-content: space-between
+
+      .btn
+        margin-top: rem(20)
+        display: flex
+        width: 100%
+
+        @include md
+          width: auto
+          display: inline-flex
+
+        &.btn_full-width
+          @include lg
+            min-width: 100%
+
+    .place__input-wrap
+      @include lg
+        width: 100%
+
+    .place__fields
+      @include md
+        display: flex
+        flex-direction: row
+        margin-bottom: 0
+
+      @include lg
+        width: 100%
+        margin-right: rem(16)
+
+      .place__input-wrap
+        &:first-child
+          @include md
+            margin-right: rem(10)
+
+          @include lg
+            margin-right: 0
+
+    .place__select
+      @include md
+        margin: 0 rem(10)
+        margin-top: rem(20)
+        width: 100%
+
+      @include lg
+        min-width: rem(270)
+        margin-right: rem(16)
+        margin-top: rem(20)
+
+    .input
+      @include lg
+        padding-top: rem(20)
+
+      label
+        @include lg
+          position: absolute
+          top: 0
+  
+  &__fields
+    margin-bottom: rem(20)
+
+    @include lg
+      @include aic-jfcsb
+
+    &_align-start
+      @include lg
+        @include aifs-jfcsb
+
+      .input-text
+        margin-top: rem(12)
+        p
+          line-height: rem(18)
+
+  &__input-wrap
+    margin-bottom: rem(20)
+
+    &:last-child
+      margin-bottom: 0
+
+    @include lg
+      margin-bottom: 0
+
+  &__switcher
+    max-width: rem(28)
+    min-width: rem(28)
+    width: 100%
+    height: rem(28)
+    background: $accent
+    @include aic-jcc
+    border-radius: rem(10)
+    cursor: pointer
+    display: none
+
+    @include lg
+      display: flex
+      margin: 0 rem(16)
+
+  &__city-list
+    margin: 0
+    margin-top: rem(8)
+    padding: 0
+    @include aic
+
+    li
+      text-decoration: underline
+      list-style: none
+      margin-right: rem(16)
+
+      &:hover
+        color: $accent
+        a
+          color: $accent
+
+      a
+        color: $secondary
+
+      &:last-child
+        margin-right: 0

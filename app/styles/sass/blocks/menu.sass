@@ -1,0 +1,101 @@
+.menu
+  position: fixed
+  padding-top: rem(56)
+  width: 100%
+  background: #F8F7FA
+  margin-bottom: rem(30)
+  transition: $transition
+  opacity: 0 
+  z-index: 20
+  height: 100%
+  top: 100%
+  bottom: 0
+
+  @include xs
+    padding-top: rem(94)
+
+  .container
+    height: 100%
+
+  &__inner
+    @include fdc-jfcsb
+    padding-top: rem(20)
+    height: 100%
+
+  &__inner-item
+    
+    &.vertical-scroll
+      overflow-y: auto
+      height: 100%
+    
+    .mCSB_container
+      @include fdc-jfcsb
+
+    &:last-child
+      padding: rem(15) 0 rem(40)
+
+
+  .form__sing-in-up
+    margin-top: rem(24)
+
+
+  &__nav-list,
+  &__list
+    padding: 0
+    list-style: none
+
+  &__nav-list
+    margin-top: rem(20)
+    margin-bottom: rem(30)
+
+  &__nav-item
+    margin-bottom: rem(30)
+
+    &:last-child
+      margin-bottom: 0
+  
+  &__list-link,
+  &__nav-link
+    font-size: rem(15)
+    text-decoration: none
+    @include aic
+    cursor: pointer
+    transition: $transition 
+    
+    &:hover
+      color: $accent
+
+  &__nav-link
+    color: black
+    font-weight: 700
+    
+    .icon
+      margin-right: rem(12)
+
+      &_stroke
+        stroke: $accent
+        stroke-width: 1.5
+
+      &_fill
+        fill: $accent
+
+  &__list
+    margin: 0 0 rem(60)
+
+  &__list-item
+    margin-bottom: rem(12)
+
+    &:last-child
+      margin-bottom: 0
+
+  &__list-link
+    color: $secondary
+
+  &.open
+    opacity: 1
+    top: 0
+
+  &_log-reg
+    .menu__inner-item_bottom
+      .menu__list
+        margin-bottom: 0  

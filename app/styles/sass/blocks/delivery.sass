@@ -1,0 +1,111 @@
+.delivery
+  &__inner
+    
+    @include xs
+      display: flex
+      flex-direction: column
+    
+    @include sm
+      flex-direction: row
+
+  &__col
+    width: 100%
+
+    &:first-child
+      margin-right: rem(8)
+      margin-bottom: rem(16)
+
+      @include sm
+        margin-bottom: 0
+
+      @include md
+        margin-right: rem(16)
+
+    &:last-child
+      @include sm
+        max-width: rem(315)
+
+  &__item
+    border-radius: rem(12)
+    padding: rem(16)
+    background: #F8F7FA
+    height: 100%
+
+    &_img
+      background: #DEF1EF
+      display: flex
+      flex-direction: column-reverse
+      align-items: center
+      text-align: center
+
+      @include xs
+        flex-direction: row
+        align-items: flex-start
+        justify-content: space-between
+        text-align: left
+
+      @include sm
+        flex-direction: column-reverse
+        align-items: center
+        text-align: center
+
+      @include md
+        flex-direction: row
+        text-align: left
+        align-items: flex-start
+
+  &__item-img
+    max-width: rem(134)
+    width: 100%
+    
+    @include md
+      margin-top: rem(15)
+      
+
+  &__item-title
+    margin-bottom: rem(16)
+    font-weight: 700
+    color: black
+
+    @include lg
+      font-size: rem(16)
+
+  &__pvz-list
+    @include aic
+    margin-top: rem(16)
+    flex-wrap: wrap
+    justify-content: center
+
+    @include md
+      justify-content: flex-start
+
+  &__pvz-item
+    margin-right: rem(24)
+    width: auto
+    margin-bottom: rem(8)
+
+    @include xs
+      margin-right: 0
+      width: 33%
+
+    @include sm
+      margin-right: rem(15)
+      margin-bottom: rem(16)
+      width: auto
+
+    @include md
+      margin-bottom: 0
+
+    @include lg
+      margin-right: rem(32)
+
+    &:last-child
+      margin-right: 0
+
+    &:nth-last-child(-n+2)
+      @include sm
+        margin-bottom: 0
+
+    img
+      width: auto
+      // height: auto

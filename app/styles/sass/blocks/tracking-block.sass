@@ -1,0 +1,313 @@
+.tracking-block
+  &__inner
+
+    @include sm
+      @include aistr
+
+  &__item
+    position: relative
+    padding: 0
+    max-height: rem(200)
+    min-height: rem(200)
+
+    @include md
+      max-height: rem(280)
+      min-height: rem(280)
+
+    @include lg
+      max-height: rem(340)
+      min-height: rem(340)
+
+    &:first-child
+      background: #DEF1EF
+      overflow: hidden
+      // border: rem(1) solid #DEF1EF
+      margin-bottom: rem(12)
+
+      @include xs
+        margin-bottom: rem(16)
+
+      @include sm
+        margin-bottom: 0
+
+    &:last-child
+      padding: rem(16)
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+      min-height: auto
+      max-height: none
+
+      @include sm
+        max-width: rem(250)
+        min-width: rem(250)
+        margin-left: rem(15)
+        padding: rem(15)
+
+      @include md
+        max-width: rem(300)
+        min-width: rem(300)
+        margin-left: rem(20)
+        padding: rem(20)
+
+      @include lg
+        max-width: rem(360)
+        min-width: rem(360)
+        margin-left: rem(30)
+        padding: rem(28)
+
+      .tracking-block__item-title
+        @include lg
+          font-size: rem(40)
+          line-height: rem(48)
+          margin-bottom: rem(24)
+
+      .tracking-block__item-desc
+        @include lg
+          margin-bottom: rem(10)
+
+    .swiper
+      height: 100%
+      .swiper-pagination
+        top: auto
+        bottom: 0
+        padding-bottom: rem(8)
+
+        .swiper-pagination-bullet
+          opacity: .1
+          width: rem(6)
+          height: rem(6)
+          margin: 0 rem(3)
+
+          @include lg
+            width: rem(9)
+            height: rem(9)
+            margin: 0 rem(5)
+
+        .swiper-pagination-bullet-active
+          background: $accent
+          opacity: 1
+
+  &__sms-code
+    color: white
+    transition: $transition
+    text-decoration: none
+    position: relative
+    display: inline-block
+    padding-bottom: rem(3)
+    margin-top: rem(15)
+
+    @include sm
+      font-size: rem(16)
+      margin-top: rem(15)
+
+    @include md
+      font-size: rem(18)
+      margin-top: rem(25)
+
+    &:after
+      position: absolute
+      content: ''
+      width: 100%
+      height: rem(1)
+      left: 0
+      bottom: 0
+      background: white
+      opacity: 1
+      transition: $transition
+
+    &:hover
+      &::after
+        opacity: 0
+
+  &__slider-item
+    background: #f8f7fa
+
+  &__slider-item-inner
+    @include aistr-jfcsb
+    text-decoration: none
+    max-height: rem(200)
+    min-height: rem(200)
+
+    @include md
+      max-height: rem(280)
+      min-height: rem(280)
+
+    @include lg
+      max-height: rem(340)
+      min-height: rem(340)
+
+  &__slider-col
+
+    &:first-child
+      // min-width: rem(190)
+      // max-width: rem(190)
+      padding: rem(16) 0 rem(25) rem(16)
+      display: flex
+      flex-direction: column
+      justify-content: center
+      width: 50%
+      @include xs
+        padding: rem(20) 0 rem(20) rem(20)
+        min-width: 57%
+        max-width: 57%
+
+      @include lg
+        padding: rem(40) 0 rem(40) rem(40)
+
+    &:last-child
+      // min-width: rem(139)
+      // max-width: rem(139)
+      padding: rem(16) 0
+      @include aic-jcc
+      width: 50%
+      @include xs
+        padding: rem(20) rem(20) rem(20) 0
+        min-width: 43%
+        max-width: 43%
+
+      
+
+    &_modify
+      position: relative
+
+      &::before
+        position: absolute
+        content: ''
+        width: calc( 100% + 25px )
+        height: 100%
+        top: 0
+        left: rem(-15)
+        transform: skew(-12deg)
+        background: white
+        
+        @include xs
+          width: calc( 100% + 50px )
+          left: rem(-70)
+        
+        @include sm
+          width: calc( 100% + 50px )
+          left: rem(-65)
+
+  &__slider-img
+    min-width: rem(123)
+    max-width: rem(123)
+    min-height: rem(160)
+    max-height: rem(160)
+    @include aic-jcc
+    position: relative
+
+    @include md
+      min-width: rem(228)
+      max-width: rem(228)
+      min-height: rem(250)
+      max-height: rem(250)
+
+    @include lg
+      min-width: rem(268)
+      max-width: rem(268)
+      min-height: rem(290)
+      max-height: rem(290)
+
+    img
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      width: 100%
+      height: 100%
+      object-fit: contain
+      object-position: center
+
+  &__item-title
+    font-size: rem(18)
+    line-height: rem(21)
+    font-weight: 700
+    margin-bottom: rem(8)
+    color: $accent
+    position: relative
+
+    @include md
+      font-size: rem(28)
+      line-height: rem(34)
+      margin-bottom: rem(24)
+
+    @include lg
+      font-size: rem(32)
+      line-height: rem(38)
+      margin-bottom: rem(30)
+
+  &__item-desc
+    color: $secondary
+    position: relative
+    font-size: rem(11.5)
+    line-height: normal
+    br
+      display: none
+
+      @include xs
+        display: block
+        
+    @include sm
+      font-size: rem(12)
+
+    @include md
+      font-size: rem(16)
+      line-height: rem(20)
+
+    @include lg
+      font-size: rem(18)
+      line-height: rem(24)
+
+  &__input
+    margin-top: rem(8)
+
+    .input
+      position: relative
+
+      input
+        height: rem(48)
+        background: white
+        border-radius: rem(8)
+        padding-right: rem(50)
+        font-size: rem(16)
+
+        @include sm
+          font-size: rem(13)
+
+        @include md
+          font-size: rem(14)
+
+        @include lg
+          font-size: rem(16)
+
+      button
+        position: absolute
+        min-width: rem(40)
+        max-width: rem(40)
+        width: 100%
+        height: rem(40)
+        border-radius: rem(6)
+        border: rem(1) solid #DBDADE
+        right: rem(4)
+        top: 50%
+        transform: translateY(-50%)
+        background: white
+        cursor: pointer
+        transition: $transition
+
+        .icon
+          &_stroke
+            stroke: #CE244B
+            stroke-width: 1.5
+
+        &:hover
+          background: $accent
+          border-color: $accent
+          
+          .icon
+            &_stroke
+              stroke: white
+            &_fill
+              fill: white

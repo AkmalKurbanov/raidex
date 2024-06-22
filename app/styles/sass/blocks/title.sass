@@ -1,0 +1,60 @@
+.title-wrap
+  margin-bottom: rem(24)
+  
+  @include xs
+    margin-bottom: rem(45)
+
+.title
+  font-weight: 700
+
+  &_h2
+    font-size: rem(23)
+    color: black
+    line-height: rem(28)
+
+    @include sm
+      font-size: rem(25)
+      line-height: rem(32)
+
+    @include md
+      font-size: rem(30)
+      line-height: rem(36)
+
+    @include lg
+      font-size: rem(40)
+      line-height: rem(46)
+
+  &_h3
+    font-size: rem(24)
+    color: black
+    line-height: rem(28.8)
+
+  &_h4
+    font-size: rem(16)
+    color: black
+    
+    @include md
+      font-size: rem(18)
+      line-height: rem(24)
+  
+  &_centered
+    text-align: center
+
+.subtitle
+  margin-top: rem(8) 
+  color: $secondary
+  
+  @include sm 
+    font-size: rem(15) 
+    margin-top: rem(13)
+
+  @include md 
+    font-size: rem(16) 
+    margin-top: rem(14) 
+
+  @include lg 
+    font-size: rem(18) 
+    margin-top: rem(16) 
+
+  &_centered  
+    text-align: center      

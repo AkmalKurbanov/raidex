@@ -1,0 +1,29 @@
+mixin social(kind)
+  if kind == 'accent'
+    .social.social_accent
+      ul
+        each item in social 
+          li 
+            a(href=item.link)
+              if item.kindIcon == 'stroke'
+                .icon.icon_stroke
+                  svg
+                    use(xlink:href='sprite.svg#'+item.icon)
+              if item.kindIcon == 'fill'
+                .icon.icon_fill
+                  svg
+                    use(xlink:href='sprite.svg#'+item.icon)
+  if kind == 'dark'
+    .social.social_dark
+      ul
+        each item in social 
+          li 
+            a(href=item.link)
+              if item.kindIcon == 'stroke'
+                .icon.icon_stroke
+                  svg
+                    use(xlink:href='sprite.svg#'+item.icon)
+              if item.kindIcon == 'fill'
+                .icon.icon_fill
+                  svg
+                    use(xlink:href='sprite.svg#'+item.icon)

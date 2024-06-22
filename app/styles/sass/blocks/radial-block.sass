@@ -1,0 +1,51 @@
+.radial-block
+  border-radius: rem(12)
+  padding: rem(16)
+  // overflow: hidden
+  background: white
+
+
+  &__link-wrap
+
+    a
+      font-weight: 700
+      display: inline-flex
+      align-items: center
+      margin-right: rem(35)
+      margin-bottom: rem(5)
+
+      &:last-child
+        margin-right: 0
+
+      .icon
+        max-width: rem(16) 
+        min-width: rem(16)
+        height: rem(16) 
+        margin: 0 rem(5)
+  
+
+  &__title
+    font-size: rem(16)
+    color: black
+    font-weight: 700
+    
+
+  &_accent
+    background: #DEF1EF
+
+  &_gray
+    background: #F8F7FA
+
+
+
+  &_gradient
+    background: linear-gradient(180deg, #CE244B 0%, #450305 100%)
+    
+    .tracking-block__item-title,
+    .tracking-block__item-desc
+      color: white
+
+  &_shadow
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15)
+    background: white
+

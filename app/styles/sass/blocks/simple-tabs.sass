@@ -1,0 +1,59 @@
+.simple-tabs
+  padding-bottom: rem(8)
+  width: 100%
+  
+
+  .line-runner
+    position: absolute
+    height: rem(2)
+    background: $accent
+    transition: $transition
+    bottom: 0
+
+
+  ul
+    padding: 0
+    @include aife
+    justify-content: center
+    width: 100%
+    
+    @include sm
+      justify-content: flex-start
+
+    li
+      list-style: none
+      margin-right: rem(30)
+      color: black
+      line-height: rem(24)
+      transition: $transition
+      text-decoration: none
+      cursor: pointer
+      font-size: rem(18)
+
+      @include md
+        margin-right: rem(40)
+
+      &:last-child
+        margin-right: 0
+      
+      &:hover
+        color: $accent
+
+      *
+        color: black
+        line-height: rem(24)
+        transition: $transition
+        text-decoration: none
+
+        @include md
+          font-size: rem(18)
+
+        &:hover
+          color: $accent
+
+      &.active
+        color: $accent
+
+        *
+          color: $accent
+              

@@ -1,0 +1,715 @@
+.calculator
+  margin-top: rem(32)
+
+  &__form-tab
+    position: relative
+    padding-bottom: rem(68)
+
+    .tabs
+      list-style: none
+      padding: 0 rem(15)
+      @include aife
+
+      li
+        margin-right: rem(10)
+
+        &:last-child
+          margin-right: 0
+
+      &__top-level
+        position: absolute
+        bottom: 0
+        width: 100%
+        left: 50%
+        transform: translateX(-50%)
+        right: 0
+
+        @include sm
+          position: relative
+          width: auto
+          transform: none
+          left: auto
+          right: auto
+
+        a
+          box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15)
+          border-radius: rem(8)
+          min-height: rem(44)
+          max-height: rem(44)
+          padding: rem(10) rem(16)
+          @include aic-jcc
+          text-align: center
+          background: #F8F7FA
+          text-decoration: none
+          color: $secondary
+
+          @include sm
+            border-radius: rem(12) rem(12) 0 0
+            box-shadow: none
+
+          .icon
+            margin-right: rem(8)
+
+            &_stroke
+              stroke: $secondary
+              stroke-width: 1.5
+
+            &_fill
+              fill: $secondary
+
+          &:hover
+            background: $accent
+            color: white
+
+            .icon
+              &_stroke
+                stroke: white
+
+              &_fill
+                fill: white
+
+        &.current
+          position: relative
+          width: auto
+          left: auto
+          transform: none
+          pointer-events: none
+
+          a
+            background: $accent
+            color: white
+            border-radius: rem(12) rem(12) 0 0
+            box-shadow: none
+
+            .icon
+              &_stroke
+                stroke: white
+
+              &_fill
+                fill: white
+
+.calculator-form
+  .title
+    margin-bottom: rem(24)
+
+  .place__fields_align-start
+    margin-bottom: 0
+
+  &__inner
+    border-radius: rem(12)
+    padding: rem(24) rem(16)
+    background: #F4F4F4
+    // box-shadow: 0px 8px 12px 0px rgba(0, 54, 159, 0.07)
+
+    @include lg
+      border-radius: rem(16)
+      padding: rem(32) rem(16)
+
+  &__grid-wrap
+
+    @include sm
+      // @include aistr-jfcsb
+      display: grid
+      grid-template-columns: 1fr 1fr
+      height: 100%
+      gap: rem(16)
+
+    @include md
+      gap: rem(24)
+
+    @include lg
+      gap: rem(32)
+
+  &__grid1
+    grid-row-start: 1
+    grid-column-start: 1
+    grid-row-end: 2
+    grid-column-end: 2
+    width: 100%
+    margin-bottom: rem(30)
+
+    @include sm
+      max-width: 100%
+      min-width: 100%
+      margin: 0
+
+    @include md
+      max-width: rem(600)
+      min-width: rem(600)
+
+    @include lg
+      max-width: rem(740)
+      min-width: rem(740)
+
+  &__grid2
+    grid-row-start: 1
+    grid-column-start: 2
+
+    grid-row-end: 2
+    grid-column-end: 3
+    width: 100%
+    margin-bottom: rem(30)
+
+    @include sm
+      max-width: 100%
+      min-width: 100%
+      margin: 0
+
+    @include md
+      max-width: rem(275)
+      min-width: rem(275)
+
+    @include lg
+      max-width: rem(335)
+      min-width: rem(335)
+
+  &__grid3
+    grid-row-start: 2
+    grid-column-start: 1
+
+    grid-row-end: 3
+    grid-column-end: 3
+
+    @include sm
+      max-width: 100%
+      min-width: 100%
+
+    @include lg
+      max-width: rem(740)
+      min-width: rem(740)
+
+  // &__col
+    &:first-child
+      margin-bottom: rem(32)
+
+      @include lg
+        width: 67%
+
+    &:last-child
+      @include lg
+        width: calc( 33% - 32px )
+
+  .place__input-wrap
+    width: 100%
+
+    @include lg
+      max-width: rem(340)
+
+  &__additional-info
+    .radial-block
+      background: none
+      padding: 0
+      display: block
+
+      @include sm
+        background: #F8F7FA
+        padding: rem(16)
+
+  &__additional-cols-wrap
+    margin: rem(20) 0
+
+    @include sm
+      margin: 0
+      @include aic
+
+  &__additional-col
+
+    &:first-child
+      margin-bottom: rem(30)
+
+      @include sm
+        margin-right: rem(18)
+        margin-bottom: 0
+
+  &__additional-title
+    font-size: rem(16)
+
+    @include sm
+      font-size: rem(13)
+
+    span
+      color: $accent
+      font-weight: 700
+
+      @include sm
+        font-size: rem(16)
+
+  &__additional-img
+    width: 100%
+    @include aic-jcc
+    max-width: rem(285)
+
+    @include sm
+      max-width: rem(130)
+
+  &__additional-table-size
+    @include aifs
+    width: 100%
+
+    @include sm
+      display: block
+
+  &__additional-table-row
+    width: 50%
+
+    @include sm
+      width: auto
+      @include aic
+
+    &:first-child
+      .calculator-form__additional-table-th,
+      .calculator-form__additional-table-td
+
+        @include sm
+          padding-top: 0
+
+      .calculator-form__additional-table-td
+        font-weight: 700
+
+  &__additional-table-th
+    min-width: rem(75)
+    border-bottom: rem(1) solid #F8F7FA
+    padding-top: rem(8)
+    padding-bottom: rem(8)
+
+    @include sm
+      padding-top: rem(12)
+      padding-bottom: 0
+      border: none
+
+  &__additional-table-td
+    color: black
+    position: relative
+    border-bottom: rem(1) solid #F8F7FA
+    padding-top: rem(8)
+    padding-bottom: rem(8)
+
+    @include sm
+      padding: rem(6) rem(12) 0 rem(12)
+      border: none
+      min-width: rem(125)
+      text-align: center
+
+    @include md
+      padding: rem(12) rem(24) 0 rem(24)
+      min-width: rem(150)
+
+    &::after
+      position: absolute
+      content: ''
+      width: rem(1)
+      height: calc( 100% + 4px )
+      background: #D9D9D9
+      right: 0
+      top: 0
+      display: none
+
+      @include sm
+        display: block
+
+    &:last-child
+      border: none
+
+      &::after
+        display: none
+
+    span
+      color: $accent
+
+  &__rate-item
+    padding: rem(16)
+    transition: $transition
+    background: white
+    border-radius: rem(12)
+    margin-bottom: rem(12)
+    cursor: pointer
+
+    @include md
+      margin-bottom: rem(16)
+
+    &.active
+      background: $accent
+      *
+        color: white
+
+  &__rate-top
+    @include aifs-jfcsb
+    margin-bottom: rem(8)
+
+  &__rate-title
+    font-size: rem(16)
+    font-weight: 700
+    transition: $transition
+
+  &__rate-price
+    font-size: rem(18)
+    font-weight: 700
+    transition: $transition
+
+  &__rate-desc
+    margin-bottom: rem(8)
+    p
+      line-height: rem(18)
+      transition: $transition
+
+  &__rate-mark
+    p
+      font-size: rem(10)
+      line-height: rem(20)
+      transition: $transition
+
+.calc-range
+  background: white
+  border-radius: rem(12)
+  padding: rem(20)
+
+  @include sm
+    padding: rem(24)
+    border-radius: rem(16)
+
+  &__tab
+    .mCSB_container
+      padding-bottom: rem(20)
+      @include aifs-jfcsb
+      margin: 0!important
+    
+    .mCSB_dragger
+      opacity: 0
+
+  &__tabs
+    padding: 0
+    position: relative
+
+    &::after
+      position: absolute
+      content: ''
+      left: 0
+      right: 0
+      bottom: rem(19)
+      width: 100%
+      height: rem(1)
+      background: #E1E1E1
+
+    li
+      list-style: none
+      margin-right: rem(25)
+      position: relative
+      cursor: pointer
+      position: relative
+      z-index: 1
+
+      &:after
+        position: absolute
+        content: ''
+        width: 0
+        left: 50%
+        transform: translateX(-50%)
+        height: rem(3)
+        bottom: rem(-1)
+        background: $accent
+        transition: $transition
+        opacity: 0
+
+      a
+        text-decoration: none
+        color: $secondary
+        font-size: rem(14)
+
+      &:hover,
+      &.current
+        &::after
+          width: 100%
+          opacity: 1
+
+      &.disabled
+        filter: grayscale(1)
+        pointer-events: none
+        opacity: 0.7
+
+      &:last-child
+        margin-right: 0
+
+  &__country
+    padding-bottom: rem(15)
+
+  &__flag
+    margin-bottom: rem(10)
+
+  &__info
+    color: #888687
+    margin-bottom: rem(40)
+
+    @include sm
+      font-size: rem(16)
+
+  .btn-wrap
+    margin-top: rem(32)
+
+    .btn
+      width: 100%
+
+      @include sm
+        width: auto
+
+    @include sm
+      position: absolute
+      top: 100%
+      left: 50%
+      transform: translateX(-50%)
+
+.calculate-delivery
+
+  .swiper
+    padding-bottom: rem(25)
+    padding-top: rem(10)
+    @include aic
+
+    .swiper-wrapper
+      height: auto
+
+    .swiper-slide
+      @media (max-width: 1199px)
+        width: auto!important
+
+  &__item
+    display: flex
+    flex-direction: column
+
+  .ui-widget.ui-widget-content
+    border: none
+    background: $accent
+    height: rem(2)
+    border-radius: rem(2)
+
+  .ui-widget-header
+    background: none
+
+  .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active
+    background: white
+    border: none
+    border-radius: 100%
+    width: rem(28)
+    height: rem(28)
+    top: 50%
+    transform: translateY(-50%)
+    outline: none
+    border: rem(1) solid $accent
+
+    @include xs
+      width: rem(20)
+      height: rem(20)
+
+  
+
+  &__calc
+    width: calc( 100% - 40px )
+    z-index: 19
+    margin: auto
+    order: 3
+
+    @include xs
+      width: 100%
+
+  &__weight-sum-wrap
+    @include aic-jfcsb
+    margin-bottom: rem(30)
+    order: 1
+
+    @include sm
+      margin-bottom: rem(45)
+
+  &__weight
+    display: inline-flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: flex-start
+
+  &__currency
+    text-align: right
+
+  &__weight-lbs,
+  &__currency
+    
+    min-height: rem(35)
+
+    @include sm
+      font-size: rem(15)
+
+  &__weight-kg
+    background: $accent
+    border-radius: rem(16)
+    display: inline-block
+    padding: 0 rem(12)
+
+  &__weight-kg input,
+  &__price
+    font-weight: 700
+    display: inline-block
+    height: rem(55)
+    line-height: rem(55)
+
+    @include sm
+      line-height: rem(75)
+      line-height: rem(75)
+
+  &__price
+    color: $accent
+    font-size: rem(40)
+
+    @include sm
+      font-size: rem(60)
+
+  &__weight-kg input
+    border: none
+    outline: none
+    width: auto
+    display: inline-block
+    color: white
+    background: transparent
+    height: rem(55)
+    font-size: rem(40)
+    width: rem(130)
+
+    @include sm
+      width: rem(150)
+      height: rem(75)
+      font-size: rem(55)
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button
+      -webkit-appearance: none
+      -moz-appearance: textfield
+      margin: 0
+
+  &__icon-wrap
+    position: relative
+    order: 2
+    margin-bottom: rem(20)
+
+    @include sm
+      order: 3
+      margin-top: rem(20)
+      margin-bottom: 0
+
+    // &:before,
+    // &:after
+    //   position: absolute
+    //   content: ''
+    //   width: rem(40)
+    //   height: 100%
+    //   top: 0
+    //   bottom: 0
+    //   z-index: 1
+    //   pointer-events: none
+
+    //   @include xs
+    //     width: rem(20)
+
+    // &:before
+    //   left: 0
+    //   background: linear-gradient( to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0) )
+
+    // &:after
+    //   right: 0
+    //   background: linear-gradient( to right, rgba(255,255,255,0) 0%, rgba(255,255,255,1) )
+
+  &__icon-scroll
+    white-space: nowrap
+    // width: calc( 100% - 40px )
+    margin: auto
+    padding: 0
+
+    @include xs
+      width: 100%
+
+    .mCSB_container
+      @include aic-jfcsb
+      padding: rem(30) 0 rem(50)
+      border: none !important
+
+    .mCSB_scrollTools
+      bottom: 0
+
+    .mCustomScrollBox
+      padding-bottom: 0!important
+
+  &__icon-item
+    margin-right: rem(25)
+    color: #A3B1BB
+    text-align: center
+    cursor: pointer
+    // min-width: rem(74)
+    position: relative
+
+    &:first-child
+      .name
+        left: 0
+        transform: none
+    &:last-child
+      margin-right: 0
+
+    .icon
+      margin: auto
+      max-width: rem(30)
+      min-width: rem(30)
+      height: rem(30)
+
+      @include sm
+        max-width: rem(40)
+        min-width: rem(40)
+        height: rem(40)
+
+      svg
+        position: absolute
+        transition: all .1s
+        max-width: rem(30)
+        min-width: rem(30)
+        height: rem(30)
+
+        @include sm
+          max-width: rem(40)
+          min-width: rem(40)
+          height: rem(40)
+
+    .name
+      display: none
+      white-space: nowrap
+      position: absolute
+      left: 50%
+      top: calc( 100% + 10px )
+      transform: translateX(-50%)
+
+    &.active
+      pointer-events: none
+      color: $accent
+
+      .icon
+        svg
+          max-width: rem(40)
+          min-width: rem(40)
+          height: rem(40)
+
+          @include sm
+            max-width: rem(52)
+            min-width: rem(52)
+            height: rem(52)
+          
+          path
+            fill: $accent
+
+      .name
+        display: block
+
+.typical-block.pb-0
+  padding-bottom: 0
+
+#viewContainer
+  overflow-x: scroll
+  overflow-y: hidden
+  -webkit-overflow-scrolling: touch
+  white-space: nowrap
+
+.page
+  width: 120px
+  border: 1px solid red
+  display: inline-block

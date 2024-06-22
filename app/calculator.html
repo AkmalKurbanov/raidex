@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Калькулятор
+    </title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <meta name="theme-color" content="#005891">
+    <meta name="msapplication-navbutton-color" content="#005891">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#005891">
+    <link rel="stylesheet" href="css/app.min.css">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  </head>
+</html>
+<body>
+  <div class="preloader" id="preloader"> 
+    <div class="preloader__logo"> <img src="images/dist/logo-icon.svg" alt=""></div>
+  </div>
+  <div class="wrapper" id="top">
+    <div class="content">
+      <div class="menu menu-js"> 
+        <div class="container">
+          <div class="menu__inner">
+            <div class="menu__inner-item vertical-scroll">
+              <ul class="menu__nav-list">
+                <div class="menu__nav-item"> <a class="menu__nav-link" href="#calculator">Калькулятор</a><span class="menu__nav-link scroll-button" data-target="#calculator">Калькулятор</span></div>
+                <div class="menu__nav-item"> <a class="menu__nav-link" href="#warehouses">Склады</a><span class="menu__nav-link scroll-button" data-target="#warehouses">Склады</span></div>
+                <div class="menu__nav-item"> <a class="menu__nav-link" href="#redemption">Выкуп товара</a><span class="menu__nav-link scroll-button" data-target="#redemption">Выкуп товара</span></div>
+                <div class="menu__nav-item"> <a class="menu__nav-link" href="#stores">Магазины</a><span class="menu__nav-link scroll-button" data-target="#stores">Магазины</span></div>
+                <div class="menu__nav-item"> <a class="menu__nav-link" href="#reviews">Отзывы</a><span class="menu__nav-link scroll-button" data-target="#reviews">Отзывы</span></div>
+                <div class="menu__nav-item"> <a class="menu__nav-link" href="#faq">FAQ</a><span class="menu__nav-link scroll-button" data-target="#faq">FAQ</span></div>
+                <li><a class="menu__nav-link" href="https://alay.express/login" target="_blank">  <span>Личный кабинет </span></a></li>
+              </ul>
+            </div>
+            <div class="menu__inner-item menu__inner-item_bottom">
+              <ul class="menu__list">
+                <li class="menu__list-item"> <a class="menu__list-link" href="#">Запрещенные товары</a></li>
+                <li class="menu__list-item"> <a class="menu__list-link" href="#">Публичная оферта</a></li>
+                <li class="menu__list-item"> <a class="menu__list-link" href="#">Политика конфиденциальности</a></li>
+              </ul><a class="btn btn_accent btn_full-width" href="#">Войти</a>
+              <div class="form__sing-in-up">
+                <p>Впервые у нас? </p><a href="#">Зарегистрироваться</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <header class="header">
+        <div class="header__top"> 
+          <div class="header__top-inner">
+            <div class="swiper header-top-js">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="header__top-item"> 
+                    <p>Уроки шоппинга в Европе на нашем <a href='https://www.youtube.com/@Alay_Express' target='_blank'> YouTube канале!</a></p>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="header__top-item"> 
+                    <p>Акция! Бесплатная доставка на каждую пятую посылку!</p>
+                  </div>
+                </div>
+              </div>
+              <div class="header__top-nav">
+                <div class="swiper-button-prev">
+                  <div class="icon icon_stroke">
+                    <svg>
+                      <use xlink:href="sprite.svg#arrow-long-left">       </use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="swiper-button-next">
+                  <div class="icon icon_stroke">
+                    <svg>
+                      <use xlink:href="sprite.svg#arrow-long-right">       </use>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="header__inner"> 
+            <div class="header__inner-item logo"> <a class="logo__link" href="index.html"><img src="images/dist/logo.svg" width="180" height="32" alt="logo"></a></div>
+            <div class="header__control-btns header__inner-item"><a class="header__control-icon header__control-icon_calc" href="calculator.html" target="blank">
+                <div class="icon icon_fill">
+                  <svg>
+                    <use xlink:href="sprite.svg#calc"></use>
+                  </svg>
+                </div>Калькулятор </a>
+              <div class="header__control-icon header__control-icon_login"><a class="btn btn_accent" href="https://alay.express/login" target="_blank">Войти </a></div>
+              <div class="header__control-icon header__control-icon_hamburger">
+                <div class="hamburger hamburger-js"><span></span><span></span><span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="content__inner">
+        <section>
+          <div class="calculator-form">
+            <div class="container">
+              <div class="calculator-form__inner">
+                <div class="calculator-form__grid-wrap">
+                  <div class="calculator-form__grid1">
+                    <div class="title title_h3">Параметры доставки</div>
+                    <form action=""> 
+                      <div class="place">
+                        <div class="place__inner">
+                          <div class="place__fields">
+                            <div class="place__input-wrap place-input-wrap-js">
+                              <div class="input">
+                                <label for="place1">Откуда </label>
+                                <input class="place-val-js" type="text" placeholder="Город отправки">
+                                <input class="place-hidden-val-js" type="hidden">
+                              </div>
+                              <ul class="place__city-list">
+                                <li><a class="place-js" href="#" data-id="Бишкек" data-value="Бишкек">Бишкек</a></li>
+                                <li><a class="place-js" href="#" data-id="Ош" data-value="Ош">Ош</a></li>
+                                <li><a class="place-js" href="#" data-id="Ташкент" data-value="Ташкент">Ташкент</a></li>
+                                <li><a class="place-js" href="#" data-id="Алматы" data-value="Алматы">Алматы</a></li>
+                              </ul>
+                            </div>
+                            <div class="place__switcher">
+                              <div class="icon">
+                                <svg stroke="white" stroke-width="1.5">
+                                  <use xlink:href="sprite.svg#arrow-double"></use>
+                                </svg>
+                              </div>
+                            </div>
+                            <div class="place__input-wrap place-input-wrap-js">
+                              <div class="input">
+                                <label for="place2">Куда </label>
+                                <input class="place-val-js" type="text" placeholder="Город получателя" id="place1">
+                                <input class="place-hidden-val-js" type="hidden">
+                              </div>
+                              <ul class="place__city-list">
+                                <li><a class="place-js" href="#" data-id="Алматы" data-value="Алматы">Алматы</a></li>
+                                <li><a class="place-js" href="#" data-id="Астана" data-value="Астана">Астана</a></li>
+                                <li><a class="place-js" href="#" data-id="Ташкент" data-value="Ташкент">Ташкент</a></li>
+                                <li><a class="place-js" href="#" data-id="Москва" data-value="Москва">Москва</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div><br><br>
+                      <div class="title title_h3">Информация о посылке</div>
+                      <div class="place">
+                        <div class="place__inner">
+                          <div class="place__fields place__fields_align-start">
+                            <div class="place__input-wrap">
+                              <div class="input">
+                                <label for="place1">Объявленная ценность </label>
+                                <input type="text" placeholder="Город отправки" id="place1">
+                              </div>
+                              <div class="input-text">
+                                <p>От 0 до 200 000 сом, влияет на стоимость доставки и размер компенсации за утерю или повреждение посылки. Указывайте только реальную стоимость.</p>
+                              </div>
+                            </div>
+                            <div class="place__input-wrap">
+                              <label for="place1">Габариты</label>
+                              <div class="place__select"> 
+                                <div class="select select_img">
+                                  <div class="select__selected select-js">
+                                    <input class="select-input" type="hidden">
+                                    <div class="select__selected-label">Размер посылки</div>
+                                    <div class="select__arrow">
+                                      <div class="icon icon_stroke"> 
+                                        <svg>
+                                          <use xlink:href="sprite.svg#angle-down"></use>
+                                        </svg>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="select__dropdown">
+                                    <div class="select__tab tab-js">
+                                      <ul class="tabs-js">
+                                        <li data-tab-id="tab-size1"><span>Примерно    </span></li>
+                                        <li data-tab-id="tab-size2"><span>Точные размеры</span></li>
+                                      </ul>
+                                      <div class="tab_content-js">
+                                        <div class="tabs_item-js" data-tab-id="tab-size1">
+                                          <div class="vertical-scroll">       
+                                            <div class="select__option" data-text="Конверт" data-id="id1">
+                                              <div class="select__option-item">
+                                                <div class="select__option-img"><img src="images/dist/envelope.webp" alt="Конверт"></div>
+                                              </div>
+                                              <div class="select__option-item">
+                                                <div class="select__option-label">Конверт</div><i class="select__option-size">42x35x5 см, до 2 кг</i>
+                                                <p class="select__option-desc">Маленькие предметы: документы, бижутерия, аксессуары</p>
+                                              </div>
+                                            </div>
+                                            <div class="select__option" data-text="Коробка XS" data-id="id2">
+                                              <div class="select__option-item">
+                                                <div class="select__option-img"><img src="images/dist/box.webp" alt="Коробка XS"></div>
+                                              </div>
+                                              <div class="select__option-item">
+                                                <div class="select__option-label">Коробка XS</div><i class="select__option-size">17x12x9 см, до 0.5 кг</i>
+                                                <p class="select__option-desc">Как коробка от смартфона: бижутерия, игрушки, гаджет</p>
+                                              </div>
+                                            </div>
+                                            <div class="select__option" data-text="Коробка S" data-id="id3">
+                                              <div class="select__option-item">
+                                                <div class="select__option-img"><img src="images/dist/box.webp" alt="Коробка S"></div>
+                                              </div>
+                                              <div class="select__option-item">
+                                                <div class="select__option-label">Коробка S</div><i class="select__option-size">23x19x10 см, до 2 кг</i>
+                                                <p class="select__option-desc">Как коробка от утюга</p>
+                                              </div>
+                                            </div>
+                                            <div class="select__option" data-text="Коробка M" data-id="id4">
+                                              <div class="select__option-item">
+                                                <div class="select__option-img"><img src="images/dist/box.webp" alt="Коробка M"></div>
+                                              </div>
+                                              <div class="select__option-item">
+                                                <div class="select__option-label">Коробка M</div><i class="select__option-size">33x25x15 см, до 5 кг</i>
+                                                <p class="select__option-desc">Чуть больше обувной коробки</p>
+                                              </div>
+                                            </div>
+                                            <div class="select__option" data-text="Большая коробка, ящик" data-id="id5">
+                                              <div class="select__option-item">
+                                                <div class="select__option-img"><img src="images/dist/box.webp" alt="Большая коробка, ящик"></div>
+                                              </div>
+                                              <div class="select__option-item">
+                                                <div class="select__option-label">Большая коробка, ящик</div><i class="select__option-size">60x60x30 см, до 20 кг</i>
+                                                <p class="select__option-desc">Набор посуды, домашний текстиль</p>
+                                              </div>
+                                            </div>
+                                            <div class="select__option" data-text="Тележка" data-id="id6">
+                                              <div class="select__option-item">
+                                                <div class="select__option-img"><img src="images/dist/telejka.webp" alt="Тележка"></div>
+                                              </div>
+                                              <div class="select__option-item">
+                                                <div class="select__option-label">Тележка</div><i class="select__option-size">100x100x50 см, до 50 кг</i>
+                                                <p class="select__option-desc">Большая посылка, например пылесос</p>
+                                              </div>
+                                            </div>
+                                            <div class="select__option" data-text="Палета" data-id="id7">
+                                              <div class="select__option-item">
+                                                <div class="select__option-img"><img src="images/dist/paleta.webp" alt="Палета"></div>
+                                              </div>
+                                              <div class="select__option-item">
+                                                <div class="select__option-label">Палета</div><i class="select__option-size">120x120x80 см, до 200 кг</i>
+                                                <p class="select__option-desc">Крупный груз: крупная бытовая техника, домашняя библиотека</p>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="tabs_item-js" data-tab-id="tab-size2">
+                                          <form action="#">
+                                            <div class="select__fieldset">
+                                              <div class="input"> 
+                                                <input type="text" placeholder="Длина, см">
+                                              </div>
+                                              <div class="input"> 
+                                                <input type="text" placeholder="Ширина, см">
+                                              </div>
+                                              <div class="input"> 
+                                                <input type="text" placeholder="Высота, см">
+                                              </div>
+                                              <div class="input"> 
+                                                <input type="text" placeholder="Вес, кг">
+                                              </div>
+                                              <button class="btn btn_accent btn_full-width">Рассчитать         </button>
+                                            </div>
+                                          </form>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="calculator-form__grid2"> 
+                    <div class="title title_h3">Стоимость доставки</div>
+                    <div class="calculator-form__rates">
+                      <div class="calculator-form__rate-item active"> 
+                        <div class="calculator-form__rate-top"> 
+                          <div class="calculator-form__rate-title">До пункта выдачи</div>
+                          <div class="calculator-form__rate-price">276 сом</div>
+                        </div>
+                        <div class="calculator-form__rate-desc">
+                          <p>Доставка от пункта приема до пункта выдачи, 3 - 4 рабочих дня </p>
+                        </div>
+                        <div class="calculator-form__rate-mark">
+                          <p>*Без учета дня приема</p>
+                        </div>
+                      </div>
+                      <div class="calculator-form__rate-item">
+                        <div class="calculator-form__rate-top"> 
+                          <div class="calculator-form__rate-title">До двери</div>
+                          <div class="calculator-form__rate-price">676.80 сом</div>
+                        </div>
+                        <div class="calculator-form__rate-desc">
+                          <p>Доставка от пункта приема до пункта выдачи, 3 - 4 рабочих дня </p>
+                        </div>
+                        <div class="calculator-form__rate-mark">
+                          <p>*Без учета дня приема</p>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="btn btn_accent btn_full-width">Оформить посылку    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <section id="faq">
+      <div class="faq">
+        <div class="container">
+          <div class="title-wrap">
+            <h2 class="title title_h2 title_centered">Часто задаваемые вопросы</h2>
+          </div>
+          <div class="faq__list"> 
+            <div class="faq__item"> 
+              <div class="faq__question-wrap faq-js">
+                <h2 class="faq__question">Как зарегистрироваться на сервисе?</h2>
+                <div class="faq__question-trigger"> </div>
+              </div>
+              <div class="faq__answer"> 
+                <div class="faq__answer-content">
+                  <div class="faq__answer-item">
+                    <p>Чтобы начать пользоваться сервисом Alay Express, необходимо зарегистрировать аккаунт в нашей системе. Сделать это можно по адресу <a href='https://alay.express/'>www.alay.express.</a></p>
+                  </div>
+                  <div class="faq__answer-item">
+                    <p>Заполните нескольких простых полей, получите подтверждение на почту об успешной регистрации и можете приступать к работе. Для входа в систему используйте свой email и пароль, который указали при регистрации.</p>
+                  </div>
+                  <div class="faq__answer-item">
+                    <p>Обращаем ваше внимание, что одно физическое лицо может иметь один личный кабинет. При этом пользование одним личным кабинетом несколькими лицами возможно.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="faq__item"> 
+              <div class="faq__question-wrap faq-js">
+                <h2 class="faq__question">Где я могу покупать товары?</h2>
+                <div class="faq__question-trigger"> </div>
+              </div>
+              <div class="faq__answer"> 
+                <div class="faq__answer-content">
+                  <div class="faq__answer-item">
+                    <p>Вы можете покупать товары на любых сайтах стран, которые указаны на нашем сайте <a href='https://alay.express/'>www.alay.express.</a> Для вашего удобства мы составили список магазинов по всем категориям, где вы легко можете найти нужный вам товар.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="faq__item"> 
+              <div class="faq__question-wrap faq-js">
+                <h2 class="faq__question">Как начать делать покупки, и зачем мне ваш сервис?</h2>
+                <div class="faq__question-trigger"> </div>
+              </div>
+              <div class="faq__answer"> 
+                <div class="faq__answer-content">
+                  <div class="faq__answer-item">
+                    <p>Мы создали наш сервис, потому что многие магазины по миру не делают доставку в Кыргызстан. Связано это с разными причинами. Одни магазины не хотят ломать ценовую политику официальных представителей своих брендов. Другие не нашли надежных логистических партнеров, а некоторые просто ориентированы на внутренний рынок. Из-за большой конкуренции за рубежом почти на все брендовые товары цены лучше, поэтому онлайн-шопинг привлекает миллионы людей.</p>
+                  </div>
+                  <div class="faq__answer-item">
+                    <p>Из-за того что продавцы не отправляют напрямую товары в другие страны, кроме страны своего пребывания, вы можете воспользоваться нашим сервисом: заказать любимые товары в любом интернет-магазине и отправить к нам на склад. Мы примем заказы, объединим (если необходимо), уменьшим объем посылки. Вышлем вам, вашим друзьям или напрямую клиентам, если закупаете товар для своего магазина.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="faq__item"> 
+              <div class="faq__question-wrap faq-js">
+                <h2 class="faq__question">Как я пойму, что посылка пришла к вам на склад?</h2>
+                <div class="faq__question-trigger"> </div>
+              </div>
+              <div class="faq__answer"> 
+                <div class="faq__answer-content">
+                  <div class="faq__answer-item">
+                    <p>Как только мы добавим вашу посылку в систему, вы получите уведомление на почту.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="faq__item"> 
+              <div class="faq__question-wrap faq-js">
+                <h2 class="faq__question">Как я могу узнать сроки и стоимость доставки?</h2>
+                <div class="faq__question-trigger"> </div>
+              </div>
+              <div class="faq__answer"> 
+                <div class="faq__answer-content">
+                  <div class="faq__answer-item">
+                    <p>Рассчитать сроки и стоимость доставки можно на сайте Alay Express в разделе <a href='https://alay.kg/calculator' target='_blank'>«Калькулятор»</a>.</p>
+                  </div>
+                  <div class="faq__answer-item">
+                    <p>Необходимо:<br> <ul><li>Указать, откуда и куда будет отправлена посылка.</li><li>Выбрать упаковку для отправления – коробку, пакет или конверт.</li><li>Обозначить оценочную стоимость посылки.</li><ul></p>
+                  </div>
+                  <div class="faq__answer-item">
+                    <p>Alay Express принимает к отправке посылки весом до 30 кг. Вы можете отправить в адрес одного получателя одновременно несколько посылок, при этом общий вес заказа не ограничен. Максимальные габариты отправления – 120 см*80 см*50 см</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="additional-info">
+      <div class="container">
+        <div class="additional-info__trigger-wrap trigger-info-js">
+          <div class="additional-info__trigger-show">Читать полностью</div>
+          <div class="additional-info__trigger-hide">Скрыть</div>
+          <div class="icon icon_stroke">
+            <svg stroke-width="1.5" stroke="#009688">
+              <use xlink:href="sprite.svg#angle-down"></use>
+            </svg>
+          </div>
+        </div>
+        <div class="additional-info__inner">
+          <div class="additional-info__visible-part">
+            <p>Alay Express - это торгово-логистический сервис, специализирующийся на трансграничной торговле. Наша команда базируется в Кыргызстане и предоставляет инновационные решения в рамках собственного программного продукта.</p>
+          </div>
+          <div class="additional-info__hidden-part">
+            <h3>Инфраструктура</h3>
+            <ul> 
+              <li>Собственные склады в странах Европейского союза, включая главный в Австрии.</li>
+              <li>Склад в Австрии обладает лицензией почтового оператора от Кыргыз Почтасы.</li>
+              <li>Лучшие тарифы на авиа и автодоставку между странами ЕС и Центральной Азии.</li>
+            </ul>
+            <h3>Преимущества</h3>
+            <ul> 
+              <li>Собственные технологии и программные решения, обеспечивающие эффективность обработки заказов. </li>
+              <li>Уникальные условия для трансграничной торговли, включая таможенное оформление и доставку. </li>
+              <li>Удобный калькулятор для оценки стоимости доставки. </li>
+              <li>Отслеживание посылок онлайн и мобильный адаптив для максимального удобства клиентов. </li>
+              <li>Горячая линия доступна 24/7 для оперативного решения вопросов. </li>
+              <li>Выбор популярных товаров из списка и примерная стоимость доставки. </li>
+              <li>Возможность разделить стоимость доставки, заказывая вещи из разных интернет-магазинов Европы. </li>
+            </ul>
+            <p>Выберайте Alay Express для надежной и инновационной логистики в рамках трансграничной торговли между ЕС и Центральной Азией.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="container"> <a class="scroll-top" href="#top" data-scroll>Начало страницы
+          <div class="icon icon_stroke">
+            <svg>
+              <use xlink:href="sprite.svg#anchor-arrow"></use>
+            </svg>
+          </div></a>
+        <div class="footer__inner"> 
+          <div class="footer__col"> 
+            <div class="logo"><a class="logo__link" href="#"><img src="images/dist/logo-footer.svg" width="214" height="38" alt="logo"></a></div>
+                        <div class="social social_accent">
+                          <ul>
+                            <li> <a href="#">
+                                <div class="icon icon_fill">
+                                  <svg>
+                                    <use xlink:href="sprite.svg#telegram"></use>
+                                  </svg>
+                                </div></a></li>
+                            <li> <a href="#">
+                                <div class="icon icon_fill">
+                                  <svg>
+                                    <use xlink:href="sprite.svg#instagram"></use>
+                                  </svg>
+                                </div></a></li>
+                            <li> <a href="#">
+                                <div class="icon icon_fill">
+                                  <svg>
+                                    <use xlink:href="sprite.svg#youtube"></use>
+                                  </svg>
+                                </div></a></li>
+                          </ul>
+                        </div>
+          </div>
+          <div class="footer__col">
+            <div class="footer__nav">
+              <ul> 
+                <li><a href="#calculator">Калькулятор</a><span class="scroll-button" data-target="#calculator">Калькулятор</span>
+                </li>
+                <li><a href="#warehouses">Склады</a><span class="scroll-button" data-target="#warehouses">Склады</span>
+                </li>
+                <li><a href="#redemption">Выкуп товара</a><span class="scroll-button" data-target="#redemption">Выкуп товара</span>
+                </li>
+                <li><a href="#stores">Магазины</a><span class="scroll-button" data-target="#stores">Магазины</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer__col"> 
+            <div class="footer__nav">
+              <ul> 
+                <li><a class="anchor-js" href="#reviews" data-scroll>Отзывы</a>
+                </li>
+                <li><a class="anchor-js" href="#faq" data-scroll>FAQ</a>
+                </li>
+                <li><a href="https://alay.express/login" target="_blank">Личный кабинет</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer__col"> 
+            <div class="footer__nav">
+              <ul> 
+                <li><a href="#" target="_blank">Запрещенные товары</a>
+                </li>
+                <li><a href="#" target="_blank">Публичная оферта</a>
+                </li>
+                <li><a href="#" target="_blank">Политика конфиденциальности</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer__copyright">
+          <p>&copy; 2024 Alay Express. Все права защищены. </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="js/app.min.js"> </script>
+</body>

@@ -1,0 +1,136 @@
+.redemption-goods
+  .title
+    text-align: center
+
+    @include xs
+      text-align: left
+
+  &__inner
+    @include jfcsb
+    position: relative
+
+    .simple-tabs
+      position: absolute
+      left: 0
+      top: 0
+      z-index: 1
+
+  &__item
+    display: flex
+    flex-direction: column-reverse
+
+    @include xs
+      @include jfcsb
+      flex-direction: row
+
+    p
+      color: $secondary
+      margin-bottom: rem(10)
+      font-size: rem(16)
+      line-height: rem(24)
+      margin-bottom: rem(20)
+
+      &:last-child
+        margin-bottom: 0
+
+      @include xs
+        margin-bottom: rem(10)
+        font-size: rem(13)
+        line-height: normal  
+
+      @include sm
+        margin-bottom: rem(15)
+        font-size: rem(16)
+        line-height: normal  
+
+      @include md
+        font-size: rem(18)
+        line-height: rem(28)
+        margin-bottom: rem(25)
+
+      span
+        font-weight: 700
+
+    ul
+      padding-left: rem(20)
+
+      li
+        font-size: rem(16)
+        line-height: rem(26)
+        @include xs
+          font-size: rem(13)
+          line-height: normal  
+
+        @include sm
+          font-size: rem(16)
+          line-height: normal  
+        
+        @include md
+          font-size: rem(18)
+          line-height: rem(28)
+
+  &__item-col
+    @include sm
+      width: 50%
+
+    &:first-child
+      padding-top: rem(40)
+      @include fdc-jfcsb
+
+      @include xs
+        align-items: flex-start
+
+      @include sm
+        margin-right: rem(15)
+
+      .btn
+        display: flex
+        margin-top: rem(24)
+
+        @include xs
+          display: flex
+
+    &:last-child
+      @include jfcfe
+      flex-direction: column
+      padding-top: rem(75)
+
+      @include xs
+        padding-top: rem(35)
+
+      @include sm
+        padding-top: 0
+
+      
+      .btn
+        display: none
+        margin-top: rem(24)
+
+        @include xs
+          display: none
+
+  &__img-wrap
+    position: relative
+    display: inline-flex
+    min-height: rem(290)
+    max-height: rem(290)
+    
+    @include xs
+      min-height: rem(165)
+      max-height: rem(165)
+
+    @include sm
+      min-height: rem(215)
+      max-height: rem(215)
+
+    @include md
+      min-height: rem(375)
+      max-height: rem(375)
+
+  &__img
+    // position: absolute
+
+    height: rem(375)
+    max-height: 100%
+    object-fit: contain
+    object-position: center

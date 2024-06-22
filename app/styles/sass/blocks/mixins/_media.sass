@@ -1,0 +1,32 @@
+@mixin lg 
+  @media (min-width: 1199.98px)
+    @content
+  
+
+@mixin md 
+  @media (min-width: 991.98px) 
+    @content
+  
+
+
+@mixin sm 
+  @media (min-width: 767.98px) 
+    @content
+  
+
+
+@mixin xs 
+  @media (min-width: 575.98px) 
+    @content
+  
+
+
+@mixin placeholder 
+  &::-webkit-input-placeholder  
+    @content 
+  &:-moz-placeholder            
+    @content 
+  &::-moz-placeholder           
+    @content 
+  &:-ms-input-placeholder       
+    @content   

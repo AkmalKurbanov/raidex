@@ -1,0 +1,75 @@
+.types
+  &__inner
+    @include fww
+    margin-left: rem(-7.5)
+    margin-right: rem(-7.5)
+
+    @include lg
+      margin-left: rem(-8)
+      margin-right: rem(-8)
+
+  &__item
+    width: 50%
+    padding: 0 rem(7.5)
+    margin-bottom: rem(14)
+
+    @include sm
+      width: 25%
+      padding: 0 rem(6)
+      margin-bottom: rem(20)
+
+    @include md
+      padding: 0 rem(8)
+      margin-bottom: rem(24)
+
+    .radial-block
+      max-height: rem(134)
+      min-height: rem(134)
+      
+      @include sm
+        max-height: rem(150)
+        min-height: rem(150)
+
+      @include md
+        max-height: rem(160)
+        min-height: rem(160)
+
+      @include lg
+        max-height: rem(203)
+        min-height: rem(203)
+
+    &:nth-last-child(-n+2)
+      margin-bottom: 0
+
+    @include sm
+      &:nth-last-child(-n+4)
+        margin-bottom: 0
+
+  &__img
+    @include aic-jcc
+    height: rem(76)
+    margin-bottom: rem(8)
+
+    @include sm
+      height: rem(80)
+
+    @include md
+      height: rem(90)
+
+    @include lg
+      height: rem(117)
+      margin-bottom: rem(16)
+      
+    img
+      height: 100%
+      width: auto
+
+
+  &__label
+    font-size: rem(12)
+    text-align: center
+    font-weight: 700
+    color: black
+
+    @include lg
+      font-size: rem(18)
