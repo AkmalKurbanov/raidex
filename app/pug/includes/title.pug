@@ -1,5 +1,5 @@
 mixin title(title,className,subtitle,subtitleClassName) 
   .title-wrap
-    h2.title(class=className)=title
+    h2.title(class=className)!=title
     if subtitle 
-      p.subtitle(subtitleClassName)=subtitle
+      p.subtitle(class=subtitleClassName)!=subtitle

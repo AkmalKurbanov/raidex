@@ -12,14 +12,100 @@ block vars
   - var page = 'index'
 
 block title
-  | Alay.kg
+  | Raidex
 block main
   include includes/title
 
   section
     include includes/tracking-block
+    include includes/calculator-form  
 
-  section
+
+  
+  section.section.section_gray-bg
+    .steps
+      .container
+        .title-wrap
+          h2.title.title_h2.title_centered Отправить посылку — это просто!
+
+        .steps__inner
+          each item in steps
+            .steps__col
+              .steps__item
+                .steps__img 
+                  img(src="images/dist/"+item.img, alt="")
+                .steps__desc 
+                  h2.steps__title!=item.title
+                  p!=item.desc
+
+  section.section.section_accent-gradient
+    .callback 
+      .container
+          .callback__form 
+            .callback__form-col
+              +title('Поможем решить <br> все вопросы','title_h2', 'Если у вас есть вопросы по нашим услугам <br> доставки или вы не уверены, какой вид доставки <br> выбрать, оставьте заявку, и мы свяжемся с вами')
+            .callback__form-col
+              form(action="")
+                .input
+                  input(type="text" placeholder="Имя" name="name")
+                
+                
+                .phone-wrap
+                  div
+                    .select.select_img.select_phone-cod
+                      .select__selected.select-js
+                        input(type="hidden").select-input
+                        .select__selected-label +996
+                        .select__arrow
+                          .icon.icon_stroke 
+                            svg
+                              use(xlink:href='sprite.svg#angle-down')
+
+                      .select__dropdown
+                        .vertical-scroll   
+                          each item in countryCode      
+                            .select__option(data-text=item.label data-id=item.id)
+                              .select__option-item
+                                .select__option-img
+                                  img(src=`images/dist/${item.img}`, alt=item.label)
+                              
+                              .select__option-item
+                                
+                                .select__option-label=item.label
+
+                  .input
+                    input(type="number" placeholder="Телефон" id="phone")
+
+                button.btn.btn_accent Отправить  
+
+                p Нажимая на кнопку, я соглашаюсь на 
+                  a(href="#") обработку персональных данных <br>
+                  | и 
+                  a(href="#")  с правилами пользования Платформой   
+
+  section.section.section_gray-bg
+    .for-stores
+      .container 
+        +title('Интернет-магазинам','title_h2 title_centered', 'Повысьте конкурентоспособность вашего бренда с нашей интегрированной системой доставки, <br> подстраиваемой под уникальные потребности вашего интернет-магазина','subtitle_centered')
+        
+        .for-stores__inner 
+          
+          each item in forStores
+            .for-stores__col 
+              .for-stores__item
+                .for-stores__img
+                  img(src="images/dist/"+item.img, alt="")
+                .for-stores__desc
+                  .for-stores__title!=item.title 
+                  p!=item.desc
+        
+        .btn-wrap.btn-wrap_centered
+          a(href="#").btn.btn_dark Заключить договор 
+            
+
+
+
+  //- section
     .advantages 
       .container  
         +title('Преимущества международного шопинга','title_h2 title_centered')
@@ -34,14 +120,11 @@ block main
                   h2=item.title
                 .advantages__desc
                   p=item.desc
-
-  section.section.section_calculator#calculator
-    include includes/calc-delivery
-
-  section.section
-    include includes/calculator-form
-
-  section#warehouses
+  
+  //- section.section.section_calculator#calculator
+  //-   include includes/calc-delivery
+  
+  //- section#warehouses
     .warehouses
       .container 
         .warehouses__inner 
@@ -78,7 +161,7 @@ block main
           .warehouses__col 
             include includes/map
 
-  section#redemption
+  //- section#redemption
     .redemption-goods
       .container
         +title('Выкуп товара', 'title_h2') 
@@ -130,10 +213,10 @@ block main
               .redemption-goods__img-wrap 
                 img(src="images/dist/legal-entities.webp", alt="").redemption-goods__img
   
-  section 
+  //- section 
     include includes/shopping
   
-  section#stores 
+  //- section#stores 
     .popular 
       .container
         .title-wrap
@@ -150,5 +233,5 @@ block main
         .btn-wrap.btn-wrap_centered
           a.btn.btn_accent(href="https://alay.express/register" target="_blank") Все магазины     
 
-  section#reviews
+  //- section#reviews
     include includes/reviews

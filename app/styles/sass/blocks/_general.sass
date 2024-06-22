@@ -104,6 +104,26 @@ section,
     @include sm
       padding: rem(50) 0 rem(150)
 
+  &_gray-bg,
+  &_accent-gradient
+    padding: rem(40) 0
+    margin: 0
+
+    @include sm
+      padding: rem(50) 0
+
+    @include md
+      padding: rem(60) 0
+
+    @include lg
+      padding: rem(110) 0
+  
+  &_gray-bg
+    background: #F4F4F4
+
+  &_accent-gradient
+    background: linear-gradient(180deg, #CE244B 0%, #450305 100%)
+
 .scroll-top
   color: white
   background: rgba(255, 255, 255, 0.20)
@@ -145,4 +165,3 @@ section,
 
 .mCSB_scrollTools_horizontal
   opacity: 0
-

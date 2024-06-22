@@ -33,12 +33,12 @@
           <div class="menu__inner">
             <div class="menu__inner-item vertical-scroll">
               <ul class="menu__nav-list">
-                <div class="menu__nav-item"> <a class="menu__nav-link" href="#calculator">Калькулятор</a><span class="menu__nav-link scroll-button" data-target="#calculator">Калькулятор</span></div>
-                <div class="menu__nav-item"> <a class="menu__nav-link" href="#warehouses">Склады</a><span class="menu__nav-link scroll-button" data-target="#warehouses">Склады</span></div>
-                <div class="menu__nav-item"> <a class="menu__nav-link" href="#redemption">Выкуп товара</a><span class="menu__nav-link scroll-button" data-target="#redemption">Выкуп товара</span></div>
-                <div class="menu__nav-item"> <a class="menu__nav-link" href="#stores">Магазины</a><span class="menu__nav-link scroll-button" data-target="#stores">Магазины</span></div>
-                <div class="menu__nav-item"> <a class="menu__nav-link" href="#reviews">Отзывы</a><span class="menu__nav-link scroll-button" data-target="#reviews">Отзывы</span></div>
-                <div class="menu__nav-item"> <a class="menu__nav-link" href="#faq">FAQ</a><span class="menu__nav-link scroll-button" data-target="#faq">FAQ</span></div>
+                <div class="menu__nav-item"> <a class="menu__nav-link" href="#calculator">Калькулятор</a></div>
+                <div class="menu__nav-item"> <a class="menu__nav-link" href="#warehouses">Склады</a></div>
+                <div class="menu__nav-item"> <a class="menu__nav-link" href="#redemption">Выкуп товара</a></div>
+                <div class="menu__nav-item"> <a class="menu__nav-link" href="#stores">Магазины</a></div>
+                <div class="menu__nav-item"> <a class="menu__nav-link" href="#reviews">Отзывы</a></div>
+                <div class="menu__nav-item"> <a class="menu__nav-link" href="#faq">FAQ</a></div>
                 <li><a class="menu__nav-link" href="https://alay.express/login" target="_blank">  <span>Личный кабинет </span></a></li>
               </ul>
             </div>
@@ -93,17 +93,12 @@
         <div class="container">
           <div class="header__inner"> 
             <div class="header__inner-item logo"> <a class="logo__link" href="index.html"><img src="images/dist/logo.svg" width="180" height="32" alt="logo"></a></div>
-            <nav class="header__nav header__inner-item nav">
-              <ul>
-                <li><span class="scroll-button" data-target="#warehouses">Склады</span></li>
-                <li><span class="scroll-button" data-target="#redemption">Выкуп товара</span></li>
-                <li><span class="scroll-button" data-target="#stores">Магазины</span></li>
-                <li><span class="scroll-button" data-target="#reviews">Отзывы</span></li>
-                <li><span class="scroll-button" data-target="#faq">FAQ</span></li>
-              </ul>
-            </nav>
-            <div class="header__control-btns header__inner-item">
-              <div class="header__control-icon header__control-icon_registration"> <a href="https://alay.express/register" target="blank">Зарегистрироваться </a></div>
+            <div class="header__control-btns header__inner-item"><a class="header__control-icon header__control-icon_calc" href="calculator.html" target="blank">
+                <div class="icon icon_fill">
+                  <svg>
+                    <use xlink:href="sprite.svg#calc"></use>
+                  </svg>
+                </div><span>Калькулятор </span></a>
               <div class="header__control-icon header__control-icon_login"><a class="btn btn_accent" href="https://alay.express/login" target="_blank">Войти </a></div>
               <div class="header__control-icon header__control-icon_hamburger">
                 <div class="hamburger hamburger-js"><span></span><span></span><span></span></div>
@@ -160,33 +155,18 @@
           <div class="additional-info__trigger-show">Читать полностью</div>
           <div class="additional-info__trigger-hide">Скрыть</div>
           <div class="icon icon_stroke">
-            <svg stroke-width="1.5" stroke="#009688">
+            <svg stroke-width="1.5" stroke="#CE244B">
               <use xlink:href="sprite.svg#angle-down"></use>
             </svg>
           </div>
         </div>
         <div class="additional-info__inner">
           <div class="additional-info__visible-part">
-            <p>Alay Express - это торгово-логистический сервис, специализирующийся на трансграничной торговле. Наша команда базируется в Кыргызстане и предоставляет инновационные решения в рамках собственного программного продукта.</p>
+            <p>RAIDEX — надежный партнер в сфере логистических услуг. Компания обеспечивает быструю и безопасную доставку грузов по лучшим ценам. Деятельность компании направлена на работу с байерами и интернет-магазинами. Доставка осуществляется из Кыргызстана в Россию, Армению, Узбекистан, Белоруссию и Казахстан.</p>
           </div>
           <div class="additional-info__hidden-part">
-            <h3>Инфраструктура</h3>
-            <ul> 
-              <li>Собственные склады в странах Европейского союза, включая главный в Австрии.</li>
-              <li>Склад в Австрии обладает лицензией почтового оператора от Кыргыз Почтасы.</li>
-              <li>Лучшие тарифы на авиа и автодоставку между странами ЕС и Центральной Азии.</li>
-            </ul>
-            <h3>Преимущества</h3>
-            <ul> 
-              <li>Собственные технологии и программные решения, обеспечивающие эффективность обработки заказов. </li>
-              <li>Уникальные условия для трансграничной торговли, включая таможенное оформление и доставку. </li>
-              <li>Удобный калькулятор для оценки стоимости доставки. </li>
-              <li>Отслеживание посылок онлайн и мобильный адаптив для максимального удобства клиентов. </li>
-              <li>Горячая линия доступна 24/7 для оперативного решения вопросов. </li>
-              <li>Выбор популярных товаров из списка и примерная стоимость доставки. </li>
-              <li>Возможность разделить стоимость доставки, заказывая вещи из разных интернет-магазинов Европы. </li>
-            </ul>
-            <p>Выберайте Alay Express для надежной и инновационной логистики в рамках трансграничной торговли между ЕС и Центральной Азией.</p>
+            <p>Логистическая система компании RAIDEX выстроена таким образом, чтобы посылки доставлялись самым коротким путем. Наиболее выгодные цены обеспечиваются работой компании с надежными партнерами, проверенными временем.</p>
+            <p>Компания гарантирует сохранность посылок и защиту интересов заказчиков. Работа RAIDEX осуществляется исключительно на основании договора об оказании логистических услуг.</p>
           </div>
         </div>
       </div>
@@ -206,6 +186,12 @@
                             <li> <a href="#">
                                 <div class="icon icon_fill">
                                   <svg>
+                                    <use xlink:href="sprite.svg#whatsapp"></use>
+                                  </svg>
+                                </div></a></li>
+                            <li> <a href="#">
+                                <div class="icon icon_fill">
+                                  <svg>
                                     <use xlink:href="sprite.svg#telegram"></use>
                                   </svg>
                                 </div></a></li>
@@ -215,25 +201,19 @@
                                     <use xlink:href="sprite.svg#instagram"></use>
                                   </svg>
                                 </div></a></li>
-                            <li> <a href="#">
-                                <div class="icon icon_fill">
-                                  <svg>
-                                    <use xlink:href="sprite.svg#youtube"></use>
-                                  </svg>
-                                </div></a></li>
                           </ul>
                         </div>
           </div>
           <div class="footer__col">
             <div class="footer__nav">
               <ul> 
-                <li><a href="#calculator">Калькулятор</a><span class="scroll-button" data-target="#calculator">Калькулятор</span>
+                <li><a href="#calculator">Калькулятор</a>
                 </li>
-                <li><a href="#warehouses">Склады</a><span class="scroll-button" data-target="#warehouses">Склады</span>
+                <li><a href="#warehouses">Склады</a>
                 </li>
-                <li><a href="#redemption">Выкуп товара</a><span class="scroll-button" data-target="#redemption">Выкуп товара</span>
+                <li><a href="#redemption">Выкуп товара</a>
                 </li>
-                <li><a href="#stores">Магазины</a><span class="scroll-button" data-target="#stores">Магазины</span>
+                <li><a href="#stores">Магазины</a>
                 </li>
               </ul>
             </div>

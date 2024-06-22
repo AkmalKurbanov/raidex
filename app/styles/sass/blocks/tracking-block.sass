@@ -142,29 +142,31 @@
     &:first-child
       // min-width: rem(190)
       // max-width: rem(190)
-      padding: rem(16) 0 rem(25) rem(16)
+      padding: rem(16) rem(34) rem(25) rem(16)
       display: flex
       flex-direction: column
       justify-content: center
-      width: 50%
+      // width: 50%
+
       @include xs
-        padding: rem(20) 0 rem(20) rem(20)
-        min-width: 57%
-        max-width: 57%
+        padding: rem(20) rem(38) rem(20) rem(20)
+        // min-width: 57%
+        // max-width: 57%
 
       @include lg
-        padding: rem(40) 0 rem(40) rem(40)
+        padding: rem(40) rem(58) rem(40) rem(40)
+      
 
     &:last-child
       // min-width: rem(139)
       // max-width: rem(139)
       padding: rem(16) 0
       @include aic-jcc
-      width: 50%
+      // flex: 1
+      
       @include xs
         padding: rem(20) rem(20) rem(20) 0
-        min-width: 43%
-        max-width: 43%
+        
 
       
 
@@ -190,24 +192,24 @@
           left: rem(-65)
 
   &__slider-img
-    min-width: rem(123)
-    max-width: rem(123)
+    min-width: rem(120)
+    max-width: rem(120)
     min-height: rem(160)
     max-height: rem(160)
     @include aic-jcc
     position: relative
 
     @include md
-      min-width: rem(228)
-      max-width: rem(228)
-      min-height: rem(250)
-      max-height: rem(250)
+      min-width: rem(200)
+      max-width: rem(200)
+      min-height: rem(220)
+      max-height: rem(220)
 
     @include lg
-      min-width: rem(268)
-      max-width: rem(268)
-      min-height: rem(290)
-      max-height: rem(290)
+      min-width: rem(238)
+      max-width: rem(238)
+      min-height: rem(260)
+      max-height: rem(260)
 
     img
       position: absolute
@@ -223,7 +225,7 @@
   &__item-title
     font-size: rem(18)
     line-height: rem(21)
-    font-weight: 700
+    font-weight: 600
     margin-bottom: rem(8)
     color: $accent
     position: relative

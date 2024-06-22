@@ -3,7 +3,7 @@
 $accent: #CE244B // Accent Color
 $secondary: #37474F // Text Color
 $fontsize: 13px // Body Font Size
-$userfont: 'Lato', sans-serif // User Font Family
+$userfont: raleway // User Font Family
 $systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
 
 $transition: all .3s
@@ -24,12 +24,13 @@ $transition: all .3s
 		font-family: $fname
 		font-style: $fstyle
 		font-weight: $fweight
-		src: url($furl) format('woff2')
+		src: url($furl)
 
-@include font('Lato', normal, 400, '../fonts/lato-regular.ttf')
-@include font('Lato', normal, 500, '../fonts/lato-medium.ttf')
-@include font('Lato', normal, 600, '../fonts/lato-semibold.ttf')
-@include font('Lato', normal, 700, '../fonts/lato-bold.ttf')
+@include font('raleway', normal, 400, '../fonts/raleway-regular.woff2')
+@include font('raleway', normal, 500, '../fonts/raleway-medium.woff2')
+@include font('raleway', normal, 600, '../fonts/raleway-semibold.woff2')
+@include font('raleway', normal, 700, '../fonts/raleway-bold.woff2')
+@include font('raleway', normal, 900, '../fonts/raleway-black.woff2')
 
 // GENERAL CSS SETTINGS
 

@@ -1,0 +1,102 @@
+.steps
+  .container
+    @include md
+      max-width: rem(1100)
+
+    @include lg
+      max-width: rem(1300)
+
+  &__inner
+    overflow-x: scroll
+    margin-left: rem(-8)
+    margin-right: rem(-8)
+    display: flex
+
+    -ms-overflow-style: none
+    scrollbar-width: none
+
+    &::-webkit-scrollbar
+      width: 0
+      height: 0
+
+    @include xs
+      flex-wrap: wrap
+
+    @include sm
+      margin-left: rem(-4)
+      margin-right: rem(-4)
+
+    @include lg  
+      margin-left: rem(-8)
+      margin-right: rem(-8)
+
+  &__col
+    min-width: rem(240)
+    max-width: rem(240)
+    width: 100%
+    display: inline-block
+    padding: 0 rem(8)
+
+    @include xs
+      min-width: 50%
+      max-width: 50%
+      margin-bottom: rem(16)
+
+    @include sm
+      padding: 0 rem(4)
+      min-width: 33%
+      max-width: 33%
+      margin-bottom: rem(8)
+
+    @include md
+      min-width: 25%
+      max-width: 25%
+
+    @include lg
+      min-width: 20%
+      max-width: 20%
+      padding: 0 rem(8)
+      margin-bottom: 0
+
+  &__item
+    background: white
+    height: 100%
+    border-radius: rem(10)
+    overflow: hidden
+    
+    @include sm
+      border-radius: rem(16)
+
+
+
+
+  &__img
+    min-height: rem(222)
+    max-height: rem(222)
+    position: relative
+
+    img
+      position: absolute
+      width: 100%
+      height: 100%
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      object-fit: contain
+      object-position: center
+
+  &__desc
+    padding: rem(16)
+    white-space: normal
+
+    p
+      color: #666666
+      font-size: rem(15)
+      line-height: rem(20)
+
+  &__title
+    color: #111111
+    font-size: rem(20)
+    font-weight: 600
+    margin-bottom: rem(12)

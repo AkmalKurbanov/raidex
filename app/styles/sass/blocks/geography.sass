@@ -104,6 +104,28 @@
       font-size: rem(16)
       font-weight: 700
 
+  &__list
+    @include aic-jcc
+    margin-bottom: rem(70)
+
+  &__list-item
+    @include aic
+    margin-right: rem(30)
+    
+    &:last-child
+      margin-right: 0
+
+  &__item-name
+    font-size: rem(15)
+    font-weight: 600
+  
+  &__item-flag
+    max-width: rem(42)
+    min-width: rem(42)
+    width: 100%
+    @include aic-jcc
+    margin-right: rem(12)
+
   &__map
     min-height: rem(200)
     background-size: cover

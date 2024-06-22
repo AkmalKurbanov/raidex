@@ -274,10 +274,17 @@
 
     &_calc
       @include aic
-
+      font-weight: 500
       .icon
-        margin-right: rem(8)
         fill: $accent
+
+      span
+        margin-left: rem(8)
+        line-height: 0
+        display: none  
+
+        @include xs
+          display: flex
 
     &_registration
       display: none
