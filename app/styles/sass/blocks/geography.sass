@@ -63,9 +63,9 @@
   &__country-list
     width: calc( 100% + 16px)
     margin-top: rem(16)
+    margin-left: rem(-8)
     margin-right: rem(-8)
     margin-bottom: rem(-16)
-    margin-left: rem(-8)
     @include fww
 
     @include lg
@@ -106,25 +106,38 @@
 
   &__list
     @include aic-jcc
-    margin-bottom: rem(70)
+    flex-wrap: wrap
+    margin-bottom: rem(55)
 
   &__list-item
     @include aic
-    margin-right: rem(30)
+    margin-right: rem(20)
+    margin-bottom: rem(15)
     
+    @include md
+      margin-right: rem(30)
+
     &:last-child
       margin-right: 0
 
   &__item-name
-    font-size: rem(15)
     font-weight: 600
+    font-size: rem(12)
+
+    @include md
+      font-size: rem(15)
   
   &__item-flag
-    max-width: rem(42)
-    min-width: rem(42)
+    max-width: rem(35)
+    min-width: rem(35)
     width: 100%
     @include aic-jcc
-    margin-right: rem(12)
+    margin-right: rem(8)
+
+    @include md
+      margin-right: rem(12)
+      max-width: rem(42)
+      min-width: rem(42)
 
   &__map
     min-height: rem(200)

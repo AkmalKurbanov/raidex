@@ -20,7 +20,47 @@ block main
     include includes/tracking-block
     include includes/calculator-form  
 
+  section
+    .geography 
+      .container
+        .title-wrap
+          h2.title.title_h2.title_centered География доставки
+          p.subtitle.subtitle_centered На сегодняшний день RAIDEX принимает посылки от байеров, интернет-магазинов и юрлиц и осуществляет их доставку в различные регионы России, <br>
+            | а также в страны СНГ, такие как Казахстан, Узбекистан, Белоруссия и Армения.
+        //- .geography__inner 
+          .geography__item
+            .radial-block.radial-block_accent
+              .radial-block__title Отправка из Кыргызстана по СНГ
+              .geography__country-list  
+                
+                each item in countryAvailable
+                  .geography__country-item
+                    .geography__country-img
+                      img(src="images/dist/"+item.img , alt="")
+                    p.geography__country-label=item.label
 
+
+          .geography__item.geography__item_not-available
+            .radial-block
+              .geography__item-img
+                img(src="images/dist/plane.svg", alt="") 
+              .radial-block__title Скоро
+              .geography__country-list  
+                
+                each item in countryNotAvailable
+                  .geography__country-item
+                    .geography__country-img
+                      img(src="images/dist/"+item.img , alt="")
+                    p.geography__country-label=item.label
+        
+        .geography__list 
+          each item in countryAvailable
+            .geography__list-item 
+              .geography__item-flag 
+                img(src="images/dist/"+item.img , alt="")
+              .geography__item-name=item.label
+        .geography__map(style="background-image: url(images/dist/map.svg)") 
+  
   
   section.section.section_gray-bg
     .steps
