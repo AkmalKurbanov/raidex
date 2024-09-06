@@ -20,10 +20,17 @@ footer.footer
       .footer__col
         .footer__nav
           ul 
+            li Наш адрес
+            li Кыргызстан, г. Бишкек, <br> ул. Киевская 112
+
+      .footer__col
+        .footer__nav
+          ul 
             each item in footerNav1
               li
                 if item.id 
-                  a(href="#"+item.id)=item.label
+                  a(href="#")=item.label
+                  //- a(href="#"+item.id)=item.label
                   //- span.scroll-button(data-target="#"+item.id)=item.label
                   
                 if item.link   
@@ -37,15 +44,7 @@ footer.footer
                   a(href="#"+item.id data-scroll).anchor-js=item.label
                 if item.link   
                   a(href=item.link target="_blank")=item.label
-      .footer__col 
-        .footer__nav
-          ul 
-            each item in footerNav3
-              li
-                if item.id 
-                  a(href="#"+item.id data-scroll).anchor-js=item.label
-                if item.link   
-                  a(href=item.link target="_blank")=item.label
+
 
     .footer__copyright
-      p &copy; 2024 Alay Express. Все права защищены. 
+      p &copy; 2024 RAIDEX. Все права защищены. 

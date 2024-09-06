@@ -12,20 +12,34 @@
     <meta property="og:type" content="">
     <meta property="og:url" content="">
     <meta property="og:image" content="">
-    <meta name="theme-color" content="#009688">
-    <meta name="msapplication-navbutton-color" content="#009688">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#009688"><style>.preloader{-webkit-box-align:center;-ms-flex-align:center;-webkit-box-pack:center;-ms-flex-pack:center;align-items:center;background:#fff;bottom:0;display:-webkit-box;display:-ms-flexbox;display:flex;height:100%;justify-content:center;left:0;position:fixed;right:0;top:0;width:100%;z-index:21}.preloader__logo{-webkit-animation:1.5s infinite both blink;animation:1.5s infinite both blink;max-width:9.375rem;opacity:0;-webkit-transform:scale(.6);-ms-transform:scale(.6);transform:scale(.6);-webkit-transition:.3s;transition:.3s;width:100%}@-webkit-keyframes blink{0%,to{opacity:0}50%{opacity:1}}@keyframes blink{0%,to{opacity:0}50%{opacity:1}}</style>
+    <meta name="theme-color" content="#005891">
+    <meta name="msapplication-navbutton-color" content="#005891">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#005891">
     <link rel="stylesheet" href="css/app.min.css">
     <link rel="shortcut icon" href="images/favicon.png" type="image/png">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
   </head>
 </html>
 <body>
-  <div class="preloader" id="preloader"> 
-    <div class="preloader__logo"> <img src="images/dist/logo-icon.svg" alt=""></div>
+  <div class="popup popup-js" data-name="track-number">
+    <div class="popup__window">
+      <div class="popup__close"> 
+        <div class="icon icon_stroke">
+          <svg>
+            <use xlink:href="sprite.svg#close"></use>
+          </svg>
+        </div>
+      </div>
+      <div class="popup__title">Где найти трек номер?</div>
+      <div class="popup__window-content vertical-scroll"> 
+        <h2>Lorem, ipsum dolor.</h2>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat hic est natus animi tempore, quibusdam nemo architecto possimus perferendis! Alias enim libero nisi cumque tempore, explicabo repudiandae, odit sapiente corrupti fugit deserunt? Quos nesciunt excepturi quia laborum autem atque officia incidunt minus dolore natus ullam saepe earum tempore, omnis inventore, sapiente mollitia corrupti et ipsam dolorum quisquam, fugiat ut suscipit voluptatem. Facere exercitationem nesciunt adipisci odio repellat impedit! Debitis obcaecati cum nulla quaerat veniam consequatur modi quod minus commodi vel excepturi, facilis iste beatae assumenda deleniti reprehenderit optio necessitatibus sunt minima voluptates qui soluta laudantium doloribus! Provident quasi error molestiae!</p>
+        <h2>Lorem, ipsum dolor.</h2>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat hic est natus animi tempore, quibusdam nemo architecto possimus perferendis! Alias enim libero nisi cumque tempore, explicabo repudiandae, odit sapiente corrupti fugit deserunt? Quos nesciunt excepturi quia laborum autem atque officia incidunt minus dolore natus ullam saepe earum tempore, omnis inventore, sapiente mollitia corrupti et ipsam dolorum quisquam, fugiat ut suscipit voluptatem. Facere exercitationem nesciunt adipisci odio repellat impedit! Debitis obcaecati cum nulla quaerat veniam consequatur modi quod minus commodi vel excepturi, facilis iste beatae assumenda deleniti reprehenderit optio necessitatibus sunt minima voluptates qui soluta laudantium doloribus! Provident quasi error molestiae!</p>
+      </div>
+    </div>
   </div>
   <div class="wrapper" id="top">
     <div class="content">
@@ -35,12 +49,8 @@
             <div class="menu__inner-item vertical-scroll">
               <ul class="menu__nav-list">
                 <div class="menu__nav-item"> <a class="menu__nav-link" href="#calculator">Калькулятор</a></div>
-                <div class="menu__nav-item"> <a class="menu__nav-link" href="#warehouses">Склады</a></div>
-                <div class="menu__nav-item"> <a class="menu__nav-link" href="#redemption">Выкуп товара</a></div>
-                <div class="menu__nav-item"> <a class="menu__nav-link" href="#stores">Магазины</a></div>
-                <div class="menu__nav-item"> <a class="menu__nav-link" href="#reviews">Отзывы</a></div>
-                <div class="menu__nav-item"> <a class="menu__nav-link" href="#faq">FAQ</a></div>
-                <li><a class="menu__nav-link" href="https://alay.express/login" target="_blank">  <span>Личный кабинет </span></a></li>
+                <div class="menu__nav-item"> <a class="menu__nav-link" href="#package-tracking">Отследить посылку</a></div>
+                <div class="menu__nav-item"> <a class="menu__nav-link" href="#profile">Личный кабинет</a></div>
               </ul>
             </div>
             <div class="menu__inner-item menu__inner-item_bottom">
@@ -57,50 +67,16 @@
         </div>
       </div>
       <header class="header">
-        <div class="header__top"> 
-          <div class="header__top-inner">
-            <div class="swiper header-top-js">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <div class="header__top-item"> 
-                    <p>Уроки шоппинга в Европе на нашем <a href='https://www.youtube.com/@Alay_Express' target='_blank'> YouTube канале!</a></p>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="header__top-item"> 
-                    <p>Акция! Бесплатная доставка на каждую пятую посылку!</p>
-                  </div>
-                </div>
-              </div>
-              <div class="header__top-nav">
-                <div class="swiper-button-prev">
-                  <div class="icon icon_stroke">
-                    <svg>
-                      <use xlink:href="sprite.svg#arrow-long-left">       </use>
-                    </svg>
-                  </div>
-                </div>
-                <div class="swiper-button-next">
-                  <div class="icon icon_stroke">
-                    <svg>
-                      <use xlink:href="sprite.svg#arrow-long-right">       </use>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <div class="container">
           <div class="header__inner"> 
             <div class="header__inner-item logo"> <a class="logo__link" href="index.html"><img src="images/dist/logo.svg" width="180" height="32" alt="logo"></a></div>
-            <div class="header__control-btns header__inner-item"><a class="header__control-icon header__control-icon_calc" href="calculator.html" target="blank">
+            <div class="header__control-btns header__inner-item"><a class="header__control-icon header__control-icon_calc" href="calculator.html">
                 <div class="icon icon_fill">
                   <svg>
                     <use xlink:href="sprite.svg#calc"></use>
                   </svg>
                 </div><span>Калькулятор </span></a>
-              <div class="header__control-icon header__control-icon_login"><a class="btn btn_accent" href="https://alay.express/login" target="_blank">Войти </a></div>
+              <div class="header__control-icon header__control-icon_login"><a class="btn btn_accent" href="https://raidex/login" target="_blank">Войти </a></div>
               <div class="header__control-icon header__control-icon_hamburger">
                 <div class="hamburger hamburger-js"><span></span><span></span><span></span></div>
               </div>
@@ -176,7 +152,7 @@
                   </form>
                 </div>
               </div>
-              <div class="tracking open">
+              <div class="tracking">
                 <div class="tracking__top">
                   <div class="radial-block__title">Отслеживание посылки </div>
                   <div class="tracking__window-control">  
@@ -201,7 +177,7 @@
                     <div class="tracking__product-info">
                       <div class="tracking__product-info-top"> 
                         <div class="tracking__info-top"> 
-                          <div class="tracking__info-top-item">№ALAY0000000252</div>
+                          <div class="tracking__info-top-item">№Raidex0000000252</div>
                           <div class="tracking__info-top-item">Корнойбург - Бишкек</div>
                         </div>
                         <div class="tracking__info-bottom"> 
@@ -397,7 +373,7 @@
                           </div><span>Заключить договор  </span></a></li>
                     </ul>
                     <div class="tab_content-js radial-block radial-block_shadow">
-                      <div class="tabs_item-js" data-tab-id="tab1">
+                      <div class="tabs_item-js active" data-tab-id="tab1">
                         <form action=""> 
                           <div class="place place_on-front">
                             <div class="place__inner">
@@ -701,20 +677,20 @@
                   <div class="geography__item-name">Россия</div>
                 </div>
                 <div class="geography__list-item"> 
-                  <div class="geography__item-flag"> <img src="images/dist/square-kz.svg" alt=""></div>
-                  <div class="geography__item-name">Казахстан</div>
+                  <div class="geography__item-flag"> <img src="images/dist/square-br.svg" alt=""></div>
+                  <div class="geography__item-name">Белоруссия</div>
                 </div>
                 <div class="geography__list-item"> 
                   <div class="geography__item-flag"> <img src="images/dist/square-am.svg" alt=""></div>
                   <div class="geography__item-name">Армения</div>
                 </div>
-                <div class="geography__list-item"> 
+                <div class="geography__list-item disabled"> 
+                  <div class="geography__item-flag"> <img src="images/dist/square-kz.svg" alt=""></div>
+                  <div class="geography__item-name">Казахстан</div>
+                </div>
+                <div class="geography__list-item disabled"> 
                   <div class="geography__item-flag"> <img src="images/dist/square-uz.svg" alt=""></div>
                   <div class="geography__item-name">Узбекистан</div>
-                </div>
-                <div class="geography__list-item"> 
-                  <div class="geography__item-flag"> <img src="images/dist/square-br.svg" alt=""></div>
-                  <div class="geography__item-name">Белоруссия</div>
                 </div>
               </div>
               <div class="geography__map" style="background-image: url(images/dist/map.svg)"> </div>
@@ -777,7 +753,58 @@
             </div>
           </div>
         </section>
-        <section class="section section_accent-gradient">
+        <section class="section section_gray-bg">
+          <div class="for-stores">
+            <div class="container"> 
+                      <div class="title-wrap">
+                        <h2 class="title title_h2 title_centered">Интернет-магазинам</h2>
+                        <p class="subtitle subtitle_centered">Повысьте конкурентоспособность вашего бренда с нашей интегрированной системой доставки, <br> подстраиваемой под уникальные потребности вашего интернет-магазина</p>
+                      </div>
+              <div class="for-stores__inner"> 
+                <div class="for-stores__col"> 
+                  <div class="for-stores__item">
+                    <div class="for-stores__img"><img src="images/dist/speed.webp" alt=""></div>
+                    <div class="for-stores__desc">
+                      <div class="for-stores__title">Скорость</div>
+                      <p>Логистическая система компании RAIDEX выстроена таким образом, чтобы посылки доставлялись самым коротким путем</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="for-stores__col"> 
+                  <div class="for-stores__item">
+                    <div class="for-stores__img"><img src="images/dist/price.webp" alt=""></div>
+                    <div class="for-stores__desc">
+                      <div class="for-stores__title">Стоимость</div>
+                      <p>Благодаря работе с проверенными партнерами RAIDEX предлагает лучшие условия по стоимости доставки</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="for-stores__col"> 
+                  <div class="for-stores__item">
+                    <div class="for-stores__img"><img src="images/dist/reliability.webp" alt=""></div>
+                    <div class="for-stores__desc">
+                      <div class="for-stores__title">Надежность</div>
+                      <p>Компания гарантирует сохранность посылок, отправляемых ее заказчиками</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="for-stores__col"> 
+                  <div class="for-stores__item">
+                    <div class="for-stores__img"><img src="images/dist/safety.webp" alt=""></div>
+                    <div class="for-stores__desc">
+                      <div class="for-stores__title">Безопасность</div>
+                      <p>Интересы заказчиков защищены договором, который заключается между юрлицом и компанией RAIDEX</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="btn-wrap btn-wrap_centered">
+                <div class="btn btn_dark scroll-button" data-target="#form">Заключить договор </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section section_accent-gradient" id="form">
           <div class="callback"> 
             <div class="container">
               <div class="callback__form"> 
@@ -848,146 +875,97 @@
             </div>
           </div>
         </section>
-        <section class="section section_gray-bg">
-          <div class="for-stores">
-            <div class="container"> 
-                      <div class="title-wrap">
-                        <h2 class="title title_h2 title_centered">Интернет-магазинам</h2>
-                        <p class="subtitle subtitle_centered">Повысьте конкурентоспособность вашего бренда с нашей интегрированной системой доставки, <br> подстраиваемой под уникальные потребности вашего интернет-магазина</p>
+        <section id="faq">
+          <div class="faq">
+            <div class="container">
+              <div class="title-wrap">
+                <h2 class="title title_h2 title_centered">Часто задаваемые вопросы</h2>
+              </div>
+              <div class="faq__list"> 
+                <div class="faq__item"> 
+                  <div class="faq__question-wrap faq-js">
+                    <h2 class="faq__question">Как работает RAIDEX?</h2>
+                    <div class="faq__question-trigger"> </div>
+                  </div>
+                  <div class="faq__answer"> 
+                    <div class="faq__answer-content">
+                      <div class="faq__answer-item">
+                        <p>RAIDEX работает исключительно на основании договора, который заключается в офисе компании с байером, представителем интернет-магазина или юридическим лицом.</p>
                       </div>
-              <div class="for-stores__inner"> 
-                <div class="for-stores__col"> 
-                  <div class="for-stores__item">
-                    <div class="for-stores__img"><img src="images/dist/for-stores.webp" alt=""></div>
-                    <div class="for-stores__desc">
-                      <div class="for-stores__title">Скорость</div>
-                      <p>Логистическая система компании RAIDEX выстроена таким образом, чтобы посылки доставлялись самым коротким путем</p>
                     </div>
                   </div>
                 </div>
-                <div class="for-stores__col"> 
-                  <div class="for-stores__item">
-                    <div class="for-stores__img"><img src="images/dist/for-stores.webp" alt=""></div>
-                    <div class="for-stores__desc">
-                      <div class="for-stores__title">Стоимость</div>
-                      <p>Благодаря работе с проверенными партнерами RAIDEX предлагает лучшие условия по стоимости доставки</p>
+                <div class="faq__item"> 
+                  <div class="faq__question-wrap faq-js">
+                    <h2 class="faq__question">Как зарегистрироваться на сайте?</h2>
+                    <div class="faq__question-trigger"> </div>
+                  </div>
+                  <div class="faq__answer"> 
+                    <div class="faq__answer-content">
+                      <div class="faq__answer-item">
+                        <p>lorem ipsum.</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="for-stores__col"> 
-                  <div class="for-stores__item">
-                    <div class="for-stores__img"><img src="images/dist/for-stores.webp" alt=""></div>
-                    <div class="for-stores__desc">
-                      <div class="for-stores__title">Надежность</div>
-                      <p>Компания гарантирует сохранность посылок, отправляемых ее заказчиками</p>
+                <div class="faq__item"> 
+                  <div class="faq__question-wrap faq-js">
+                    <h2 class="faq__question">Сколько стоит доставка?</h2>
+                    <div class="faq__question-trigger"> </div>
+                  </div>
+                  <div class="faq__answer"> 
+                    <div class="faq__answer-content">
+                      <div class="faq__answer-item">
+                        <p>lorem ipsum.</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="for-stores__col"> 
-                  <div class="for-stores__item">
-                    <div class="for-stores__img"><img src="images/dist/for-stores.webp" alt=""></div>
-                    <div class="for-stores__desc">
-                      <div class="for-stores__title">Безопасность</div>
-                      <p>Интересы заказчиков защищены договором, который заключается между юрлицом и компанией RAIDEX</p>
+                <div class="faq__item"> 
+                  <div class="faq__question-wrap faq-js">
+                    <h2 class="faq__question">В какие сроки доставляется груз?</h2>
+                    <div class="faq__question-trigger"> </div>
+                  </div>
+                  <div class="faq__answer"> 
+                    <div class="faq__answer-content">
+                      <div class="faq__answer-item">
+                        <p>lorem ipsum.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="faq__item"> 
+                  <div class="faq__question-wrap faq-js">
+                    <h2 class="faq__question">Каков максимальный вес одной посылки?</h2>
+                    <div class="faq__question-trigger"> </div>
+                  </div>
+                  <div class="faq__answer"> 
+                    <div class="faq__answer-content">
+                      <div class="faq__answer-item">
+                        <p>lorem ipsum.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="faq__item"> 
+                  <div class="faq__question-wrap faq-js">
+                    <h2 class="faq__question">Что делать, если груз весит больше 31 кг?</h2>
+                    <div class="faq__question-trigger"> </div>
+                  </div>
+                  <div class="faq__answer"> 
+                    <div class="faq__answer-content">
+                      <div class="faq__answer-item">
+                        <p>Lorem ipsum.</p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="btn-wrap btn-wrap_centered"><a class="btn btn_dark" href="#">Заключить договор </a></div>
             </div>
           </div>
         </section>
       </div>
     </div>
-    <section id="faq">
-      <div class="faq">
-        <div class="container">
-          <div class="title-wrap">
-            <h2 class="title title_h2 title_centered">Часто задаваемые вопросы</h2>
-          </div>
-          <div class="faq__list"> 
-            <div class="faq__item"> 
-              <div class="faq__question-wrap faq-js">
-                <h2 class="faq__question">Как работает RAIDEX?</h2>
-                <div class="faq__question-trigger"> </div>
-              </div>
-              <div class="faq__answer"> 
-                <div class="faq__answer-content">
-                  <div class="faq__answer-item">
-                    <p>RAIDEX работает исключительно на основании договора, который заключается в офисе компании с байером, представителем интернет-магазина или юридическим лицом.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="faq__item"> 
-              <div class="faq__question-wrap faq-js">
-                <h2 class="faq__question">Как зарегистрироваться на сайте?</h2>
-                <div class="faq__question-trigger"> </div>
-              </div>
-              <div class="faq__answer"> 
-                <div class="faq__answer-content">
-                  <div class="faq__answer-item">
-                    <p>lorem ipsum.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="faq__item"> 
-              <div class="faq__question-wrap faq-js">
-                <h2 class="faq__question">Сколько стоит доставка?</h2>
-                <div class="faq__question-trigger"> </div>
-              </div>
-              <div class="faq__answer"> 
-                <div class="faq__answer-content">
-                  <div class="faq__answer-item">
-                    <p>lorem ipsum.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="faq__item"> 
-              <div class="faq__question-wrap faq-js">
-                <h2 class="faq__question">В какие сроки доставляется груз?</h2>
-                <div class="faq__question-trigger"> </div>
-              </div>
-              <div class="faq__answer"> 
-                <div class="faq__answer-content">
-                  <div class="faq__answer-item">
-                    <p>lorem ipsum.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="faq__item"> 
-              <div class="faq__question-wrap faq-js">
-                <h2 class="faq__question">Каков максимальный вес одной посылки?</h2>
-                <div class="faq__question-trigger"> </div>
-              </div>
-              <div class="faq__answer"> 
-                <div class="faq__answer-content">
-                  <div class="faq__answer-item">
-                    <p>lorem ipsum.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="faq__item"> 
-              <div class="faq__question-wrap faq-js">
-                <h2 class="faq__question">Что делать, если груз весит больше 31 кг?</h2>
-                <div class="faq__question-trigger"> </div>
-              </div>
-              <div class="faq__answer"> 
-                <div class="faq__answer-content">
-                  <div class="faq__answer-item">
-                    <p>Lorem ipsum.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
     <div class="additional-info">
       <div class="container">
         <div class="additional-info__trigger-wrap trigger-info-js">
@@ -1046,25 +1024,19 @@
           <div class="footer__col">
             <div class="footer__nav">
               <ul> 
-                <li><a href="#calculator">Калькулятор</a>
-                </li>
-                <li><a href="#warehouses">Склады</a>
-                </li>
-                <li><a href="#redemption">Выкуп товара</a>
-                </li>
-                <li><a href="#stores">Магазины</a>
-                </li>
+                <li>Наш адрес</li>
+                <li>Кыргызстан, г. Бишкек, <br> ул. Киевская 112</li>
               </ul>
             </div>
           </div>
-          <div class="footer__col"> 
+          <div class="footer__col">
             <div class="footer__nav">
               <ul> 
-                <li><a class="anchor-js" href="#reviews" data-scroll>Отзывы</a>
+                <li><a href="#">Калькулятор</a>
                 </li>
-                <li><a class="anchor-js" href="#faq" data-scroll>FAQ</a>
+                <li><a href="#">Отследить посылку</a>
                 </li>
-                <li><a href="https://alay.express/login" target="_blank">Личный кабинет</a>
+                <li><a href="#">Личный кабинет</a>
                 </li>
               </ul>
             </div>
@@ -1083,7 +1055,7 @@
           </div>
         </div>
         <div class="footer__copyright">
-          <p>&copy; 2024 Alay Express. Все права защищены. </p>
+          <p>&copy; 2024 RAIDEX. Все права защищены. </p>
         </div>
       </div>
     </footer>

@@ -9,7 +9,7 @@
     @include aic
     position: relative
     cursor: pointer
-    color: #A8AAAE
+    color: #666
     height: 100%
     border-radius: rem(8)
     background: white
@@ -40,11 +40,9 @@
     display: none
 
   &__selected-size
-    color: $accent
-    font-size: rem(11)
-    margin-left: rem(5)
-    display: inline-block
-    line-height: rem(0)
+    font-style: normal
+    font-feature-settings: 'pnum' on, 'lnum' on
+    
 
   &__dropdown
     position: absolute
@@ -224,3 +222,9 @@
 
   .mCSB_container
     margin: 0
+
+  // &_size
+  //   &.selected
+  //     .select__selected-label
+  //       *
+  //         display: none  

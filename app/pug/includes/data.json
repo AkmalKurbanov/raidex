@@ -35,24 +35,12 @@
       "id": "calculator"
     },
     {
-      "label": "Склады",
-      "id": "warehouses"
+      "label": "Отследить посылку",
+      "id": "package-tracking"
     },
     {
-      "label": "Выкуп товара",
-      "id": "redemption"
-    },
-    {
-      "label": "Магазины",
-      "id": "stores"
-    },
-    {
-      "label": "Отзывы",
-      "id": "reviews"
-    },
-    {
-      "label": "FAQ",
-      "id": "faq"
+      "label": "Личный кабинет",
+      "id": "profile"
     }
   ],
   "registration": [
@@ -251,20 +239,22 @@
       "img": "square-ru.svg"
     },
     {
-      "label": "Казахстан",
-      "img": "square-kz.svg"
+      "label": "Белоруссия",
+      "img": "square-br.svg"
     },
     {
       "label": "Армения",
       "img": "square-am.svg"
     },
     {
-      "label": "Узбекистан",
-      "img": "square-uz.svg"
+      "label": "Казахстан",
+      "img": "square-kz.svg",
+      "disabled": true
     },
     {
-      "label": "Белоруссия",
-      "img": "square-br.svg"
+      "label": "Узбекистан",
+      "img": "square-uz.svg",
+      "disabled": true
     }
   ],
   "countryNotAvailable": [
@@ -541,33 +531,16 @@
       "id": "calculator"
     },
     {
-      "label": "Склады",
-      "id": "warehouses"
-    },
-    {
-      "label": "Выкуп товара",
-      "id": "redemption"
-    },
-    {
-      "label": "Магазины",
-      "id": "stores"
-    }
-  ],
-  "footerNav2": [
-    {
-      "label": "Отзывы",
-      "id": "reviews"
-    },
-    {
-      "label": "FAQ",
-      "id": "faq"
+      "label": "Отследить посылку",
+      "id": "package-tracking"
     },
     {
       "label": "Личный кабинет",
-      "link": "https://alay.express/login"
+      "id": "profile"
     }
   ],
-  "footerNav3": [
+ 
+  "footerNav2": [
     {
       "label": "Запрещенные товары",
       "link": "#"
@@ -867,22 +840,22 @@
     {
       "title": "Скорость",
       "desc": "Логистическая система компании RAIDEX выстроена таким образом, чтобы посылки доставлялись самым коротким путем",
-      "img": "for-stores.webp"
+      "img": "speed.webp"
     },
     {
       "title": "Стоимость",
       "desc": "Благодаря работе с проверенными партнерами RAIDEX предлагает лучшие условия по стоимости доставки",
-      "img": "for-stores.webp"
+      "img": "price.webp"
     },
     {
       "title": "Надежность",
       "desc": "Компания гарантирует сохранность посылок, отправляемых ее заказчиками",
-      "img": "for-stores.webp"
+      "img": "reliability.webp"
     },
     {
       "title": "Безопасность",
       "desc": "Интересы заказчиков защищены договором, который заключается между юрлицом и компанией RAIDEX",
-      "img": "for-stores.webp"
+      "img": "safety.webp"
     }
   ]
 }

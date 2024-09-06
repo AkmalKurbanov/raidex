@@ -29,7 +29,7 @@ $(document).on('click', '.select__option', function () {
     $(this).parents('.select').find('.select__selected').prepend(`<div class="select__selected-img"><img src="${imgUrl}" alt="size"></div>`)
   } 
   if (dataSize) {
-    $(this).parents('.select').find('.select__selected-label').text(dataText).append(`<i class="select__selected-size">${dataSize}</i>`);
+    $(this).parents(".select").find(".select__selected-label").text(dataSize);
     
   }
 });

@@ -1,26 +1,23 @@
 .header
   background: white
-  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.10)
+  // box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.10)
+  border-bottom: rem(1) solid #EEEFF3
   position: fixed
   left: 0
   right: 0
   top: 0
   width: 100%
   z-index: 20
-  max-height: rem(56)
-  min-height: rem(56)
+  max-height: rem(54)
+  min-height: rem(54)
   transition: $transition
-
-  @include xs
-    max-height: rem(94)
-    min-height: rem(94)
 
   &.hidden
     top: -100%
 
   @include md
-    max-height: rem(104)
-    min-height: rem(104)
+    max-height: rem(65)
+    min-height: rem(65)
 
   &__top
     background: $secondary

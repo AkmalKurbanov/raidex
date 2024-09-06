@@ -24,18 +24,13 @@ body
     flex: 1 0 auto
 
     &__inner
-      margin-top: rem(56)
+      margin-top: rem(54)
       height: 100%
-      padding-top: rem(16)
-
-      @include xs
-        margin-top: rem(94)
-
-      @include sm
-        padding-top: rem(32)
+      padding-top: rem(30)
 
       @include md
-        margin-top: rem(104)
+        margin-top: rem(65)
+        padding-top: rem(40)
 
       &_form-wrap
         background: #D1D1D1
@@ -105,6 +100,7 @@ section,
       padding: rem(50) 0 rem(150)
 
   &_gray-bg,
+  &_accent,
   &_accent-gradient
     padding: rem(40) 0
     margin: 0
@@ -123,6 +119,9 @@ section,
 
   &_accent-gradient
     background: linear-gradient(180deg, #CE244B 0%, #450305 100%)
+  
+  &_accent
+    background: $accent
 
 .scroll-top
   color: white

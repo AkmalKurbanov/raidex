@@ -23,9 +23,6 @@
   </head>
 </html>
 <body>
-  <div class="preloader" id="preloader"> 
-    <div class="preloader__logo"> <img src="images/dist/logo-icon.svg" alt=""></div>
-  </div>
   <div class="wrapper" id="top">
     <div class="content">
       <div class="menu menu-js"> 
@@ -34,12 +31,8 @@
             <div class="menu__inner-item vertical-scroll">
               <ul class="menu__nav-list">
                 <div class="menu__nav-item"> <a class="menu__nav-link" href="#calculator">Калькулятор</a></div>
-                <div class="menu__nav-item"> <a class="menu__nav-link" href="#warehouses">Склады</a></div>
-                <div class="menu__nav-item"> <a class="menu__nav-link" href="#redemption">Выкуп товара</a></div>
-                <div class="menu__nav-item"> <a class="menu__nav-link" href="#stores">Магазины</a></div>
-                <div class="menu__nav-item"> <a class="menu__nav-link" href="#reviews">Отзывы</a></div>
-                <div class="menu__nav-item"> <a class="menu__nav-link" href="#faq">FAQ</a></div>
-                <li><a class="menu__nav-link" href="https://alay.express/login" target="_blank">  <span>Личный кабинет </span></a></li>
+                <div class="menu__nav-item"> <a class="menu__nav-link" href="#package-tracking">Отследить посылку</a></div>
+                <div class="menu__nav-item"> <a class="menu__nav-link" href="#profile">Личный кабинет</a></div>
               </ul>
             </div>
             <div class="menu__inner-item menu__inner-item_bottom">
@@ -56,50 +49,16 @@
         </div>
       </div>
       <header class="header">
-        <div class="header__top"> 
-          <div class="header__top-inner">
-            <div class="swiper header-top-js">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <div class="header__top-item"> 
-                    <p>Уроки шоппинга в Европе на нашем <a href='https://www.youtube.com/@Alay_Express' target='_blank'> YouTube канале!</a></p>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="header__top-item"> 
-                    <p>Акция! Бесплатная доставка на каждую пятую посылку!</p>
-                  </div>
-                </div>
-              </div>
-              <div class="header__top-nav">
-                <div class="swiper-button-prev">
-                  <div class="icon icon_stroke">
-                    <svg>
-                      <use xlink:href="sprite.svg#arrow-long-left">       </use>
-                    </svg>
-                  </div>
-                </div>
-                <div class="swiper-button-next">
-                  <div class="icon icon_stroke">
-                    <svg>
-                      <use xlink:href="sprite.svg#arrow-long-right">       </use>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <div class="container">
           <div class="header__inner"> 
             <div class="header__inner-item logo"> <a class="logo__link" href="index.html"><img src="images/dist/logo.svg" width="180" height="32" alt="logo"></a></div>
-            <div class="header__control-btns header__inner-item"><a class="header__control-icon header__control-icon_calc" href="calculator.html" target="blank">
+            <div class="header__control-btns header__inner-item"><a class="header__control-icon header__control-icon_calc" href="calculator.html">
                 <div class="icon icon_fill">
                   <svg>
                     <use xlink:href="sprite.svg#calc"></use>
                   </svg>
                 </div><span>Калькулятор </span></a>
-              <div class="header__control-icon header__control-icon_login"><a class="btn btn_accent" href="https://alay.express/login" target="_blank">Войти </a></div>
+              <div class="header__control-icon header__control-icon_login"><a class="btn btn_accent" href="https://raidex/login" target="_blank">Войти </a></div>
               <div class="header__control-icon header__control-icon_hamburger">
                 <div class="hamburger hamburger-js"><span></span><span></span><span></span></div>
               </div>
@@ -122,14 +81,11 @@
                             <div class="place__input-wrap place-input-wrap-js">
                               <div class="input">
                                 <label for="place1">Откуда </label>
-                                <input class="place-val-js" type="text" placeholder="Город отправки">
+                                <input class="place-val-js" type="text" placeholder="Город отправки" id="place1">
                                 <input class="place-hidden-val-js" type="hidden">
                               </div>
                               <ul class="place__city-list">
                                 <li><a class="place-js" href="#" data-id="Бишкек" data-value="Бишкек">Бишкек</a></li>
-                                <li><a class="place-js" href="#" data-id="Ош" data-value="Ош">Ош</a></li>
-                                <li><a class="place-js" href="#" data-id="Ташкент" data-value="Ташкент">Ташкент</a></li>
-                                <li><a class="place-js" href="#" data-id="Алматы" data-value="Алматы">Алматы</a></li>
                               </ul>
                             </div>
                             <div class="place__switcher">
@@ -142,14 +98,13 @@
                             <div class="place__input-wrap place-input-wrap-js">
                               <div class="input">
                                 <label for="place2">Куда </label>
-                                <input class="place-val-js" type="text" placeholder="Город получателя" id="place1">
+                                <input class="place-val-js" type="text" placeholder="Город получателя" id="place2">
                                 <input class="place-hidden-val-js" type="hidden">
                               </div>
                               <ul class="place__city-list">
-                                <li><a class="place-js" href="#" data-id="Алматы" data-value="Алматы">Алматы</a></li>
-                                <li><a class="place-js" href="#" data-id="Астана" data-value="Астана">Астана</a></li>
-                                <li><a class="place-js" href="#" data-id="Ташкент" data-value="Ташкент">Ташкент</a></li>
                                 <li><a class="place-js" href="#" data-id="Москва" data-value="Москва">Москва</a></li>
+                                <li><a class="place-js" href="#" data-id="Санкт-Петербург" data-value="Санкт-Петербург">Санкт-Петербург</a></li>
+                                <li><a class="place-js" href="#" data-id="Махачкала" data-value="Махачкала">Махачкала</a></li>
                               </ul>
                             </div>
                           </div>
@@ -161,17 +116,17 @@
                           <div class="place__fields place__fields_align-start">
                             <div class="place__input-wrap">
                               <div class="input">
-                                <label for="place1">Объявленная ценность </label>
-                                <input type="text" placeholder="Город отправки" id="place1">
+                                <label for="price">Объявленная ценность </label>
+                                <input type="text" placeholder="0" id="price">
                               </div>
                               <div class="input-text">
-                                <p>От 0 до 200 000 сом, влияет на стоимость доставки и размер компенсации за утерю или повреждение посылки. Указывайте только реальную стоимость.</p>
+                                <p>От 0 до 200 000 сом, влияет на стоимость доставки и размер компенсации за утерю или повреждение посылки. Указывайте только реальную стоимость.  </p>
                               </div>
                             </div>
                             <div class="place__input-wrap">
-                              <label for="place1">Габариты</label>
+                              <label for="size">Габариты</label>
                               <div class="place__select"> 
-                                <div class="select select_img">
+                                <div class="select select_img select_size">
                                   <div class="select__selected select-js">
                                     <input class="select-input" type="hidden">
                                     <div class="select__selected-label">Размер посылки</div>
@@ -190,7 +145,7 @@
                                         <li data-tab-id="tab-size2"><span>Точные размеры</span></li>
                                       </ul>
                                       <div class="tab_content-js">
-                                        <div class="tabs_item-js" data-tab-id="tab-size1">
+                                        <div class="tabs_item-js active" data-tab-id="tab-size1">
                                           <div class="vertical-scroll">       
                                             <div class="select__option" data-text="Конверт" data-id="id1">
                                               <div class="select__option-item">
@@ -293,10 +248,10 @@
                       <div class="calculator-form__rate-item active"> 
                         <div class="calculator-form__rate-top"> 
                           <div class="calculator-form__rate-title">До пункта выдачи</div>
-                          <div class="calculator-form__rate-price">276 сом</div>
+                          <div class="calculator-form__rate-price">0 сом</div>
                         </div>
                         <div class="calculator-form__rate-desc">
-                          <p>Доставка от пункта приема до пункта выдачи, 3 - 4 рабочих дня </p>
+                          <p>Доставка от пункта приема до пункта выдачи, <br> 3 - 4 рабочих дня </p>
                         </div>
                         <div class="calculator-form__rate-mark">
                           <p>*Без учета дня приема</p>
@@ -305,10 +260,10 @@
                       <div class="calculator-form__rate-item">
                         <div class="calculator-form__rate-top"> 
                           <div class="calculator-form__rate-title">До двери</div>
-                          <div class="calculator-form__rate-price">676.80 сом</div>
+                          <div class="calculator-form__rate-price">0 сом</div>
                         </div>
                         <div class="calculator-form__rate-desc">
-                          <p>Доставка от пункта приема до пункта выдачи, 3 - 4 рабочих дня </p>
+                          <p>Доставка от пункта приема до пункта выдачи, <br> 3 - 4 рабочих дня </p>
                         </div>
                         <div class="calculator-form__rate-mark">
                           <p>*Без учета дня приема</p>
@@ -324,95 +279,6 @@
         </section>
       </div>
     </div>
-    <section id="faq">
-      <div class="faq">
-        <div class="container">
-          <div class="title-wrap">
-            <h2 class="title title_h2 title_centered">Часто задаваемые вопросы</h2>
-          </div>
-          <div class="faq__list"> 
-            <div class="faq__item"> 
-              <div class="faq__question-wrap faq-js">
-                <h2 class="faq__question">Как работает RAIDEX?</h2>
-                <div class="faq__question-trigger"> </div>
-              </div>
-              <div class="faq__answer"> 
-                <div class="faq__answer-content">
-                  <div class="faq__answer-item">
-                    <p>RAIDEX работает исключительно на основании договора, который заключается в офисе компании с байером, представителем интернет-магазина или юридическим лицом.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="faq__item"> 
-              <div class="faq__question-wrap faq-js">
-                <h2 class="faq__question">Как зарегистрироваться на сайте?</h2>
-                <div class="faq__question-trigger"> </div>
-              </div>
-              <div class="faq__answer"> 
-                <div class="faq__answer-content">
-                  <div class="faq__answer-item">
-                    <p>lorem ipsum.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="faq__item"> 
-              <div class="faq__question-wrap faq-js">
-                <h2 class="faq__question">Сколько стоит доставка?</h2>
-                <div class="faq__question-trigger"> </div>
-              </div>
-              <div class="faq__answer"> 
-                <div class="faq__answer-content">
-                  <div class="faq__answer-item">
-                    <p>lorem ipsum.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="faq__item"> 
-              <div class="faq__question-wrap faq-js">
-                <h2 class="faq__question">В какие сроки доставляется груз?</h2>
-                <div class="faq__question-trigger"> </div>
-              </div>
-              <div class="faq__answer"> 
-                <div class="faq__answer-content">
-                  <div class="faq__answer-item">
-                    <p>lorem ipsum.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="faq__item"> 
-              <div class="faq__question-wrap faq-js">
-                <h2 class="faq__question">Каков максимальный вес одной посылки?</h2>
-                <div class="faq__question-trigger"> </div>
-              </div>
-              <div class="faq__answer"> 
-                <div class="faq__answer-content">
-                  <div class="faq__answer-item">
-                    <p>lorem ipsum.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="faq__item"> 
-              <div class="faq__question-wrap faq-js">
-                <h2 class="faq__question">Что делать, если груз весит больше 31 кг?</h2>
-                <div class="faq__question-trigger"> </div>
-              </div>
-              <div class="faq__answer"> 
-                <div class="faq__answer-content">
-                  <div class="faq__answer-item">
-                    <p>Lorem ipsum.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
     <div class="additional-info">
       <div class="container">
         <div class="additional-info__trigger-wrap trigger-info-js">
@@ -471,25 +337,19 @@
           <div class="footer__col">
             <div class="footer__nav">
               <ul> 
-                <li><a href="#calculator">Калькулятор</a>
-                </li>
-                <li><a href="#warehouses">Склады</a>
-                </li>
-                <li><a href="#redemption">Выкуп товара</a>
-                </li>
-                <li><a href="#stores">Магазины</a>
-                </li>
+                <li>Наш адрес</li>
+                <li>Кыргызстан, г. Бишкек, <br> ул. Киевская 112</li>
               </ul>
             </div>
           </div>
-          <div class="footer__col"> 
+          <div class="footer__col">
             <div class="footer__nav">
               <ul> 
-                <li><a class="anchor-js" href="#reviews" data-scroll>Отзывы</a>
+                <li><a href="#">Калькулятор</a>
                 </li>
-                <li><a class="anchor-js" href="#faq" data-scroll>FAQ</a>
+                <li><a href="#">Отследить посылку</a>
                 </li>
-                <li><a href="https://alay.express/login" target="_blank">Личный кабинет</a>
+                <li><a href="#">Личный кабинет</a>
                 </li>
               </ul>
             </div>
@@ -508,7 +368,7 @@
           </div>
         </div>
         <div class="footer__copyright">
-          <p>&copy; 2024 Alay Express. Все права защищены. </p>
+          <p>&copy; 2024 RAIDEX. Все права защищены. </p>
         </div>
       </div>
     </footer>

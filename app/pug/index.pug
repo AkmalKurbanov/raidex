@@ -1,4 +1,4 @@
-extends layouts/jq-ui
+extends layouts/main
 
 block vars
   - var description = '';
@@ -32,7 +32,7 @@ block main
             .radial-block.radial-block_accent
               .radial-block__title Отправка из Кыргызстана по СНГ
               .geography__country-list  
-                
+
                 each item in countryAvailable
                   .geography__country-item
                     .geography__country-img
@@ -46,22 +46,29 @@ block main
                 img(src="images/dist/plane.svg", alt="") 
               .radial-block__title Скоро
               .geography__country-list  
-                
+
                 each item in countryNotAvailable
                   .geography__country-item
                     .geography__country-img
                       img(src="images/dist/"+item.img , alt="")
                     p.geography__country-label=item.label
-        
+
         .geography__list 
           each item in countryAvailable
-            .geography__list-item 
-              .geography__item-flag 
-                img(src="images/dist/"+item.img , alt="")
-              .geography__item-name=item.label
+
+            if item.disabled
+              .geography__list-item.disabled 
+                .geography__item-flag 
+                  img(src="images/dist/"+item.img , alt="")
+                .geography__item-name=item.label
+            else 
+              .geography__list-item 
+                .geography__item-flag 
+                  img(src="images/dist/"+item.img , alt="")
+                .geography__item-name=item.label    
         .geography__map(style="background-image: url(images/dist/map.svg)") 
-  
-  
+
+
   section.section.section_gray-bg
     .steps
       .container
@@ -78,58 +85,13 @@ block main
                   h2.steps__title!=item.title
                   p!=item.desc
 
-  section.section.section_accent-gradient
-    .callback 
-      .container
-          .callback__form 
-            .callback__form-col
-              +title('Поможем решить <br> все вопросы','title_h2', 'Если у вас есть вопросы по нашим услугам <br> доставки или вы не уверены, какой вид доставки <br> выбрать, оставьте заявку, и мы свяжемся с вами')
-            .callback__form-col
-              form(action="")
-                .input
-                  input(type="text" placeholder="Имя" name="name")
-                
-                
-                .phone-wrap
-                  div
-                    .select.select_img.select_phone-cod
-                      .select__selected.select-js
-                        input(type="hidden").select-input
-                        .select__selected-label +996
-                        .select__arrow
-                          .icon.icon_stroke 
-                            svg
-                              use(xlink:href='sprite.svg#angle-down')
-
-                      .select__dropdown
-                        .vertical-scroll   
-                          each item in countryCode      
-                            .select__option(data-text=item.label data-id=item.id)
-                              .select__option-item
-                                .select__option-img
-                                  img(src=`images/dist/${item.img}`, alt=item.label)
-                              
-                              .select__option-item
-                                
-                                .select__option-label=item.label
-
-                  .input
-                    input(type="number" placeholder="Телефон" id="phone")
-
-                button.btn.btn_accent Отправить  
-
-                p Нажимая на кнопку, я соглашаюсь на 
-                  a(href="#") обработку персональных данных <br>
-                  | и 
-                  a(href="#")  с правилами пользования Платформой   
-
   section.section.section_gray-bg
     .for-stores
       .container 
         +title('Интернет-магазинам','title_h2 title_centered', 'Повысьте конкурентоспособность вашего бренда с нашей интегрированной системой доставки, <br> подстраиваемой под уникальные потребности вашего интернет-магазина','subtitle_centered')
-        
+
         .for-stores__inner 
-          
+
           each item in forStores
             .for-stores__col 
               .for-stores__item
@@ -138,10 +100,58 @@ block main
                 .for-stores__desc
                   .for-stores__title!=item.title 
                   p!=item.desc
-        
+
         .btn-wrap.btn-wrap_centered
-          a(href="#").btn.btn_dark Заключить договор 
-            
+          .btn.btn_dark.scroll-button(data-target="#form") Заключить договор 
+
+
+  section.section.section_accent-gradient#form
+    .callback 
+      .container
+        .callback__form 
+          .callback__form-col
+            +title('Поможем решить <br> все вопросы','title_h2', 'Если у вас есть вопросы по нашим услугам <br> доставки или вы не уверены, какой вид доставки <br> выбрать, оставьте заявку, и мы свяжемся с вами')
+          .callback__form-col
+            form(action="")
+              .input
+                input(type="text" placeholder="Имя" name="name")
+
+
+              .phone-wrap
+                div
+                  .select.select_img.select_phone-cod
+                    .select__selected.select-js
+                      input(type="hidden").select-input
+                      .select__selected-label +996
+                      .select__arrow
+                        .icon.icon_stroke 
+                          svg
+                            use(xlink:href='sprite.svg#angle-down')
+
+                    .select__dropdown
+                      .vertical-scroll   
+                        each item in countryCode      
+                          .select__option(data-text=item.label data-id=item.id)
+                            .select__option-item
+                              .select__option-img
+                                img(src=`images/dist/${item.img}`, alt=item.label)
+
+                            .select__option-item
+
+                              .select__option-label=item.label
+
+                .input
+                  input(type="number" placeholder="Телефон" id="phone")
+
+              button.btn.btn_accent Отправить  
+
+              p Нажимая на кнопку, я соглашаюсь на 
+                a(href="#") обработку персональных данных <br>
+                | и 
+                a(href="#")  с правилами пользования Платформой   
+
+  
+
 
 
 
@@ -149,7 +159,7 @@ block main
     .advantages 
       .container  
         +title('Преимущества международного шопинга','title_h2 title_centered')
-        
+
         .advantages__inner    
           each item in advantages
             .advantages__col    
@@ -160,10 +170,10 @@ block main
                   h2=item.title
                 .advantages__desc
                   p=item.desc
-  
+
   //- section.section.section_calculator#calculator
   //-   include includes/calc-delivery
-  
+
   //- section#warehouses
     .warehouses
       .container 
@@ -175,9 +185,9 @@ block main
                 .warehouses__legend.warehouses__legend_in-stock
                   span 
                   | Склады
-              
+
                 .warehouses__country-flag-wrap
-                  
+
                   each item in countryFlagInStok
                     .warehouses__country-flag(data-country=item.label)
                       .warehouses__country-img 
@@ -188,9 +198,9 @@ block main
                 .warehouses__legend.warehouses__legend_in-soon
                   span 
                   | Скоро
-              
+
                 .warehouses__country-flag-wrap
-                  
+
                   each item in countryFlagSoon
                     .warehouses__country-flag(data-country=item.label) 
                       .warehouses__country-img 
@@ -219,23 +229,23 @@ block main
                   | Магазин не принимает к оплате вашу банковскую карту? <br>
                   | Мы приобретём товар для вас. Мы осуществляем доставку <br>
                   | с eBay, Amazon и др. и оказываем услуги персонального <br> байера.
-                
+
                 p 
                   span Самая маленькая комиссия 
                   | на рынке
-                
+
                 p  
                   span Мы официальная компания 
                   | и даем гарантии на услуги
 
-              a(href="https://alay.express/register" target="_blank").btn.btn_accent.btn_small Зарегистрироваться 
+              a(href="https://raidex/register" target="_blank").btn.btn_accent.btn_small Зарегистрироваться 
 
             .redemption-goods__item-col
               .redemption-goods__img-wrap 
                 img(src="images/dist/individuals.webp", alt="").redemption-goods__img
 
-              a(href="https://alay.express/register" target="_blank").btn.btn_accent.btn_small Зарегистрироваться 
-          
+              a(href="https://raidex/register" target="_blank").btn.btn_accent.btn_small Зарегистрироваться 
+
           .redemption-goods__item.called-js(data-name="legal-entities")
             .redemption-goods__item-col
               div
@@ -247,15 +257,15 @@ block main
                   li Все операции проводятся прозрачно и по договору
                   li Конфиденциальность гарантируем!
 
-              a(href="https://alay.express/register").btn.btn_accent.btn_small Зарегистрироваться 
+              a(href="https://raidex/register").btn.btn_accent.btn_small Зарегистрироваться 
 
             .redemption-goods__item-col
               .redemption-goods__img-wrap 
                 img(src="images/dist/legal-entities.webp", alt="").redemption-goods__img
-  
+
   //- section 
     include includes/shopping
-  
+
   //- section#stores 
     .popular 
       .container
@@ -271,7 +281,11 @@ block main
                 img(src=`images/dist/${item.img}.svg`, alt="")
 
         .btn-wrap.btn-wrap_centered
-          a.btn.btn_accent(href="https://alay.express/register" target="_blank") Все магазины     
+          a.btn.btn_accent(href="https://raidex/register" target="_blank") Все магазины     
 
   //- section#reviews
     include includes/reviews
+
+
+  section#faq
+    include includes/faq  

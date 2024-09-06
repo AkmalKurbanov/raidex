@@ -29,11 +29,11 @@ block main
                       .place__input-wrap.place-input-wrap-js
                         .input
                           label(for="place1") Откуда 
-                          input(type="text" placeholder="Город отправки").place-val-js
+                          input(type="text" placeholder="Город отправки" id="place1").place-val-js
                           input(type="hidden").place-hidden-val-js
 
                         ul.place__city-list
-                          each item in ['Бишкек','Ош','Ташкент','Алматы'] 
+                          each item in ['Бишкек'] 
                             li
                               a(href="#" data-id=item data-value=item).place-js=item  
                               
@@ -45,11 +45,11 @@ block main
                       .place__input-wrap.place-input-wrap-js
                         .input
                           label(for="place2") Куда 
-                          input(type="text" placeholder="Город получателя" id="place1").place-val-js
+                          input(type="text" placeholder="Город получателя" id="place2").place-val-js
                           input(type="hidden").place-hidden-val-js
 
                         ul.place__city-list
-                          each item in ['Алматы','Астана','Ташкент','Москва'] 
+                          each item in ['Москва','Санкт-Петербург','Махачкала'] 
                             li
                               a(href="#" data-id=item data-value=item).place-js=item 
                 br
@@ -62,18 +62,17 @@ block main
                     .place__fields.place__fields_align-start
                       .place__input-wrap
                         .input
-                          label(for="place1") Объявленная ценность 
-                          input(type="text" placeholder="Город отправки" id="place1")
+                          label(for="price") Объявленная ценность 
+                          input(type="text" placeholder="0" id="price")
                         
                         .input-text
-                          p От 0 до 200 000 сом, влияет на стоимость доставки и размер компенсации за утерю или повреждение посылки. Указывайте только реальную стоимость.
-                              
+                          p От 0 до 200 000 сом, влияет на стоимость доставки и размер компенсации за утерю или повреждение посылки. Указывайте только реальную стоимость.  
                          
                       .place__input-wrap
-                        label(for="place1") Габариты
+                        label(for="size") Габариты
                         .place__select 
                     
-                          .select.select_img
+                          .select.select_img.select_size
                             .select__selected.select-js
                               input(type="hidden").select-input
                               .select__selected-label Размер посылки
@@ -92,7 +91,7 @@ block main
                                     span Точные размеры
 
                                 .tab_content-js
-                                  .tabs_item-js(data-tab-id="tab-size1")
+                                  .tabs_item-js(data-tab-id="tab-size1").active
                                     .vertical-scroll        
                                       each item in selecSize      
                                         .select__option(data-text=item.label data-id=item.id)
@@ -122,9 +121,9 @@ block main
                 .calculator-form__rate-item.active 
                   .calculator-form__rate-top 
                     .calculator-form__rate-title До пункта выдачи
-                    .calculator-form__rate-price 276 сом
+                    .calculator-form__rate-price 0 сом
                   .calculator-form__rate-desc
-                    p Доставка от пункта приема до пункта выдачи, 3 - 4 рабочих дня 
+                    p Доставка от пункта приема до пункта выдачи, <br> 3 - 4 рабочих дня 
 
                   .calculator-form__rate-mark
                     p *Без учета дня приема
@@ -132,9 +131,9 @@ block main
                 .calculator-form__rate-item
                   .calculator-form__rate-top 
                     .calculator-form__rate-title До двери
-                    .calculator-form__rate-price 676.80 сом
+                    .calculator-form__rate-price 0 сом
                   .calculator-form__rate-desc
-                    p Доставка от пункта приема до пункта выдачи, 3 - 4 рабочих дня 
+                    p Доставка от пункта приема до пункта выдачи, <br> 3 - 4 рабочих дня 
 
                   .calculator-form__rate-mark
                     p *Без учета дня приема
