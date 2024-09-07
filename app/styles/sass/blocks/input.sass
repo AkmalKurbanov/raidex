@@ -95,6 +95,35 @@
     &:last-child
       margin-bottom: 0
 
+  .input__search-result
+    background: white
+    border: rem(1) solid #dbdade
+    border-radius: rem(8)
+    position: absolute
+    transition: $transition
+    opacity: 0
+    pointer-events: none
+    width: 100%
+    overflow: hidden
+    top: calc( 100% - 25px )
+    max-height: rem(120)
+    overflow-y: auto
+
+    &.open
+      opacity: 1
+      pointer-events: inherit
+      top: calc( 100% + 5px )
+  
+  .input__search-option
+    transition: $transition
+    padding: rem(5) rem(10)
+    font-size: rem(14)
+    cursor: pointer
+   
+    &:hover
+      background: #cccccc3d
+    
+
 label
   color: $accent 
   margin-bottom: rem(4)
