@@ -11,6 +11,8 @@ $(document).ready(function () {
         $(this).addClass("current");
         let tabId1 = $(this).attr("data-tab-id");
 
+        $(".select-input-type").val(tabId1);
+
         $(".tab-js .tab_content-js .tabs_item-js").each(function (index) {
           let tabId2 = $(this).attr("data-tab-id");
           if (tabId1 == tabId2) {
